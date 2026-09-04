@@ -163,14 +163,10 @@ export default function Home() {
       {/* HEADER */}
       <header className="sticky top-0 z-50 backdrop-blur-md border-b border-slate-200/60 bg-white/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-2.5 group cursor-pointer">
-            <div className="size-9 flex items-center justify-center rounded-lg bg-navy-900 p-[1px]">
-              <div className="w-full h-full bg-white rounded-[7px] flex items-center justify-center">
-                <Image src="/BEXIS LOGO.PNG" alt="BEXIS" width={18} height={18} className="rounded" />
-              </div>
-            </div>
-            <span className="text-lg font-bold tracking-tight text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>
-              Bexis
+          <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-0 group cursor-pointer">
+            <Image src="/bexis-icon.png" alt="BEXIS" width={32} height={32} className="shrink-0" />
+            <span className="text-base font-black tracking-tight text-slate-900" style={{ fontFamily: 'var(--font-display)', letterSpacing: '-0.02em' }}>
+              Bex<span style={{ background: 'linear-gradient(90deg, #3b82f6, #7c3aed)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>i</span>s
             </span>
           </button>
 
@@ -581,11 +577,11 @@ export default function Home() {
       {/* FOOTER */}
       <footer className="border-t border-slate-200 bg-white py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-          <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-2 cursor-pointer">
-            <div className="size-7 flex items-center justify-center rounded-md bg-navy-900">
-              <Image src="/BEXIS LOGO.PNG" alt="BEXIS" width={14} height={14} className="rounded" />
-            </div>
-            <span className="text-sm font-bold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>Bexis</span>
+          <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-0 cursor-pointer">
+            <Image src="/bexis-icon.png" alt="BEXIS" width={24} height={24} className="shrink-0" />
+            <span className="text-sm font-black tracking-tight text-slate-900" style={{ fontFamily: 'var(--font-display)', letterSpacing: '-0.02em' }}>
+              Bex<span style={{ background: 'linear-gradient(90deg, #3b82f6, #7c3aed)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>i</span>s
+            </span>
           </button>
           <p className="text-xs text-slate-400">© 2026 Bexis. AI provides insight. Evidence provides context. Humans make decisions.</p>
         </div>

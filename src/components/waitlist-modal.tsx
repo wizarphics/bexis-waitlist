@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Sparkles, CheckCircle2, Loader2 } from 'lucide-react';
+import Image from 'next/image';
+import { CheckCircle2, Loader2 } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -40,11 +41,11 @@ export function WaitlistModal({ open, onOpenChange, defaultRole = 'candidate' }:
           <>
             <div className="p-6 pb-0">
               <DialogHeader className="text-left">
-                <div className="flex items-center gap-2 mb-2">
-                  <div className="size-8 rounded-lg bg-blue-600 flex items-center justify-center">
-                    <Sparkles className="size-4 text-white" />
-                  </div>
-                  <span className="text-xs font-bold uppercase tracking-widest text-blue-600">Early Access</span>
+                <div className="flex items-center gap-0 mb-2">
+                  <Image src="/bexis-icon.png" alt="" width={28} height={28} className="shrink-0" />
+                  <span className="text-sm font-black tracking-tight text-slate-900" style={{ fontFamily: 'var(--font-display)', letterSpacing: '-0.02em' }}>
+                    Bex<span style={{ background: 'linear-gradient(90deg, #3b82f6, #7c3aed)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>i</span>s
+                  </span>
                 </div>
                 <DialogTitle className="text-xl font-bold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>
                   Join the Bexis Waitlist
