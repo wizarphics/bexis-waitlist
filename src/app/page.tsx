@@ -184,130 +184,37 @@ export default function Home() {
       </header>
 
       {/* HERO */}
-      <section className="relative pt-16 pb-24 lg:pt-24 lg:pb-32 overflow-hidden">
+      <section className="relative pt-20 pb-28 lg:pt-28 lg:pb-36 overflow-hidden">
         {/* Subtle grid pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-40" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-30" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center space-y-6">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-50 border border-purple-200 text-[#472AF8] text-xs font-semibold tracking-wide">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#472AF8]/5 border border-[#472AF8]/15 text-[#472AF8] text-xs font-semibold tracking-wide mb-8">
               <Sparkles className="size-3.5" />
               <span>AI-Powered Behavioral Intelligence</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-navy-900 leading-[1.1]" style={{ fontFamily: 'var(--font-display)' }}>
-              See Beyond{' '}
-              <span className="text-[#472AF8]">
-                the Résumé.
-              </span>
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-navy-900 leading-[1.05] mb-6" style={{ fontFamily: 'var(--font-display)' }}>
+              See Beyond
+              <br />
+              <span className="text-[#472AF8]">the Résumé.</span>
             </h1>
 
-            <p className="text-lg text-slate-500 leading-relaxed max-w-2xl mx-auto">
-              BEXIS helps organizations understand candidates through experience, evidence,
-              behavioral intelligence, and role alignment.
+            <p className="text-lg sm:text-xl text-slate-500 leading-relaxed max-w-2xl mx-auto mb-10">
+              Hiring decisions backed by evidence, not guesswork.
+              Understand candidates through experience, behavioral intelligence,
+              and real role alignment.
             </p>
 
-            <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
-              <button onClick={() => scrollTo('jobs')} className="px-6 py-3 text-sm font-semibold text-white bg-[#472AF8] hover:bg-[#3b22d0] rounded-lg shadow-md shadow-[#472AF8]/20 transition-all hover:-translate-y-0.5 cursor-pointer flex items-center gap-2">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <button onClick={() => scrollTo('jobs')} className="w-full sm:w-auto px-8 py-3.5 text-sm font-bold text-white bg-[#472AF8] hover:bg-[#3b22d0] rounded-lg shadow-lg shadow-[#472AF8]/25 transition-all hover:-translate-y-0.5 cursor-pointer flex items-center justify-center gap-2">
                 Explore Opportunities
                 <ArrowRight className="size-4" />
               </button>
-              <button onClick={() => openWaitlist('employer')} className="px-6 py-3 text-sm font-semibold text-slate-700 bg-white border border-slate-200 hover:border-slate-300 hover:bg-slate-50 rounded-lg transition-all cursor-pointer">
+              <button onClick={() => openWaitlist('employer')} className="w-full sm:w-auto px-8 py-3.5 text-sm font-bold text-slate-700 bg-white border border-slate-200 hover:border-slate-300 hover:bg-slate-50 rounded-lg transition-all cursor-pointer">
                 For Employers
               </button>
-            </div>
-          </div>
-
-          {/* Hero Card Preview */}
-          <div className="mt-16 max-w-4xl mx-auto">
-            <div className="relative rounded-2xl bg-white border border-slate-200 shadow-xl shadow-slate-200/50 overflow-hidden">
-              {/* Mock browser chrome */}
-              <div className="flex items-center gap-2 px-4 py-3 border-b border-slate-100 bg-slate-50/50">
-                <div className="flex gap-1.5">
-                  <div className="size-2.5 rounded-full bg-slate-300" />
-                  <div className="size-2.5 rounded-full bg-slate-300" />
-                  <div className="size-2.5 rounded-full bg-slate-300" />
-                </div>
-                <div className="flex-1 mx-4">
-                  <div className="h-6 bg-white border border-slate-200 rounded-md flex items-center px-3">
-                    <span className="text-xs text-slate-400">bexis.app/candidate/intelligence</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Card content */}
-              <div className="p-6 sm:p-8">
-                <div className="grid sm:grid-cols-3 gap-6">
-                  {/* Left: Candidate info */}
-                  <div className="sm:col-span-1 space-y-4">
-                    <div className="flex items-center gap-3">
-                      <div className="size-12 rounded-xl bg-[#472AF8] text-white font-bold text-lg flex items-center justify-center shadow-lg shadow-[#472AF8]/30">
-                        JD
-                      </div>
-                      <div>
-                        <h4 className="font-bold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>Jane Doe</h4>
-                        <p className="text-xs text-slate-500">Senior Product Manager</p>
-                      </div>
-                    </div>
-                    <div className="px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold inline-flex items-center gap-1.5">
-                      <span className="size-1.5 rounded-full bg-emerald-500" />
-                      Strong Match
-                    </div>
-                    <div className="space-y-2.5 pt-2">
-                      {[
-                        { label: 'Ownership', value: 90 },
-                        { label: 'Collaboration', value: 85 },
-                        { label: 'Problem Solving', value: 88 },
-                      ].map((s) => (
-                        <div key={s.label}>
-                          <div className="flex justify-between text-xs font-medium mb-1">
-                            <span className="text-slate-500">{s.label}</span>
-                            <span className="text-[#472AF8]">{s.value}%</span>
-                          </div>
-                          <div className="h-1.5 rounded-full bg-slate-100 overflow-hidden">
-                            <div className="h-full bg-[#472AF8] rounded-full" style={{ width: `${s.value}%` }} />
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Right: Process & AI */}
-                  <div className="sm:col-span-2 space-y-5">
-                    <div className="grid grid-cols-5 gap-2 text-center">
-                      {['Apply', 'CV Review', 'AI Interview', 'Evidence', 'Decision'].map((step, i) => (
-                        <div key={step} className="flex flex-col items-center gap-1.5">
-<div className={`size-8 rounded-full text-xs font-bold flex items-center justify-center ${i < 3 ? 'bg-emerald-100 text-emerald-600 border border-emerald-200' : i === 3 ? 'bg-purple-100 text-[#472AF8] border border-purple-200' : 'bg-slate-100 text-slate-400 border border-slate-200'}`}>
-                             {i < 3 ? '✓' : i + 1}
-                           </div>
-                           <span className={`text-[10px] font-medium ${i === 3 ? 'text-[#472AF8]' : 'text-slate-400'}`}>{step}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div className="rounded-xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200/60 p-4">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Zap className="size-4 text-amber-500" />
-                        <span className="text-xs font-bold text-amber-700 uppercase tracking-wider">AI Insight</span>
-                      </div>
-                      <p className="text-sm text-slate-600 leading-relaxed">
-                        Strong evidence of ownership and problem-solving. Leadership experience requires human review. Recommend proceeding to final interview stage.
-                      </p>
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-3">
-                      <div className="rounded-lg bg-slate-50 border border-slate-200 p-3">
-                        <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Role Alignment</div>
-                        <div className="text-2xl font-bold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>92%</div>
-                      </div>
-                      <div className="rounded-lg bg-slate-50 border border-slate-200 p-3">
-                        <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Evidence Score</div>
-                        <div className="text-2xl font-bold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>87%</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
