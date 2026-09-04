@@ -1,17 +1,11 @@
 import type { Metadata } from 'next';
-import { Manrope, Inter } from 'next/font/google';
+import { Raleway } from 'next/font/google';
 import './globals.css';
 
-const manrope = Manrope({
+const raleway = Raleway({
   variable: '--font-display',
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700', '800'],
-});
-
-const inter = Inter({
-  variable: '--font-body',
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
 });
 
 export const metadata: Metadata = {
@@ -24,7 +18,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
     <html
       lang="en"
-      className={`${manrope.variable} ${inter.variable} h-full antialiased`}
+      className={`${raleway.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

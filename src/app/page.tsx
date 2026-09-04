@@ -159,25 +159,25 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] text-slate-900 font-sans selection:bg-blue-500/20 selection:text-blue-900">
+    <div className="min-h-screen bg-[#f8fafc] text-slate-900 font-sans selection:bg-purple-500/20 selection:text-purple-900">
       {/* HEADER */}
       <header className="sticky top-0 z-50 backdrop-blur-md border-b border-slate-200/60 bg-white/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-0 group cursor-pointer">
             <Image src="/bexis-icon.png" alt="BEXIS" width={32} height={32} className="shrink-0" />
             <span className="text-base font-black tracking-tight text-slate-900" style={{ fontFamily: 'var(--font-display)', letterSpacing: '-0.02em' }}>
-              Bex<span style={{ background: 'linear-gradient(90deg, #3b82f6, #7c3aed)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>i</span>s
+              Bex<span style={{ background: 'linear-gradient(90deg, #893EFB, #08C4F2)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>i</span>s
             </span>
           </button>
 
           <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-slate-500">
-            <button onClick={() => scrollTo('jobs')} className="hover:text-blue-600 transition-colors cursor-pointer">Find Jobs</button>
-            <button onClick={() => scrollTo('how-it-works')} className="hover:text-blue-600 transition-colors cursor-pointer">How It Works</button>
-            <button onClick={() => scrollTo('why-bexis')} className="hover:text-blue-600 transition-colors cursor-pointer">For Employers</button>
-            <button onClick={() => scrollTo('principles')} className="hover:text-blue-600 transition-colors cursor-pointer">Principles</button>
+            <button onClick={() => scrollTo('jobs')} className="hover:text-[#893EFB] transition-colors cursor-pointer">Find Jobs</button>
+            <button onClick={() => scrollTo('how-it-works')} className="hover:text-[#893EFB] transition-colors cursor-pointer">How It Works</button>
+            <button onClick={() => scrollTo('why-bexis')} className="hover:text-[#893EFB] transition-colors cursor-pointer">For Employers</button>
+            <button onClick={() => scrollTo('principles')} className="hover:text-[#893EFB] transition-colors cursor-pointer">Principles</button>
           </nav>
 
-          <button onClick={() => openWaitlist('candidate')} className="px-5 py-2 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg shadow-sm transition-all cursor-pointer">
+          <button onClick={() => openWaitlist('candidate')} className="px-5 py-2 text-sm font-semibold text-white bg-[#893EFB] hover:bg-[#7a35e0] rounded-lg shadow-sm transition-all cursor-pointer">
             Join Waitlist
           </button>
         </div>
@@ -190,14 +190,14 @@ export default function Home() {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center space-y-6">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold tracking-wide">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-50 border border-purple-200 text-[#893EFB] text-xs font-semibold tracking-wide">
               <Sparkles className="size-3.5" />
               <span>AI-Powered Behavioral Intelligence</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-navy-900 leading-[1.1]" style={{ fontFamily: 'var(--font-display)' }}>
               See Beyond{' '}
-              <span className="bg-gradient-to-r from-blue-600 via-teal-500 to-blue-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#893EFB] via-[#08C4F2] to-[#893EFB] bg-clip-text text-transparent">
                 the Résumé.
               </span>
             </h1>
@@ -208,7 +208,7 @@ export default function Home() {
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
-              <button onClick={() => scrollTo('jobs')} className="px-6 py-3 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg shadow-md shadow-blue-600/20 transition-all hover:-translate-y-0.5 cursor-pointer flex items-center gap-2">
+              <button onClick={() => scrollTo('jobs')} className="px-6 py-3 text-sm font-semibold text-white bg-[#893EFB] hover:bg-[#7a35e0] rounded-lg shadow-md shadow-[#893EFB]/20 transition-all hover:-translate-y-0.5 cursor-pointer flex items-center gap-2">
                 Explore Opportunities
                 <ArrowRight className="size-4" />
               </button>
@@ -241,7 +241,7 @@ export default function Home() {
                   {/* Left: Candidate info */}
                   <div className="sm:col-span-1 space-y-4">
                     <div className="flex items-center gap-3">
-                      <div className="size-12 rounded-xl bg-gradient-to-br from-blue-500 to-teal-400 text-white font-bold text-lg flex items-center justify-center shadow-lg shadow-blue-500/30">
+                      <div className="size-12 rounded-xl bg-gradient-to-br from-[#893EFB] to-[#08C4F2] text-white font-bold text-lg flex items-center justify-center shadow-lg shadow-[#893EFB]/30">
                         JD
                       </div>
                       <div>
@@ -262,10 +262,10 @@ export default function Home() {
                         <div key={s.label}>
                           <div className="flex justify-between text-xs font-medium mb-1">
                             <span className="text-slate-500">{s.label}</span>
-                            <span className="text-blue-600">{s.value}%</span>
+                            <span className="text-[#893EFB]">{s.value}%</span>
                           </div>
                           <div className="h-1.5 rounded-full bg-slate-100 overflow-hidden">
-                            <div className="h-full bg-gradient-to-r from-blue-500 to-teal-400 rounded-full" style={{ width: `${s.value}%` }} />
+                            <div className="h-full bg-gradient-to-r from-[#893EFB] to-[#08C4F2] rounded-full" style={{ width: `${s.value}%` }} />
                           </div>
                         </div>
                       ))}
@@ -277,10 +277,10 @@ export default function Home() {
                     <div className="grid grid-cols-5 gap-2 text-center">
                       {['Apply', 'CV Review', 'AI Interview', 'Evidence', 'Decision'].map((step, i) => (
                         <div key={step} className="flex flex-col items-center gap-1.5">
-                          <div className={`size-8 rounded-full text-xs font-bold flex items-center justify-center ${i < 3 ? 'bg-emerald-100 text-emerald-600 border border-emerald-200' : i === 3 ? 'bg-blue-100 text-blue-600 border border-blue-200' : 'bg-slate-100 text-slate-400 border border-slate-200'}`}>
-                            {i < 3 ? '✓' : i + 1}
-                          </div>
-                          <span className={`text-[10px] font-medium ${i === 3 ? 'text-blue-600' : 'text-slate-400'}`}>{step}</span>
+<div className={`size-8 rounded-full text-xs font-bold flex items-center justify-center ${i < 3 ? 'bg-emerald-100 text-emerald-600 border border-emerald-200' : i === 3 ? 'bg-purple-100 text-[#893EFB] border border-purple-200' : 'bg-slate-100 text-slate-400 border border-slate-200'}`}>
+                             {i < 3 ? '✓' : i + 1}
+                           </div>
+                           <span className={`text-[10px] font-medium ${i === 3 ? 'text-[#893EFB]' : 'text-slate-400'}`}>{step}</span>
                         </div>
                       ))}
                     </div>
@@ -317,14 +317,14 @@ export default function Home() {
       <section id="principles" className="py-16 bg-navy-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 space-y-2">
-            <div className="text-xs font-bold uppercase tracking-widest text-blue-400">Core Principles</div>
+            <div className="text-xs font-bold uppercase tracking-widest text-[#08C4F2]">Core Principles</div>
             <h2 className="text-3xl font-bold text-white" style={{ fontFamily: 'var(--font-display)' }}>Built on trust and substance.</h2>
           </div>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {[
-              { icon: FileText, title: 'Experience', desc: 'CV tells us where someone has been.', color: 'text-blue-400' },
-              { icon: Search, title: 'Evidence', desc: 'Work shows what they have actually done.', color: 'text-teal-400' },
-              { icon: Brain, title: 'Behaviour', desc: 'Assessment reveals how they approach work.', color: 'text-purple-400' },
+              { icon: FileText, title: 'Experience', desc: 'CV tells us where someone has been.', color: 'text-[#893EFB]' },
+              { icon: Search, title: 'Evidence', desc: 'Work shows what they have actually done.', color: 'text-[#08C4F2]' },
+              { icon: Brain, title: 'Behaviour', desc: 'Assessment reveals how they approach work.', color: 'text-[#472AF8]' },
               { icon: BarChart2, title: 'Alignment', desc: 'Role context makes evidence meaningful.', color: 'text-emerald-400' },
               { icon: UserCheck, title: 'Human Decision', desc: 'People always make the final call.', color: 'text-amber-400' },
             ].map((p) => (
@@ -352,14 +352,14 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-slate-400" />
-              <input type="text" placeholder="Job title or keyword..." value={searchKeyword} onChange={(e) => setSearchKeyword(e.target.value)} className="w-full bg-slate-50 border border-slate-200 rounded-lg pl-9 pr-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/10 transition-all" />
+              <input type="text" placeholder="Job title or keyword..." value={searchKeyword} onChange={(e) => setSearchKeyword(e.target.value)} className="w-full bg-slate-50 border border-slate-200 rounded-lg pl-9 pr-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#893EFB] focus:ring-[#893EFB]/10 transition-all" />
             </div>
             <div className="relative">
               <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-slate-400" />
-              <input type="text" placeholder="Location" value={searchLocation} onChange={(e) => setSearchLocation(e.target.value)} className="w-full bg-slate-50 border border-slate-200 rounded-lg pl-9 pr-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/10 transition-all" />
+              <input type="text" placeholder="Location" value={searchLocation} onChange={(e) => setSearchLocation(e.target.value)} className="w-full bg-slate-50 border border-slate-200 rounded-lg pl-9 pr-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#893EFB] focus:ring-[#893EFB]/10 transition-all" />
             </div>
             <div className="relative">
-              <select value={selectedLevel} onChange={(e) => setSelectedLevel(e.target.value)} className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-900 appearance-none focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/10 transition-all cursor-pointer">
+              <select value={selectedLevel} onChange={(e) => setSelectedLevel(e.target.value)} className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-900 appearance-none focus:outline-none focus:border-[#893EFB] focus:ring-[#893EFB]/10 transition-all cursor-pointer">
                 <option>All Levels</option>
                 <option>Internship</option>
                 <option>Entry Level</option>
@@ -372,7 +372,7 @@ export default function Home() {
             </div>
             <div className="flex gap-2">
               <div className="relative flex-1">
-                <select value={selectedType} onChange={(e) => setSelectedType(e.target.value)} className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-900 appearance-none focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/10 transition-all cursor-pointer">
+                <select value={selectedType} onChange={(e) => setSelectedType(e.target.value)} className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-900 appearance-none focus:outline-none focus:border-[#893EFB] focus:ring-[#893EFB]/10 transition-all cursor-pointer">
                   <option>All Types</option>
                   <option>Full-time</option>
                   <option>Part-time</option>
@@ -381,7 +381,7 @@ export default function Home() {
                 </select>
                 <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 size-4 text-slate-400 pointer-events-none" />
               </div>
-              <button className="px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg text-sm transition-all cursor-pointer shadow-sm">Search</button>
+              <button className="px-4 py-2.5 bg-[#893EFB] hover:bg-[#7a35e0] text-white font-semibold rounded-lg text-sm transition-all cursor-pointer shadow-sm">Search</button>
             </div>
           </div>
         </div>
@@ -391,7 +391,7 @@ export default function Home() {
           <p className="text-sm font-medium text-slate-500">{filteredJobs.length} {filteredJobs.length === 1 ? 'opportunity' : 'opportunities'} found</p>
           <div className="flex flex-wrap gap-2">
             {INDUSTRIES.map((ind) => (
-              <button key={ind} onClick={() => setSelectedIndustry(ind)} className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${selectedIndustry === ind ? 'bg-blue-600 text-white shadow-sm' : 'bg-white border border-slate-200 text-slate-600 hover:border-slate-300'}`}>
+              <button key={ind} onClick={() => setSelectedIndustry(ind)} className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${selectedIndustry === ind ? 'bg-[#893EFB] text-white shadow-sm' : 'bg-white border border-slate-200 text-slate-600 hover:border-slate-300'}`}>
                 {ind}
               </button>
             ))}
@@ -401,17 +401,17 @@ export default function Home() {
         {/* Cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredJobs.map((job) => (
-            <div key={job.id} onClick={() => openWaitlist('candidate')} className="bg-white hover:border-blue-200 border border-slate-200 rounded-xl p-5 transition-all duration-200 hover:shadow-lg hover:shadow-slate-200/50 flex flex-col justify-between group cursor-pointer">
+            <div key={job.id} onClick={() => openWaitlist('candidate')} className="bg-white hover:border-purple-200 border border-slate-200 rounded-xl p-5 transition-all duration-200 hover:shadow-lg hover:shadow-slate-200/50 flex flex-col justify-between group cursor-pointer">
               <div>
                 <div className="flex items-start justify-between gap-3 mb-3">
                   <div className="flex items-center gap-3">
                     <div className={`size-10 rounded-lg ${job.logoBg} font-bold text-xs flex items-center justify-center`}>{job.logo}</div>
                     <div>
-                      <h3 className="text-sm font-bold text-navy-900 group-hover:text-blue-600 transition-colors" style={{ fontFamily: 'var(--font-display)' }}>{job.title}</h3>
+                      <h3 className="text-sm font-bold text-navy-900 group-hover:text-[#893EFB] transition-colors" style={{ fontFamily: 'var(--font-display)' }}>{job.title}</h3>
                       <p className="text-xs text-slate-500">{job.company}</p>
                     </div>
                   </div>
-                  {job.isRemote && <span className="px-2 py-0.5 rounded bg-teal-50 border border-teal-200 text-teal-700 text-[10px] font-semibold">Remote</span>}
+                  {job.isRemote && <span className="px-2 py-0.5 rounded bg-cyan-50 border border-cyan-200 text-[#08C4F2] text-[10px] font-semibold">Remote</span>}
                 </div>
                 <div className="flex items-center gap-1.5 text-xs text-slate-400 mb-3">
                   <MapPin className="size-3" />
@@ -428,7 +428,7 @@ export default function Home() {
               </div>
               <div className="flex items-center justify-between pt-3 mt-3 border-t border-slate-100 text-xs">
                 <span className="text-slate-400 flex items-center gap-1"><Clock className="size-3" />{job.postedAgo}</span>
-                <button onClick={(e) => { e.stopPropagation(); openWaitlist('candidate'); }} className="font-semibold text-blue-600 group-hover:text-blue-500 flex items-center gap-1 transition-colors cursor-pointer">
+                <button onClick={(e) => { e.stopPropagation(); openWaitlist('candidate'); }} className="font-semibold text-[#893EFB] group-hover:text-[#7a35e0] flex items-center gap-1 transition-colors cursor-pointer">
                   Join Waitlist <ArrowRight className="size-3" />
                 </button>
               </div>
@@ -448,7 +448,7 @@ export default function Home() {
       <section id="how-it-works" className="py-20 bg-navy-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 space-y-2">
-            <div className="text-xs font-bold uppercase tracking-widest text-blue-400">How It Works</div>
+            <div className="text-xs font-bold uppercase tracking-widest text-[#08C4F2]">How It Works</div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight" style={{ fontFamily: 'var(--font-display)' }}>A better hiring process. For everyone.</h2>
             <p className="text-slate-400 max-w-2xl mx-auto">BEXIS structures the hiring process around evidence — not gut feel — giving candidates a fair shot and employers better context.</p>
           </div>
@@ -457,7 +457,7 @@ export default function Home() {
             {[
               {
                 label: 'For Candidates',
-                labelColor: 'text-teal-400',
+                labelColor: 'text-[#08C4F2]',
                 title: 'Stand out on substance.',
                 steps: [
                   { title: 'Apply & upload your CV', desc: 'BEXIS reads your CV and extracts experience, skills, and achievements automatically.' },
@@ -472,7 +472,7 @@ export default function Home() {
               },
               {
                 label: 'For Employers',
-                labelColor: 'text-blue-400',
+                labelColor: 'text-[#893EFB]',
                 title: 'Hire with structured evidence.',
                 steps: [
                   { title: 'Set up your company profile', desc: 'Add your mission, values, and hiring philosophy to personalize assessments.' },
@@ -482,7 +482,7 @@ export default function Home() {
                   { title: 'Make the decision', desc: 'Shortlist, hold, or reject — with clear reasoning on record.' },
                 ],
                 cta: 'Join Employer Waitlist',
-                ctaStyle: 'bg-blue-600 hover:bg-blue-500 text-white',
+                ctaStyle: 'bg-[#893EFB] hover:bg-[#7a35e0] text-white',
                 role: 'employer' as const,
               },
             ].map((col) => (
@@ -518,7 +518,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-5 space-y-5">
-              <div className="text-xs font-bold uppercase tracking-widest text-blue-600">Why BEXIS</div>
+              <div className="text-xs font-bold uppercase tracking-widest text-[#893EFB]">Why BEXIS</div>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight leading-tight" style={{ fontFamily: 'var(--font-display)' }}>
                 Hiring is more than a résumé match.
               </h2>
@@ -528,7 +528,7 @@ export default function Home() {
               <div className="space-y-3 pt-1">
                 {['CV tells us where someone has been.', 'Evidence helps show what they have done.', 'Behavioral assessment reveals how they approach situations.', 'Role alignment provides relevant context.', 'Humans make the final decision.'].map((item, i) => (
                   <div key={i} className="flex items-center gap-2.5 text-sm text-slate-600">
-                    <Check className="size-4 text-blue-500 shrink-0" />
+                    <Check className="size-4 text-[#893EFB] shrink-0" />
                     <span>{item}</span>
                   </div>
                 ))}
@@ -537,12 +537,12 @@ export default function Home() {
 
             <div className="lg:col-span-7 grid sm:grid-cols-2 gap-4">
               {[
-                { icon: ShieldCheck, title: 'Explainable AI', desc: 'Every insight comes with evidence — no black-box scores.', color: 'bg-blue-50 text-blue-600 border-blue-100' },
-                { icon: UserCheck, title: 'Human-First', desc: 'AI supports decisions. Humans always make the final call.', color: 'bg-teal-50 text-teal-600 border-teal-100' },
-                { icon: BarChart2, title: 'Behavioral Signals', desc: 'Structured evidence from assessment responses, not guesses.', color: 'bg-purple-50 text-purple-600 border-purple-100' },
+                { icon: ShieldCheck, title: 'Explainable AI', desc: 'Every insight comes with evidence — no black-box scores.', color: 'bg-purple-50 text-[#893EFB] border-purple-100' },
+                { icon: UserCheck, title: 'Human-First', desc: 'AI supports decisions. Humans always make the final call.', color: 'bg-cyan-50 text-[#08C4F2] border-cyan-100' },
+                { icon: BarChart2, title: 'Behavioral Signals', desc: 'Structured evidence from assessment responses, not guesses.', color: 'bg-purple-50 text-[#472AF8] border-purple-100' },
                 { icon: Target, title: 'Fair & Transparent', desc: 'No protected-class inferences. Evidence-based only.', color: 'bg-emerald-50 text-emerald-600 border-emerald-100' },
               ].map((card) => (
-                <div key={card.title} className="rounded-xl border border-slate-200 p-5 space-y-3 hover:border-blue-200 hover:shadow-md transition-all">
+                <div key={card.title} className="rounded-xl border border-slate-200 p-5 space-y-3 hover:border-purple-200 hover:shadow-md transition-all">
                   <div className={`size-9 rounded-lg ${card.color} border flex items-center justify-center`}>
                     <card.icon className="size-4.5" />
                   </div>
@@ -557,7 +557,7 @@ export default function Home() {
 
       {/* CTA */}
       <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-2xl bg-gradient-to-br from-blue-600 via-blue-700 to-navy-900 p-10 sm:p-14 text-center space-y-5 overflow-hidden">
+        <div className="relative rounded-2xl bg-gradient-to-br from-[#893EFB] via-[#472AF8] to-[#321DAE] p-10 sm:p-14 text-center space-y-5 overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.1),transparent_60%)]" />
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight relative z-10" style={{ fontFamily: 'var(--font-display)' }}>
             Ready to hire beyond the résumé?
@@ -566,7 +566,7 @@ export default function Home() {
             Define your hiring needs and let BEXIS build a structured, evidence-based process in minutes.
           </p>
           <div className="relative z-10">
-            <button onClick={() => openWaitlist('employer')} className="inline-flex items-center gap-2 px-8 py-3.5 text-sm font-bold text-blue-700 bg-white hover:bg-slate-50 rounded-lg shadow-xl transition-all hover:-translate-y-0.5 cursor-pointer">
+            <button onClick={() => openWaitlist('employer')} className="inline-flex items-center gap-2 px-8 py-3.5 text-sm font-bold text-[#893EFB] bg-white hover:bg-slate-50 rounded-lg shadow-xl transition-all hover:-translate-y-0.5 cursor-pointer">
               Join the Waitlist
               <ArrowRight className="size-4" />
             </button>
@@ -580,7 +580,7 @@ export default function Home() {
           <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-0 cursor-pointer">
             <Image src="/bexis-icon.png" alt="BEXIS" width={24} height={24} className="shrink-0" />
             <span className="text-sm font-black tracking-tight text-slate-900" style={{ fontFamily: 'var(--font-display)', letterSpacing: '-0.02em' }}>
-              Bex<span style={{ background: 'linear-gradient(90deg, #3b82f6, #7c3aed)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>i</span>s
+              Bex<span style={{ background: 'linear-gradient(90deg, #893EFB, #08C4F2)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>i</span>s
             </span>
           </button>
           <p className="text-xs text-slate-400">© 2026 Bexis. AI provides insight. Evidence provides context. Humans make decisions.</p>
