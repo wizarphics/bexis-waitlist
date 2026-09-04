@@ -68,17 +68,17 @@ export function WaitlistModal({ open, onOpenChange, defaultRole = 'candidate' }:
 
               <div className="space-y-1.5">
                 <Label htmlFor="waitlist-name" className="text-slate-600 text-xs font-medium">Name (optional)</Label>
-                <Input id="waitlist-name" type="text" placeholder="Your name" value={name} onChange={(e) => setName(e.target.value)} className="h-10 bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:border-[#893EFB] focus-visible:ring-[#893EFB]/20 rounded-lg" />
+                <Input id="waitlist-name" type="text" placeholder="Your name" value={name} onChange={(e) => setName(e.target.value)} className="h-10 bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:border-[#472AF8] focus-visible:ring-[#472AF8]/20 rounded-lg" />
               </div>
 
               <div className="space-y-1.5">
                 <Label htmlFor="waitlist-email" className="text-slate-600 text-xs font-medium">
                   Email <span className="text-red-500">*</span>
                 </Label>
-                <Input id="waitlist-email" type="email" placeholder="you@company.com" value={email} onChange={(e) => setEmail(e.target.value)} required className="h-10 bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:border-[#893EFB] focus-visible:ring-[#893EFB]/20 rounded-lg" />
+                <Input id="waitlist-email" type="email" placeholder="you@company.com" value={email} onChange={(e) => setEmail(e.target.value)} required className="h-10 bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:border-[#472AF8] focus-visible:ring-[#472AF8]/20 rounded-lg" />
               </div>
 
-              <button type="submit" disabled={submitting || !email.trim()} className="w-full py-2.5 bg-[#893EFB] hover:bg-[#7a35e0] text-white font-semibold text-sm rounded-lg shadow-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer flex items-center justify-center gap-2">
+              <button type="submit" disabled={submitting || !email.trim()} className="w-full py-2.5 bg-[#472AF8] hover:bg-[#3b22d0] text-white font-semibold text-sm rounded-lg shadow-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer flex items-center justify-center gap-2">
                 {submitting ? (<><Loader2 className="size-4 animate-spin" /><span>Joining...</span></>) : <span>Join Waitlist</span>}
               </button>
 
@@ -92,7 +92,7 @@ export function WaitlistModal({ open, onOpenChange, defaultRole = 'candidate' }:
             </div>
             <h3 className="text-xl font-bold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>You&apos;re on the list!</h3>
             <p className="text-sm text-slate-500 leading-relaxed max-w-xs mx-auto">
-              Thanks{name ? `, ${name}` : ''}! We&apos;ll reach out to <span className="text-[#893EFB] font-medium">{email}</span> when it&apos;s your turn.
+              Thanks{name ? `, ${name}` : ''}! We&apos;ll reach out to <span className="text-[#472AF8] font-medium">{email}</span> when it&apos;s your turn.
             </p>
             <button onClick={handleClose} className="px-6 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-semibold rounded-lg transition-all cursor-pointer">Close</button>
           </div>
