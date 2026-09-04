@@ -184,37 +184,36 @@ export default function Home() {
       </header>
 
       {/* HERO */}
-      <section className="relative pt-20 pb-28 lg:pt-28 lg:pb-36 overflow-hidden">
-        {/* Subtle grid pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-30" />
-
+      <section className="relative pt-24 pb-20 lg:pt-32 lg:pb-24 overflow-hidden">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#472AF8]/5 border border-[#472AF8]/15 text-[#472AF8] text-xs font-semibold tracking-wide mb-8">
-              <Sparkles className="size-3.5" />
-              <span>AI-Powered Behavioral Intelligence</span>
-            </div>
-
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-navy-900 leading-[1.05] mb-6" style={{ fontFamily: 'var(--font-display)' }}>
-              See Beyond
-              <br />
-              <span className="text-[#472AF8]">the Résumé.</span>
+          <div className="max-w-3xl mx-auto text-center">
+            <h1 className="text-5xl sm:text-6xl lg:text-[4.5rem] font-extrabold tracking-tight text-navy-900 leading-[1.05] mb-5" style={{ fontFamily: 'var(--font-display)' }}>
+              Hiring built on<br />evidence, not guesswork
             </h1>
 
-            <p className="text-lg sm:text-xl text-slate-500 leading-relaxed max-w-2xl mx-auto mb-10">
-              Hiring decisions backed by evidence, not guesswork.
-              Understand candidates through experience, behavioral intelligence,
-              and real role alignment.
+            <p className="text-lg sm:text-xl text-slate-500 leading-relaxed max-w-xl mx-auto mb-10">
+              AI-powered behavioral intelligence that helps you understand
+              candidates beyond the résumé.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-              <button onClick={() => scrollTo('jobs')} className="w-full sm:w-auto px-8 py-3.5 text-sm font-bold text-white bg-[#472AF8] hover:bg-[#3b22d0] rounded-lg shadow-lg shadow-[#472AF8]/25 transition-all hover:-translate-y-0.5 cursor-pointer flex items-center justify-center gap-2">
-                Explore Opportunities
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-16">
+              <button onClick={() => openWaitlist('candidate')} className="w-full sm:w-auto px-7 py-3 text-sm font-bold text-white bg-[#472AF8] hover:bg-[#3b22d0] rounded-lg transition-all cursor-pointer flex items-center justify-center gap-2">
+                Join the Waitlist
                 <ArrowRight className="size-4" />
               </button>
-              <button onClick={() => openWaitlist('employer')} className="w-full sm:w-auto px-8 py-3.5 text-sm font-bold text-slate-700 bg-white border border-slate-200 hover:border-slate-300 hover:bg-slate-50 rounded-lg transition-all cursor-pointer">
-                For Employers
+              <button onClick={() => scrollTo('how-it-works')} className="w-full sm:w-auto px-7 py-3 text-sm font-bold text-slate-600 hover:text-slate-900 rounded-lg transition-all cursor-pointer">
+                See how it works
               </button>
+            </div>
+          </div>
+
+          {/* Trusted by */}
+          <div className="text-center">
+            <p className="text-xs font-medium text-slate-400 uppercase tracking-widest mb-6">Trusted by forward-thinking teams</p>
+            <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-slate-300">
+              {['TechNova', 'CodeCore', 'DataSight', 'PixelWorks', 'Greenhouse'].map((name) => (
+                <span key={name} className="text-sm font-semibold tracking-wide" style={{ fontFamily: 'var(--font-display)' }}>{name}</span>
+              ))}
             </div>
           </div>
         </div>
