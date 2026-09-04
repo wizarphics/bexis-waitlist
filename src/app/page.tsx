@@ -197,7 +197,7 @@ export default function Home() {
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-navy-900 leading-[1.1]" style={{ fontFamily: 'var(--font-display)' }}>
               See Beyond{' '}
-              <span className="bg-gradient-to-r from-[#472AF8] via-[#08C4F2] to-[#472AF8] bg-clip-text text-transparent">
+              <span className="text-[#472AF8]">
                 the Résumé.
               </span>
             </h1>
@@ -241,7 +241,7 @@ export default function Home() {
                   {/* Left: Candidate info */}
                   <div className="sm:col-span-1 space-y-4">
                     <div className="flex items-center gap-3">
-                      <div className="size-12 rounded-xl bg-gradient-to-br from-[#472AF8] to-[#08C4F2] text-white font-bold text-lg flex items-center justify-center shadow-lg shadow-[#472AF8]/30">
+                      <div className="size-12 rounded-xl bg-[#472AF8] text-white font-bold text-lg flex items-center justify-center shadow-lg shadow-[#472AF8]/30">
                         JD
                       </div>
                       <div>
@@ -265,7 +265,7 @@ export default function Home() {
                             <span className="text-[#472AF8]">{s.value}%</span>
                           </div>
                           <div className="h-1.5 rounded-full bg-slate-100 overflow-hidden">
-                            <div className="h-full bg-gradient-to-r from-[#472AF8] to-[#08C4F2] rounded-full" style={{ width: `${s.value}%` }} />
+                            <div className="h-full bg-[#472AF8] rounded-full" style={{ width: `${s.value}%` }} />
                           </div>
                         </div>
                       ))}

@@ -1,11 +1,17 @@
 import type { Metadata } from 'next';
-import { Raleway } from 'next/font/google';
+import { Raleway, Inter } from 'next/font/google';
 import './globals.css';
 
 const raleway = Raleway({
   variable: '--font-display',
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700', '800'],
+});
+
+const inter = Inter({
+  variable: '--font-body',
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
 });
 
 export const metadata: Metadata = {
@@ -18,7 +24,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
     <html
       lang="en"
-      className={`${raleway.variable} h-full antialiased`}
+      className={`${raleway.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
