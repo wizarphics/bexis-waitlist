@@ -484,7 +484,7 @@ export default function Home() {
                   <div className="space-y-4">
                     {col.steps.map((step, i) => (
                       <div key={i} className="flex items-start gap-3">
-                        <div className="size-6 rounded-md bg-white/10 text-xs font-bold flex items-center justify-center shrink-0 mt-0.5 text-slate-300">{i + 1}</div>
+                        <div className={`size-6 rounded-md text-xs font-bold flex items-center justify-center shrink-0 mt-0.5 ${i % 2 === 0 ? 'bg-[#08C4F2]/15 text-[#08C4F2]' : 'bg-[#472AF8]/15 text-[#472AF8]'}`}>{i + 1}</div>
                         <div>
                           <h4 className="text-sm font-semibold text-white">{step.title}</h4>
                           <p className="text-xs text-slate-400 mt-0.5 leading-relaxed">{step.desc}</p>
