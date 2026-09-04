@@ -30,7 +30,6 @@ export function WaitlistModal({ open, onOpenChange, defaultRole = 'candidate' }:
     if (!email.trim()) return;
 
     setSubmitting(true);
-    // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 1200));
     setSubmitting(false);
     setSubmitted(true);
@@ -38,7 +37,6 @@ export function WaitlistModal({ open, onOpenChange, defaultRole = 'candidate' }:
 
   const handleClose = () => {
     onOpenChange(false);
-    // Reset after close animation
     setTimeout(() => {
       setEmail('');
       setName('');
@@ -49,7 +47,7 @@ export function WaitlistModal({ open, onOpenChange, defaultRole = 'candidate' }:
 
   return (
     <Dialog open={open} onOpenChange={handleClose}>
-      <DialogContent className="sm:max-w-md bg-[#0f172a] border border-slate-800 text-white p-0 gap-0 overflow-hidden">
+      <DialogContent className="sm:max-w-md bg-white p-0 gap-0 overflow-hidden">
         {!submitted ? (
           <>
             <div className="p-6 pb-0">
@@ -58,14 +56,14 @@ export function WaitlistModal({ open, onOpenChange, defaultRole = 'candidate' }:
                   <div className="size-8 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
                     <Sparkles className="size-4 text-white" />
                   </div>
-                  <span className="text-xs font-bold uppercase tracking-widest text-cyan-400">
+                  <span className="text-xs font-bold uppercase tracking-widest text-cyan-600">
                     Early Access
                   </span>
                 </div>
-                <DialogTitle className="text-xl font-bold text-white">
+                <DialogTitle className="text-xl font-bold text-slate-900">
                   Join the Bexis Waitlist
                 </DialogTitle>
-                <DialogDescription className="text-sm text-slate-400 leading-relaxed">
+                <DialogDescription className="text-sm text-slate-500 leading-relaxed">
                   Be among the first to experience AI-powered hiring that goes beyond the résumé.
                 </DialogDescription>
               </DialogHeader>
@@ -73,14 +71,14 @@ export function WaitlistModal({ open, onOpenChange, defaultRole = 'candidate' }:
 
             <form onSubmit={handleSubmit} className="p-6 space-y-4">
               {/* Role Toggle */}
-              <div className="flex bg-slate-900 border border-slate-800 rounded-xl p-1">
+              <div className="flex bg-slate-100 border border-slate-200 rounded-xl p-1">
                 <button
                   type="button"
                   onClick={() => setRole('candidate')}
                   className={`flex-1 py-2 text-sm font-semibold rounded-lg transition-all cursor-pointer ${
                     role === 'candidate'
-                      ? 'bg-cyan-500 text-slate-950 shadow-sm'
-                      : 'text-slate-400 hover:text-white'
+                      ? 'bg-cyan-500 text-white shadow-sm'
+                      : 'text-slate-500 hover:text-slate-700'
                   }`}
                 >
                   I&apos;m looking for a job
@@ -90,8 +88,8 @@ export function WaitlistModal({ open, onOpenChange, defaultRole = 'candidate' }:
                   onClick={() => setRole('employer')}
                   className={`flex-1 py-2 text-sm font-semibold rounded-lg transition-all cursor-pointer ${
                     role === 'employer'
-                      ? 'bg-cyan-500 text-slate-950 shadow-sm'
-                      : 'text-slate-400 hover:text-white'
+                      ? 'bg-cyan-500 text-white shadow-sm'
+                      : 'text-slate-500 hover:text-slate-700'
                   }`}
                 >
                   I&apos;m hiring
@@ -99,7 +97,7 @@ export function WaitlistModal({ open, onOpenChange, defaultRole = 'candidate' }:
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="waitlist-name" className="text-slate-300 text-xs font-medium">
+                <Label htmlFor="waitlist-name" className="text-slate-600 text-xs font-medium">
                   Name (optional)
                 </Label>
                 <Input
@@ -108,13 +106,13 @@ export function WaitlistModal({ open, onOpenChange, defaultRole = 'candidate' }:
                   placeholder="Your name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="h-10 bg-slate-900 border-slate-800 text-white placeholder:text-slate-500 focus-visible:border-cyan-500 focus-visible:ring-cyan-500/20 rounded-xl"
+                  className="h-10 bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:border-cyan-500 focus-visible:ring-cyan-500/20 rounded-xl"
                 />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="waitlist-email" className="text-slate-300 text-xs font-medium">
-                  Email <span className="text-cyan-400">*</span>
+                <Label htmlFor="waitlist-email" className="text-slate-600 text-xs font-medium">
+                  Email <span className="text-cyan-500">*</span>
                 </Label>
                 <Input
                   id="waitlist-email"
@@ -123,7 +121,7 @@ export function WaitlistModal({ open, onOpenChange, defaultRole = 'candidate' }:
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="h-10 bg-slate-900 border-slate-800 text-white placeholder:text-slate-500 focus-visible:border-cyan-500 focus-visible:ring-cyan-500/20 rounded-xl"
+                  className="h-10 bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:border-cyan-500 focus-visible:ring-cyan-500/20 rounded-xl"
                 />
               </div>
 
@@ -142,24 +140,24 @@ export function WaitlistModal({ open, onOpenChange, defaultRole = 'candidate' }:
                 )}
               </button>
 
-              <p className="text-[11px] text-slate-500 text-center">
+              <p className="text-[11px] text-slate-400 text-center">
                 No spam. Unsubscribe anytime. We&apos;ll notify you when we launch.
               </p>
             </form>
           </>
         ) : (
           <div className="p-8 text-center space-y-4">
-            <div className="mx-auto size-14 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center">
-              <CheckCircle2 className="size-7 text-emerald-400" />
+            <div className="mx-auto size-14 rounded-full bg-emerald-100 border border-emerald-200 flex items-center justify-center">
+              <CheckCircle2 className="size-7 text-emerald-500" />
             </div>
-            <h3 className="text-xl font-bold text-white">You&apos;re on the list!</h3>
-            <p className="text-sm text-slate-400 leading-relaxed max-w-xs mx-auto">
+            <h3 className="text-xl font-bold text-slate-900">You&apos;re on the list!</h3>
+            <p className="text-sm text-slate-500 leading-relaxed max-w-xs mx-auto">
               Thanks{name ? `, ${name}` : ''}! We&apos;ll reach out to{' '}
-              <span className="text-cyan-400 font-medium">{email}</span> when it&apos;s your turn.
+              <span className="text-cyan-600 font-medium">{email}</span> when it&apos;s your turn.
             </p>
             <button
               onClick={handleClose}
-              className="px-6 py-2.5 bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 text-sm font-semibold rounded-xl transition-all cursor-pointer"
+              className="px-6 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-semibold rounded-xl transition-all cursor-pointer"
             >
               Close
             </button>

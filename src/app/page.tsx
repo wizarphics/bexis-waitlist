@@ -2,7 +2,6 @@
 
 import React, { useState, useMemo } from 'react';
 import Image from 'next/image';
-import { ThemeToggle } from '@/components/shared/theme-toggle';
 import { WaitlistModal } from '@/components/waitlist-modal';
 import {
   Search,
@@ -43,7 +42,7 @@ const JOBS_DATA: Job[] = [
     title: 'Senior Product Manager',
     company: 'TechNova',
     logo: 'TN',
-    logoBg: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
+    logoBg: 'bg-emerald-100 text-emerald-700 border-emerald-200',
     isRemote: true,
     location: 'London, UK',
     type: 'Full-time',
@@ -60,7 +59,7 @@ const JOBS_DATA: Job[] = [
     title: 'Backend Engineer',
     company: 'CodeCore',
     logo: 'CC',
-    logoBg: 'bg-blue-500/20 text-blue-400 border-blue-500/30',
+    logoBg: 'bg-blue-100 text-blue-700 border-blue-200',
     isRemote: true,
     location: 'Berlin, Germany',
     type: 'Full-time',
@@ -77,7 +76,7 @@ const JOBS_DATA: Job[] = [
     title: 'Data Analyst',
     company: 'DataSight',
     logo: 'DS',
-    logoBg: 'bg-purple-500/20 text-purple-400 border-purple-500/30',
+    logoBg: 'bg-purple-100 text-purple-700 border-purple-200',
     isRemote: false,
     location: 'New York, USA',
     type: 'Full-time',
@@ -94,7 +93,7 @@ const JOBS_DATA: Job[] = [
     title: 'UI/UX Designer',
     company: 'PixelWorks',
     logo: 'PW',
-    logoBg: 'bg-pink-500/20 text-pink-400 border-pink-500/30',
+    logoBg: 'bg-pink-100 text-pink-700 border-pink-200',
     isRemote: true,
     location: 'Amsterdam, Netherlands',
     type: 'Contract',
@@ -111,7 +110,7 @@ const JOBS_DATA: Job[] = [
     title: 'Software Engineer',
     company: 'TechNova',
     logo: 'TN',
-    logoBg: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
+    logoBg: 'bg-emerald-100 text-emerald-700 border-emerald-200',
     isRemote: true,
     location: 'Remote',
     type: 'Full-time',
@@ -128,7 +127,7 @@ const JOBS_DATA: Job[] = [
     title: 'Head of Data Science',
     company: 'DataSight',
     logo: 'DS',
-    logoBg: 'bg-purple-500/20 text-purple-400 border-purple-500/30',
+    logoBg: 'bg-purple-100 text-purple-700 border-purple-200',
     isRemote: false,
     location: 'New York, USA',
     type: 'Full-time',
@@ -209,23 +208,23 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f4f7fb] text-slate-900 font-sans selection:bg-cyan-500/30 selection:text-cyan-900 dark:bg-[#0B0F17] dark:text-slate-100">
+    <div className="min-h-screen bg-[#f4f7fb] text-slate-900 font-sans selection:bg-cyan-500/30 selection:text-cyan-900">
       {/* Background Subtle Gradient Blobs */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-cyan-600/10 rounded-full blur-[140px]" />
-        <div className="absolute top-[800px] right-1/4 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[140px]" />
-        <div className="absolute bottom-0 left-1/3 w-[700px] h-[700px] bg-emerald-600/5 rounded-full blur-[160px]" />
+        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-cyan-200/30 rounded-full blur-[140px]" />
+        <div className="absolute top-[800px] right-1/4 w-[500px] h-[500px] bg-blue-200/30 rounded-full blur-[140px]" />
+        <div className="absolute bottom-0 left-1/3 w-[700px] h-[700px] bg-emerald-200/20 rounded-full blur-[160px]" />
       </div>
 
       {/* HEADER NAVBAR */}
-      <header className="sticky top-0 z-50 backdrop-blur-md border-b border-slate-200/80 bg-[#f8fafc]/80 dark:bg-[#0B0F17]/80 dark:border-slate-800/80">
+      <header className="sticky top-0 z-50 backdrop-blur-md border-b border-slate-200/80 bg-[#f8fafc]/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="flex items-center gap-3 group cursor-pointer"
           >
             <div className="relative size-10 flex items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 p-[1px] shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform">
-              <div className="w-full h-full bg-white dark:bg-[#0B0F17] rounded-[11px] flex items-center justify-center">
+              <div className="w-full h-full bg-white rounded-[11px] flex items-center justify-center">
                 <Image
                   src="/BEXIS LOGO.PNG"
                   alt="BEXIS"
@@ -236,47 +235,46 @@ export default function Home() {
               </div>
             </div>
             <div>
-              <div className="text-xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-1">
+              <div className="text-xl font-bold tracking-tight text-slate-900 flex items-center gap-1">
                 Bexis
-                <span className="text-cyan-500 dark:text-cyan-400 font-normal text-sm sm:inline hidden">
+                <span className="text-cyan-600 font-normal text-sm sm:inline hidden">
                   — Beyond the résumé.
                 </span>
               </div>
             </div>
           </button>
 
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600 dark:text-slate-300">
+          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
             <button
               onClick={() => scrollToSection('jobs')}
-              className="hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors cursor-pointer"
+              className="hover:text-cyan-600 transition-colors cursor-pointer"
             >
               Find Jobs
             </button>
             <button
               onClick={() => scrollToSection('how-it-works')}
-              className="hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors cursor-pointer"
+              className="hover:text-cyan-600 transition-colors cursor-pointer"
             >
               How It Works
             </button>
             <button
               onClick={() => scrollToSection('why-bexis')}
-              className="hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors cursor-pointer"
+              className="hover:text-cyan-600 transition-colors cursor-pointer"
             >
               For Employers
             </button>
             <button
               onClick={() => scrollToSection('principles')}
-              className="hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors cursor-pointer"
+              className="hover:text-cyan-600 transition-colors cursor-pointer"
             >
               Resources
             </button>
           </nav>
 
           <div className="flex items-center gap-2.5">
-            <ThemeToggle />
             <button
               onClick={() => openWaitlist('candidate')}
-              className="px-4 py-2 text-sm font-bold text-slate-950 bg-cyan-400 hover:bg-cyan-300 rounded-xl shadow-lg shadow-cyan-500/20 transition-all hover:-translate-y-0.5 cursor-pointer"
+              className="px-5 py-2.5 text-sm font-bold text-white bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 rounded-xl shadow-lg shadow-cyan-500/25 transition-all hover:-translate-y-0.5 cursor-pointer"
             >
               Join Waitlist
             </button>
@@ -287,26 +285,26 @@ export default function Home() {
       {/* HERO SECTION */}
       <section className="relative z-10 pt-12 pb-20 lg:pt-20 lg:pb-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          {/* Left Column Text & CTAs */}
+          {/* Left Column */}
           <div className="lg:col-span-6 space-y-8">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-100 border border-cyan-200 text-cyan-800 text-xs font-semibold tracking-wide shadow-sm dark:bg-cyan-950/60 dark:border-cyan-800/50 dark:text-cyan-400">
-              <Sparkles className="size-3.5 text-cyan-700 animate-pulse dark:text-cyan-400" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-100 border border-cyan-200 text-cyan-800 text-xs font-semibold tracking-wide shadow-sm">
+              <Sparkles className="size-3.5 text-cyan-600 animate-pulse" />
               <span>AI-Powered Behavioral Intelligence</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15] text-slate-900 dark:text-white">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15] text-slate-900">
               See Beyond <br />
               <span className="bg-gradient-to-r from-cyan-500 via-teal-500 to-blue-600 bg-clip-text text-transparent">
                 the Résumé.
               </span>
             </h1>
 
-            <div className="space-y-3 text-slate-700 text-lg leading-relaxed max-w-xl dark:text-slate-300">
+            <div className="space-y-3 text-slate-600 text-lg leading-relaxed max-w-xl">
               <p>
                 BEXIS helps organizations understand candidates through experience, evidence,
                 behavioral intelligence and role alignment.
               </p>
-              <p className="text-sm sm:text-base text-cyan-700 dark:text-cyan-200/90 font-medium">
+              <p className="text-sm sm:text-base text-cyan-700 font-medium">
                 AI provides insight. Evidence provides context. Humans make decisions.
               </p>
             </div>
@@ -321,31 +319,31 @@ export default function Home() {
               </button>
               <button
                 onClick={() => openWaitlist('employer')}
-                className="px-6 py-3.5 text-base font-semibold text-slate-700 bg-white border border-slate-200 hover:border-slate-300 hover:bg-slate-50 dark:text-slate-200 dark:bg-slate-900/80 dark:border-slate-800 dark:hover:bg-slate-800 dark:hover:border-slate-700 rounded-xl transition-all hover:-translate-y-0.5 cursor-pointer"
+                className="px-6 py-3.5 text-base font-semibold text-slate-700 bg-white border border-slate-200 hover:border-slate-300 hover:bg-slate-50 rounded-xl transition-all hover:-translate-y-0.5 cursor-pointer"
               >
                 Build Your Hiring Process
               </button>
             </div>
           </div>
 
-          {/* Right Column: Hero Interactive Preview Card */}
+          {/* Right Column: Hero Preview Card */}
           <div className="lg:col-span-6">
-            <div className="relative rounded-2xl bg-[#fffdfd] border border-slate-200 p-5 sm:p-6 shadow-xl shadow-cyan-200/40 backdrop-blur-xl dark:bg-[#0f172a]/90 dark:border-slate-800 dark:shadow-cyan-950/50">
+            <div className="relative rounded-2xl bg-white border border-slate-200 p-5 sm:p-6 shadow-xl shadow-cyan-200/40 backdrop-blur-xl">
               {/* Card Header & Tabs */}
-              <div className="flex items-center justify-between border-b border-slate-200 pb-4 mb-5 dark:border-slate-800">
+              <div className="flex items-center justify-between border-b border-slate-200 pb-4 mb-5">
                 <div className="flex items-center gap-2">
                   <div className="size-3 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider dark:text-slate-400">
+                  <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
                     Candidate Intelligence
                   </span>
                 </div>
-                <div className="flex bg-slate-100 p-1 rounded-lg border border-slate-200 text-xs dark:bg-slate-950 dark:border-slate-800">
+                <div className="flex bg-slate-100 p-1 rounded-lg border border-slate-200 text-xs">
                   <button
                     onClick={() => setActiveHeroTab('intelligence')}
                     className={`px-3 py-1 rounded-md transition-all font-medium cursor-pointer ${
                       activeHeroTab === 'intelligence'
                         ? 'bg-cyan-500 text-white shadow-sm'
-                        : 'text-slate-400 hover:text-white'
+                        : 'text-slate-500 hover:text-slate-700'
                     }`}
                   >
                     Candidate Intelligence
@@ -355,7 +353,7 @@ export default function Home() {
                     className={`px-3 py-1 rounded-md transition-all font-medium cursor-pointer ${
                       activeHeroTab === 'ai'
                         ? 'bg-cyan-500 text-white shadow-sm'
-                        : 'text-slate-400 hover:text-white'
+                        : 'text-slate-500 hover:text-slate-700'
                     }`}
                   >
                     AI Analysis
@@ -364,18 +362,18 @@ export default function Home() {
               </div>
 
               {/* Candidate Info Badge */}
-              <div className="flex items-center justify-between bg-slate-50 border border-slate-200 rounded-xl p-4 mb-5 dark:bg-slate-900/70 dark:border-slate-800">
+              <div className="flex items-center justify-between bg-slate-50 border border-slate-200 rounded-xl p-4 mb-5">
                 <div className="flex items-center gap-3">
-                  <div className="size-11 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-400 text-slate-950 font-bold text-lg flex items-center justify-center shadow-md">
+                  <div className="size-11 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-400 text-white font-bold text-lg flex items-center justify-center shadow-md">
                     JD
                   </div>
                   <div>
-                    <h4 className="text-base font-bold text-slate-900 leading-tight dark:text-white">Jane Doe</h4>
-                    <p className="text-xs text-slate-500 mt-0.5 dark:text-slate-400">Senior Product Manager</p>
+                    <h4 className="text-base font-bold text-slate-900 leading-tight">Jane Doe</h4>
+                    <p className="text-xs text-slate-500 mt-0.5">Senior Product Manager</p>
                   </div>
                 </div>
-                <div className="px-3 py-1 rounded-full bg-emerald-100 border border-emerald-200 text-emerald-700 text-xs font-semibold flex items-center gap-1.5 dark:bg-emerald-950/80 dark:border-emerald-800/80 dark:text-emerald-400">
-                  <span className="size-1.5 rounded-full bg-emerald-400" />
+                <div className="px-3 py-1 rounded-full bg-emerald-100 border border-emerald-200 text-emerald-700 text-xs font-semibold flex items-center gap-1.5">
+                  <span className="size-1.5 rounded-full bg-emerald-500" />
                   <span>Strong Match</span>
                 </div>
               </div>
@@ -384,10 +382,10 @@ export default function Home() {
               <div className="space-y-3.5 mb-6">
                 <div>
                   <div className="flex justify-between text-xs font-semibold mb-1.5">
-                    <span className="text-slate-300">Ownership</span>
-                    <span className="text-cyan-400">90%</span>
+                    <span className="text-slate-600">Ownership</span>
+                    <span className="text-cyan-600">90%</span>
                   </div>
-                  <div className="h-2 rounded-full bg-slate-950 overflow-hidden">
+                  <div className="h-2 rounded-full bg-slate-200 overflow-hidden">
                     <div
                       className="h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full transition-all duration-1000"
                       style={{ width: '90%' }}
@@ -397,10 +395,10 @@ export default function Home() {
 
                 <div>
                   <div className="flex justify-between text-xs font-semibold mb-1.5">
-                    <span className="text-slate-300">Collaboration</span>
-                    <span className="text-cyan-400">85%</span>
+                    <span className="text-slate-600">Collaboration</span>
+                    <span className="text-cyan-600">85%</span>
                   </div>
-                  <div className="h-2 rounded-full bg-slate-950 overflow-hidden">
+                  <div className="h-2 rounded-full bg-slate-200 overflow-hidden">
                     <div
                       className="h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full transition-all duration-1000"
                       style={{ width: '85%' }}
@@ -410,10 +408,10 @@ export default function Home() {
 
                 <div>
                   <div className="flex justify-between text-xs font-semibold mb-1.5">
-                    <span className="text-slate-300">Problem Solving</span>
-                    <span className="text-cyan-400">88%</span>
+                    <span className="text-slate-600">Problem Solving</span>
+                    <span className="text-cyan-600">88%</span>
                   </div>
-                  <div className="h-2 rounded-full bg-slate-950 overflow-hidden">
+                  <div className="h-2 rounded-full bg-slate-200 overflow-hidden">
                     <div
                       className="h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full transition-all duration-1000"
                       style={{ width: '88%' }}
@@ -423,47 +421,47 @@ export default function Home() {
               </div>
 
               {/* Process Tracker */}
-              <div className="grid grid-cols-5 gap-1.5 text-center mb-6 py-3 px-2 rounded-xl bg-slate-100 border border-slate-200 dark:bg-slate-950/60 dark:border-slate-800/80">
+              <div className="grid grid-cols-5 gap-1.5 text-center mb-6 py-3 px-2 rounded-xl bg-slate-100 border border-slate-200">
                 <div className="flex flex-col items-center">
-                  <div className="size-6 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-xs font-bold flex items-center justify-center mb-1">
+                  <div className="size-6 rounded-full bg-emerald-100 text-emerald-600 border border-emerald-200 text-xs font-bold flex items-center justify-center mb-1">
                     ✓
                   </div>
-                  <span className="text-[10px] font-medium text-slate-600 dark:text-slate-300">Apply</span>
+                  <span className="text-[10px] font-medium text-slate-600">Apply</span>
                 </div>
                 <div className="flex flex-col items-center">
-                  <div className="size-6 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-xs font-bold flex items-center justify-center mb-1">
+                  <div className="size-6 rounded-full bg-emerald-100 text-emerald-600 border border-emerald-200 text-xs font-bold flex items-center justify-center mb-1">
                     ✓
                   </div>
-                  <span className="text-[10px] font-medium text-slate-300">CV Review</span>
+                  <span className="text-[10px] font-medium text-slate-600">CV Review</span>
                 </div>
                 <div className="flex flex-col items-center">
-                  <div className="size-6 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-xs font-bold flex items-center justify-center mb-1">
+                  <div className="size-6 rounded-full bg-emerald-100 text-emerald-600 border border-emerald-200 text-xs font-bold flex items-center justify-center mb-1">
                     ✓
                   </div>
-                  <span className="text-[10px] font-medium text-slate-300">AI Interview</span>
+                  <span className="text-[10px] font-medium text-slate-600">AI Interview</span>
                 </div>
                 <div className="flex flex-col items-center">
-                  <div className="size-6 rounded-full bg-cyan-500/20 text-cyan-400 border border-cyan-500/40 text-xs font-bold flex items-center justify-center mb-1">
+                  <div className="size-6 rounded-full bg-cyan-100 text-cyan-600 border border-cyan-200 text-xs font-bold flex items-center justify-center mb-1">
                     4
                   </div>
-                  <span className="text-[10px] font-medium text-cyan-300 font-semibold">
+                  <span className="text-[10px] font-medium text-cyan-600 font-semibold">
                     Evidence
                   </span>
                 </div>
                 <div className="flex flex-col items-center">
-                  <div className="size-6 rounded-full bg-slate-800 text-slate-400 text-xs font-bold flex items-center justify-center mb-1">
+                  <div className="size-6 rounded-full bg-slate-200 text-slate-500 text-xs font-bold flex items-center justify-center mb-1">
                     5
                   </div>
-                  <span className="text-[10px] font-medium text-slate-400">Human Decision</span>
+                  <span className="text-[10px] font-medium text-slate-400">Decision</span>
                 </div>
               </div>
 
               {/* AI Insight Box */}
-              <div className="rounded-xl bg-gradient-to-r from-amber-950/30 to-slate-900 border border-amber-500/30 p-3.5 text-xs">
-                <div className="font-semibold text-amber-300 mb-1 flex items-center gap-1.5">
+              <div className="rounded-xl bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 p-3.5 text-xs">
+                <div className="font-semibold text-amber-700 mb-1 flex items-center gap-1.5">
                   <span>AI Insight</span>
                 </div>
-                <p className="text-slate-300 leading-relaxed">
+                <p className="text-slate-600 leading-relaxed">
                   Strong evidence of ownership and problem-solving. Leadership experience requires
                   human review.
                 </p>
@@ -474,7 +472,7 @@ export default function Home() {
       </section>
 
       {/* CORE PRINCIPLES */}
-      <section id="principles" className="relative z-10 border-y border-slate-800/80 bg-slate-900/60 py-14 backdrop-blur-sm">
+      <section id="principles" className="relative z-10 border-y border-slate-200 bg-slate-900 py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto mb-10 max-w-2xl space-y-2 text-center">
             <div className="text-xs font-bold uppercase tracking-widest text-cyan-400">
@@ -492,16 +490,16 @@ export default function Home() {
             ].map((principle) => {
               const Icon = principle.icon;
               return (
-              <div
-                key={principle.title}
-                className="space-y-3 rounded-2xl border border-slate-800 bg-[#0f172a]/60 p-5 transition-all hover:-translate-y-1 hover:border-slate-700"
-              >
-                <div className="flex size-10 items-center justify-center rounded-xl border border-slate-800 bg-slate-900">
-                  <Icon className={`size-5 ${principle.color}`} />
+                <div
+                  key={principle.title}
+                  className="space-y-3 rounded-2xl border border-slate-700/60 bg-slate-800/60 p-5 transition-all hover:-translate-y-1 hover:border-slate-600"
+                >
+                  <div className="flex size-10 items-center justify-center rounded-xl border border-slate-700 bg-slate-800">
+                    <Icon className={`size-5 ${principle.color}`} />
+                  </div>
+                  <h3 className="text-base font-bold text-white">{principle.title}</h3>
+                  <p className="text-xs leading-relaxed text-slate-400">{principle.desc}</p>
                 </div>
-                <h3 className="text-base font-bold text-white">{principle.title}</h3>
-                <p className="text-xs leading-relaxed text-slate-400">{principle.desc}</p>
-              </div>
               );
             })}
           </div>
@@ -511,18 +509,17 @@ export default function Home() {
       {/* OPEN OPPORTUNITIES (FIND JOBS) SECTION */}
       <section id="jobs" className="relative z-10 py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight dark:text-white">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
             Open Opportunities
           </h2>
-          <p className="text-slate-600 text-base sm:text-lg dark:text-slate-400">
+          <p className="text-slate-500 text-base sm:text-lg">
             Find roles that match your experience and career goals.
           </p>
         </div>
 
         {/* Search & Filter Bar */}
-        <div className="bg-[#fffdfd] border border-slate-200 rounded-2xl p-4 sm:p-5 shadow-lg mb-8 space-y-4 dark:bg-[#0f172a] dark:border-slate-800">
+        <div className="bg-white border border-slate-200 rounded-2xl p-4 sm:p-5 shadow-lg mb-8 space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-            {/* Search Input */}
             <div className="relative">
               <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-slate-400" />
               <input
@@ -530,11 +527,10 @@ export default function Home() {
                 placeholder="Job title, keyword, or skill..."
                 value={searchKeyword}
                 onChange={(e) => setSearchKeyword(e.target.value)}
-                className="w-full bg-white border border-slate-200 rounded-xl pl-10 pr-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-500 focus:outline-none focus:border-cyan-500/60 transition-all dark:bg-slate-950 dark:border-slate-800 dark:text-slate-100"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-10 pr-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-cyan-500/60 focus:ring-2 focus:ring-cyan-500/10 transition-all"
               />
             </div>
 
-            {/* Location Input */}
             <div className="relative">
               <MapPin className="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-slate-400" />
               <input
@@ -542,16 +538,15 @@ export default function Home() {
                 placeholder="Location"
                 value={searchLocation}
                 onChange={(e) => setSearchLocation(e.target.value)}
-                className="w-full bg-white border border-slate-200 rounded-xl pl-10 pr-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-500 focus:outline-none focus:border-cyan-500/60 transition-all dark:bg-slate-950 dark:border-slate-800 dark:text-slate-100"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-10 pr-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-cyan-500/60 focus:ring-2 focus:ring-cyan-500/10 transition-all"
               />
             </div>
 
-            {/* Level Select */}
             <div className="relative">
               <select
                 value={selectedLevel}
                 onChange={(e) => setSelectedLevel(e.target.value)}
-                className="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 appearance-none focus:outline-none focus:border-cyan-500/60 transition-all cursor-pointer dark:bg-slate-950 dark:border-slate-800 dark:text-slate-100"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 appearance-none focus:outline-none focus:border-cyan-500/60 focus:ring-2 focus:ring-cyan-500/10 transition-all cursor-pointer"
               >
                 <option value="All Levels">All Levels</option>
                 <option value="Internship">Internship</option>
@@ -564,13 +559,12 @@ export default function Home() {
               <ChevronDown className="absolute right-3.5 top-1/2 -translate-y-1/2 size-4 text-slate-400 pointer-events-none" />
             </div>
 
-            {/* Type Select & Search Button */}
             <div className="flex gap-2">
               <div className="relative flex-1">
                 <select
                   value={selectedType}
                   onChange={(e) => setSelectedType(e.target.value)}
-                  className="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 appearance-none focus:outline-none focus:border-cyan-500/60 transition-all cursor-pointer dark:bg-slate-950 dark:border-slate-800 dark:text-slate-100"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 appearance-none focus:outline-none focus:border-cyan-500/60 focus:ring-2 focus:ring-cyan-500/10 transition-all cursor-pointer"
                 >
                   <option value="All Types">All Types</option>
                   <option value="Full-time">Full-time</option>
@@ -583,7 +577,7 @@ export default function Home() {
               </div>
               <button
                 onClick={() => {}}
-                className="px-5 py-2.5 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-xl text-sm transition-all cursor-pointer shrink-0"
+                className="px-5 py-2.5 bg-cyan-500 hover:bg-cyan-400 text-white font-bold rounded-xl text-sm transition-all cursor-pointer shrink-0 shadow-sm"
               >
                 Search
               </button>
@@ -593,7 +587,7 @@ export default function Home() {
 
         {/* Header Summary & Category Tabs */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
-          <p className="text-sm font-semibold text-slate-400">
+          <p className="text-sm font-semibold text-slate-500">
             {filteredJobs.length} {filteredJobs.length === 1 ? 'opportunity' : 'opportunities'}{' '}
             found
           </p>
@@ -605,8 +599,8 @@ export default function Home() {
                 onClick={() => setSelectedIndustry(ind)}
                 className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
                   selectedIndustry === ind
-                    ? 'bg-cyan-500 text-slate-950 shadow-md shadow-cyan-500/20'
-                    : 'bg-slate-900 border border-slate-800 text-slate-300 hover:border-slate-700 hover:text-white'
+                    ? 'bg-cyan-500 text-white shadow-md shadow-cyan-500/20'
+                    : 'bg-white border border-slate-200 text-slate-600 hover:border-slate-300 hover:text-slate-900'
                 }`}
               >
                 {ind}
@@ -621,7 +615,7 @@ export default function Home() {
             <div
               key={job.id}
               onClick={() => openWaitlist('candidate')}
-              className="bg-[#0f172a]/80 hover:bg-[#131b2e] border border-slate-800 hover:border-cyan-500/40 rounded-2xl p-5 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-950/30 flex flex-col justify-between group cursor-pointer"
+              className="bg-white hover:bg-slate-50 border border-slate-200 hover:border-cyan-300 rounded-2xl p-5 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-100/50 flex flex-col justify-between group cursor-pointer"
             >
               <div>
                 <div className="flex items-start justify-between gap-3 mb-4">
@@ -632,49 +626,49 @@ export default function Home() {
                       {job.logo}
                     </div>
                     <div>
-                      <h3 className="text-base font-bold text-white group-hover:text-cyan-400 transition-colors">
+                      <h3 className="text-base font-bold text-slate-900 group-hover:text-cyan-600 transition-colors">
                         {job.title}
                       </h3>
-                      <p className="text-xs text-slate-400 font-medium">{job.company}</p>
+                      <p className="text-xs text-slate-500 font-medium">{job.company}</p>
                     </div>
                   </div>
                   {job.isRemote && (
-                    <span className="px-2.5 py-1 rounded-md bg-cyan-950/80 border border-cyan-800/80 text-cyan-400 text-[11px] font-semibold">
+                    <span className="px-2.5 py-1 rounded-md bg-cyan-50 border border-cyan-200 text-cyan-700 text-[11px] font-semibold">
                       Remote
                     </span>
                   )}
                 </div>
 
-                <div className="flex items-center gap-2 text-xs text-slate-400 mb-4 flex-wrap">
+                <div className="flex items-center gap-2 text-xs text-slate-500 mb-4 flex-wrap">
                   <span className="flex items-center gap-1">
-                    <MapPin className="size-3 text-slate-500" />
+                    <MapPin className="size-3 text-slate-400" />
                     {job.location}
                   </span>
                   <span>·</span>
                   <span>{job.type}</span>
                   <span>·</span>
-                  <span className="text-slate-300 font-medium">{job.level}</span>
+                  <span className="text-slate-700 font-medium">{job.level}</span>
                 </div>
 
                 <div className="flex flex-wrap gap-1.5 mb-6">
                   {job.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 text-[11px] font-medium"
+                      className="px-2.5 py-1 rounded-lg bg-slate-100 border border-slate-200 text-slate-600 text-[11px] font-medium"
                     >
                       {tag}
                     </span>
                   ))}
                   {job.extraTagsCount > 0 && (
-                    <span className="px-2 py-1 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 text-[11px] font-medium">
+                    <span className="px-2 py-1 rounded-lg bg-slate-100 border border-slate-200 text-slate-400 text-[11px] font-medium">
                       +{job.extraTagsCount}
                     </span>
                   )}
                 </div>
               </div>
 
-              <div className="flex items-center justify-between pt-4 border-t border-slate-800/80 text-xs">
-                <span className="text-slate-500 font-medium flex items-center gap-1">
+              <div className="flex items-center justify-between pt-4 border-t border-slate-100 text-xs">
+                <span className="text-slate-400 font-medium flex items-center gap-1">
                   <Clock className="size-3" />
                   {job.postedAgo}
                 </span>
@@ -683,7 +677,7 @@ export default function Home() {
                     e.stopPropagation();
                     openWaitlist('candidate');
                   }}
-                  className="font-semibold text-cyan-400 group-hover:text-cyan-300 flex items-center gap-1 transition-colors cursor-pointer"
+                  className="font-semibold text-cyan-600 group-hover:text-cyan-500 flex items-center gap-1 transition-colors cursor-pointer"
                 >
                   <span>Join Waitlist</span>
                   <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
@@ -694,8 +688,8 @@ export default function Home() {
         </div>
 
         {filteredJobs.length === 0 && (
-          <div className="text-center py-16 bg-slate-900/40 border border-slate-800 rounded-2xl">
-            <p className="text-slate-400 text-base">
+          <div className="text-center py-16 bg-white border border-slate-200 rounded-2xl">
+            <p className="text-slate-500 text-base">
               No opportunities found matching your criteria.
             </p>
             <button
@@ -706,7 +700,7 @@ export default function Home() {
                 setSelectedType('All Types');
                 setSelectedIndustry('All Industries');
               }}
-              className="mt-4 px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-sm font-semibold rounded-xl transition-all cursor-pointer"
+              className="mt-4 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-semibold rounded-xl transition-all cursor-pointer"
             >
               Reset Filters
             </button>
@@ -715,10 +709,7 @@ export default function Home() {
       </section>
 
       {/* HOW IT WORKS SECTION */}
-      <section
-        id="how-it-works"
-        className="relative z-10 py-20 bg-slate-950/80 border-t border-slate-800/80"
-      >
+      <section id="how-it-works" className="relative z-10 py-20 bg-slate-900 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
             <div className="text-xs font-bold uppercase tracking-widest text-cyan-400">
@@ -735,8 +726,8 @@ export default function Home() {
 
           <div className="grid lg:grid-cols-2 gap-8">
             {/* For Candidates */}
-            <div className="bg-[#0f172a] border border-slate-800 rounded-2xl p-6 sm:p-8 flex flex-col justify-between space-y-8 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/5 rounded-full blur-2xl pointer-events-none" />
+            <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6 sm:p-8 flex flex-col justify-between space-y-8 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none" />
 
               <div className="space-y-6">
                 <div>
@@ -789,7 +780,7 @@ export default function Home() {
 
               <button
                 onClick={() => openWaitlist('candidate')}
-                className="w-full py-3 bg-slate-900 hover:bg-slate-800 border border-slate-700 text-cyan-400 font-semibold text-sm rounded-xl transition-all cursor-pointer text-center"
+                className="w-full py-3 bg-slate-700 hover:bg-slate-600 border border-slate-600 text-cyan-400 font-semibold text-sm rounded-xl transition-all cursor-pointer text-center"
               >
                 Join Candidate Waitlist
               </button>
@@ -798,9 +789,9 @@ export default function Home() {
             {/* For Employers */}
             <div
               id="employers"
-              className="bg-[#0f172a] border border-slate-800 rounded-2xl p-6 sm:p-8 flex flex-col justify-between space-y-8 relative overflow-hidden"
+              className="bg-slate-800 border border-slate-700 rounded-2xl p-6 sm:p-8 flex flex-col justify-between space-y-8 relative overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl pointer-events-none" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
 
               <div className="space-y-6">
                 <div>
@@ -865,21 +856,18 @@ export default function Home() {
       </section>
 
       {/* WHY BEXIS SECTION */}
-      <section
-        id="why-bexis"
-        className="relative z-10 py-20 bg-slate-950/90 border-t border-slate-800/80"
-      >
+      <section id="why-bexis" className="relative z-10 py-20 bg-slate-50 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             {/* Left Info Column */}
             <div className="lg:col-span-5 space-y-6">
-              <div className="text-xs font-bold uppercase tracking-widest text-cyan-400">
+              <div className="text-xs font-bold uppercase tracking-widest text-cyan-600">
                 Why BEXIS
               </div>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
                 Hiring is more than a résumé match.
               </h2>
-              <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
+              <p className="text-slate-500 text-sm sm:text-base leading-relaxed">
                 BEXIS combines CV analysis, work evidence, behavioral assessment, and role
                 alignment — giving hiring teams structured evidence to support better decisions.
               </p>
@@ -892,8 +880,8 @@ export default function Home() {
                   'Role alignment provides relevant context.',
                   'Humans make the final decision.',
                 ].map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-3 text-sm text-slate-300">
-                    <Check className="size-4 text-cyan-400 shrink-0" />
+                  <div key={idx} className="flex items-center gap-3 text-sm text-slate-700">
+                    <Check className="size-4 text-cyan-500 shrink-0" />
                     <span>{item}</span>
                   </div>
                 ))}
@@ -902,42 +890,42 @@ export default function Home() {
 
             {/* Right Cards Grid */}
             <div className="lg:col-span-7 grid sm:grid-cols-2 gap-4">
-              <div className="bg-[#0f172a] border border-slate-800 rounded-2xl p-6 space-y-3 hover:border-cyan-500/30 transition-colors">
-                <div className="size-10 rounded-xl bg-cyan-950/60 border border-cyan-800/50 flex items-center justify-center text-cyan-400">
+              <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-3 hover:border-cyan-300 hover:shadow-lg transition-all">
+                <div className="size-10 rounded-xl bg-cyan-100 border border-cyan-200 flex items-center justify-center text-cyan-600">
                   <ShieldCheck className="size-5" />
                 </div>
-                <h4 className="text-lg font-bold text-white">Explainable AI</h4>
-                <p className="text-xs text-slate-400 leading-relaxed">
+                <h4 className="text-lg font-bold text-slate-900">Explainable AI</h4>
+                <p className="text-xs text-slate-500 leading-relaxed">
                   Every insight comes with evidence — no black-box scores.
                 </p>
               </div>
 
-              <div className="bg-[#0f172a] border border-slate-800 rounded-2xl p-6 space-y-3 hover:border-cyan-500/30 transition-colors">
-                <div className="size-10 rounded-xl bg-blue-950/60 border border-blue-800/50 flex items-center justify-center text-blue-400">
+              <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-3 hover:border-cyan-300 hover:shadow-lg transition-all">
+                <div className="size-10 rounded-xl bg-blue-100 border border-blue-200 flex items-center justify-center text-blue-600">
                   <UserCheck className="size-5" />
                 </div>
-                <h4 className="text-lg font-bold text-white">Human-First</h4>
-                <p className="text-xs text-slate-400 leading-relaxed">
+                <h4 className="text-lg font-bold text-slate-900">Human-First</h4>
+                <p className="text-xs text-slate-500 leading-relaxed">
                   AI supports decisions. Humans always make the final call.
                 </p>
               </div>
 
-              <div className="bg-[#0f172a] border border-slate-800 rounded-2xl p-6 space-y-3 hover:border-cyan-500/30 transition-colors">
-                <div className="size-10 rounded-xl bg-purple-950/60 border border-purple-800/50 flex items-center justify-center text-purple-400">
+              <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-3 hover:border-cyan-300 hover:shadow-lg transition-all">
+                <div className="size-10 rounded-xl bg-purple-100 border border-purple-200 flex items-center justify-center text-purple-600">
                   <BarChart2 className="size-5" />
                 </div>
-                <h4 className="text-lg font-bold text-white">Behavioral Signals</h4>
-                <p className="text-xs text-slate-400 leading-relaxed">
+                <h4 className="text-lg font-bold text-slate-900">Behavioral Signals</h4>
+                <p className="text-xs text-slate-500 leading-relaxed">
                   Structured evidence from assessment responses, not guesses.
                 </p>
               </div>
 
-              <div className="bg-[#0f172a] border border-slate-800 rounded-2xl p-6 space-y-3 hover:border-cyan-500/30 transition-colors">
-                <div className="size-10 rounded-xl bg-emerald-950/60 border border-emerald-800/50 flex items-center justify-center text-emerald-400">
+              <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-3 hover:border-cyan-300 hover:shadow-lg transition-all">
+                <div className="size-10 rounded-xl bg-emerald-100 border border-emerald-200 flex items-center justify-center text-emerald-600">
                   <Layers className="size-5" />
                 </div>
-                <h4 className="text-lg font-bold text-white">Fair & Transparent</h4>
-                <p className="text-xs text-slate-400 leading-relaxed">
+                <h4 className="text-lg font-bold text-slate-900">Fair & Transparent</h4>
+                <p className="text-xs text-slate-500 leading-relaxed">
                   No protected-class inferences. Evidence-based only.
                 </p>
               </div>
@@ -948,14 +936,14 @@ export default function Home() {
 
       {/* FINAL CTA BANNER */}
       <section className="relative z-10 py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-3xl bg-gradient-to-r from-cyan-950/80 via-slate-900 to-blue-950/80 border border-cyan-500/30 p-8 sm:p-12 text-center space-y-6 overflow-hidden shadow-2xl">
-          <div className="absolute top-0 right-1/2 translate-x-1/2 w-[500px] h-[300px] bg-cyan-500/10 rounded-full blur-[100px] pointer-events-none" />
+        <div className="relative rounded-3xl bg-gradient-to-r from-cyan-600 via-cyan-500 to-blue-600 p-8 sm:p-12 text-center space-y-6 overflow-hidden shadow-2xl shadow-cyan-500/30">
+          <div className="absolute top-0 right-1/2 translate-x-1/2 w-[500px] h-[300px] bg-white/10 rounded-full blur-[100px] pointer-events-none" />
 
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight relative z-10">
             Ready to hire beyond the résumé?
           </h2>
 
-          <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed relative z-10">
+          <p className="text-white/80 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed relative z-10">
             Set up your company account, define your hiring needs, and let BEXIS build a structured,
             evidence-based hiring process in minutes.
           </p>
@@ -963,7 +951,7 @@ export default function Home() {
           <div className="pt-2 relative z-10">
             <button
               onClick={() => openWaitlist('employer')}
-              className="inline-flex items-center gap-2 px-8 py-4 text-base font-bold text-white bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 rounded-xl shadow-xl shadow-cyan-500/30 transition-all hover:-translate-y-0.5 cursor-pointer"
+              className="inline-flex items-center gap-2 px-8 py-4 text-base font-bold text-cyan-600 bg-white hover:bg-slate-50 rounded-xl shadow-xl transition-all hover:-translate-y-0.5 cursor-pointer"
             >
               <span>Join the Waitlist</span>
               <ArrowRight className="size-5" />
@@ -973,14 +961,14 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer className="relative z-10 border-t border-slate-800 bg-[#0B0F17] py-12">
+      <footer className="relative z-10 border-t border-slate-200 bg-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="flex items-center gap-3 cursor-pointer"
           >
             <div className="size-8 flex items-center justify-center rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600 p-[1px]">
-              <div className="w-full h-full bg-[#0B0F17] rounded-[7px] flex items-center justify-center">
+              <div className="w-full h-full bg-white rounded-[7px] flex items-center justify-center">
                 <Image
                   src="/BEXIS LOGO.PNG"
                   alt="BEXIS"
@@ -990,7 +978,7 @@ export default function Home() {
                 />
               </div>
             </div>
-            <span className="text-sm font-bold text-white">Bexis — Beyond the résumé.</span>
+            <span className="text-sm font-bold text-slate-900">Bexis — Beyond the résumé.</span>
           </button>
 
           <p className="text-xs text-slate-400">
