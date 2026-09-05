@@ -15,14 +15,14 @@ import {
   Eye,
 } from 'lucide-react';
 
-function FAQItem({ question, answer }: { question: string; answer: string }) {
+function FAQItem({ question, answer, isLast }: { question: string; answer: string; isLast?: boolean }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="relative gap-x-4 px-6 flex items-start border-b border-slate-200">
-      <button onClick={() => setOpen(!open)} className="size-6 flex items-center justify-center cursor-pointer mt-5 shrink-0">
-        <span className={`text-lg font-light text-slate-400 group-hover:text-[#472AF8] transition-transform duration-200 ${open ? 'rotate-45' : ''}`}>+</span>
+    <div className={`relative gap-x-4 px-6 flex items-center ${isLast ? 'border-b-0' : 'border-b'} border-slate-200`}>
+      <button onClick={() => setOpen(!open)} className="size-6 flex items-center justify-center cursor-pointer shrink-0">
+        <span className={`text-base font-light text-slate-400 transition-transform duration-200 ${open ? 'rotate-45' : ''}`}>+</span>
       </button>
-      <div className="space-y-3 py-5 flex-1">
+      <div className="space-y-3 py-6 flex-1">
         <p onClick={() => setOpen(!open)} className="text-sm font-semibold text-navy-900 leading-relaxed cursor-pointer" style={{ fontFamily: 'var(--font-display)' }}>{question}</p>
         <div className={`overflow-hidden transition-all duration-200 ${open ? 'max-h-40' : 'max-h-0'}`}>
           <p className="text-sm text-slate-500 leading-relaxed">{answer}</p>
@@ -459,7 +459,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2">
+          <div className="grid lg:grid-cols-2 place-content-center">
             {[
               {
                 q: 'What is BEXIS?',
@@ -479,7 +479,7 @@ export default function Home() {
               },
               {
                 q: 'Who is BEXIS for?',
-                a: 'BEXIS is designed for hiring teams, recruiters, and HR leaders who want to make more informed, evidence-based hiring decisions.',
+                a: 'BEXIS is designed for hiring teams, recruiters,, and HR leaders who want to make more informed, evidence-based hiring decisions.',
               },
               {
                 q: 'When will BEXIS be available?',
@@ -493,8 +493,8 @@ export default function Home() {
                 q: 'Is candidate data secure?',
                 a: 'Yes. BEXIS follows strict data security practices. Candidate information is handled with care and only shared with authorized hiring team members.',
               },
-            ].map((item, i) => (
-              <FAQItem key={i} question={item.q} answer={item.a} />
+            ].map((item, i, arr) => (
+              <FAQItem key={i} question={item.q} answer={item.a} isLast={i === arr.length - 1} />
             ))}
           </div>
         </div>
