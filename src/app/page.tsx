@@ -85,171 +85,186 @@ export default function Home() {
       {/* PRODUCT VISUAL — Candidate Evidence Profile */}
       <section className="pb-0 overflow-hidden">
         <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="rounded-t-2xl bg-white border border-b-0 border-slate-200 shadow-2xl shadow-slate-200/60 overflow-hidden" style={{ height: '580px' }}>
-            {/* Top bar */}
-            <div className="h-11 border-b border-slate-200 flex items-center px-4 gap-4 bg-slate-50/80">
-              <div className="flex gap-1.5">
-                <div className="w-3 h-3 rounded-full bg-slate-300" />
-                <div className="w-3 h-3 rounded-full bg-slate-300" />
-                <div className="w-3 h-3 rounded-full bg-slate-300" />
+          <div className="rounded-t-2xl bg-white border border-b-0 border-slate-200 shadow-2xl shadow-slate-200/60 overflow-hidden flex" style={{ height: '580px' }}>
+            {/* Purple sidebar */}
+            <div className="w-14 bg-[#472AF8] flex flex-col items-center py-3 gap-4 shrink-0 hidden sm:flex">
+              <Image src="/bexis-icon.png" alt="BEXIS" width={22} height={22} className="shrink-0 brightness-0 invert" />
+              <div className="w-6 h-px bg-white/20" />
+              <div className="space-y-3">
+                {[
+                  { icon: FileText, active: false },
+                  { icon: Search, active: false },
+                  { icon: Brain, active: true },
+                  { icon: BarChart2, active: false },
+                  { icon: UserCheck, active: false },
+                ].map((item, i) => (
+                  <div key={i} className={`size-8 rounded-lg flex items-center justify-center ${item.active ? 'bg-white/20' : 'hover:bg-white/10'} transition-colors`}>
+                    <item.icon className="size-4 text-white/80" />
+                  </div>
+                ))}
               </div>
-              <div className="flex-1 max-w-md mx-auto">
-                <div className="h-6 bg-white border border-slate-200 rounded-md flex items-center px-3 text-[10px] text-slate-400">
-                  app.bexis.com/candidate/jane-doe
+              <div className="mt-auto space-y-3">
+                <div className="w-6 h-px bg-white/20" />
+                <div className="size-8 rounded-full bg-white/20 flex items-center justify-center">
+                  <span className="text-[9px] font-bold text-white">SC</span>
                 </div>
               </div>
             </div>
 
-            {/* Main content — Two-column: Summary + Evidence Journey */}
-            <div className="flex h-[calc(580px-44px)]">
-              {/* Left: Candidate summary */}
-              <div className="w-64 border-r border-slate-200 p-5 space-y-5 hidden md:flex flex-col shrink-0">
-                <div className="flex items-center gap-3">
-                  <div className="size-11 rounded-full bg-[#472AF8] text-white flex items-center justify-center text-sm font-bold">JD</div>
-                  <div>
-                    <div className="text-sm font-bold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>Jane Doe</div>
-                    <div className="text-[11px] text-slate-500">Senior Product Manager</div>
+            {/* Browser chrome */}
+            <div className="flex-1 flex flex-col min-w-0">
+              <div className="h-11 border-b border-slate-200 flex items-center px-4 gap-4 bg-slate-50/80 shrink-0">
+                <div className="flex gap-1.5">
+                  <div className="w-3 h-3 rounded-full bg-slate-300" />
+                  <div className="w-3 h-3 rounded-full bg-slate-300" />
+                  <div className="w-3 h-3 rounded-full bg-slate-300" />
+                </div>
+                <div className="flex-1 max-w-md mx-auto">
+                  <div className="h-6 bg-white border border-slate-200 rounded-md flex items-center px-3 text-[10px] text-slate-400">
+                    app.bexis.com/candidate/jane-doe
                   </div>
-                </div>
-
-                <div className="space-y-3">
-                  <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Experience</div>
-                  <div className="text-xs text-slate-600 leading-relaxed">8 years in product leadership across B2B SaaS. Led teams of 5–12. Shipped 3 products from 0→1 and 1→10.</div>
-                </div>
-
-                <div className="space-y-2">
-                  <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Evidence sources</div>
-                  <div className="flex flex-wrap gap-1.5">
-                    {['GitHub', 'Portfolio', 'Case studies', 'Certifications'].map((s) => (
-                      <span key={s} className="px-2 py-0.5 rounded-md bg-slate-100 text-[10px] font-medium text-slate-600">{s}</span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="pt-2 mt-auto border-t border-slate-100">
-                  <div className="text-[10px] text-slate-400 leading-relaxed">Candidate assessment for <span className="font-semibold text-slate-600">Senior Product Manager</span> at TechNova</div>
                 </div>
               </div>
 
-              {/* Right: Evidence Journey */}
-              <div className="flex-1 p-5 overflow-hidden">
-                <div className="flex items-center justify-between mb-4">
-                  <div>
-                    <div className="text-sm font-bold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>Candidate Evidence Profile</div>
-                    <div className="text-[10px] text-slate-500">Structured evidence across five dimensions</div>
+              {/* Main content — Candidate summary + Evidence Journey */}
+              <div className="flex flex-1 min-h-0">
+                {/* Left: Candidate summary */}
+                <div className="w-60 border-r border-slate-200 p-5 space-y-5 hidden md:flex flex-col shrink-0">
+                  <div className="flex items-center gap-3">
+                    <div className="size-11 rounded-full bg-[#472AF8]/10 text-[#472AF8] flex items-center justify-center text-sm font-bold">JD</div>
+                    <div>
+                      <div className="text-sm font-bold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>Jane Doe</div>
+                      <div className="text-[11px] text-slate-500">Senior Product Manager</div>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#08C4F2]/10 text-[#08C4F2] text-[10px] font-semibold">
-                    <Eye className="size-3" />
-                    Full profile
+
+                  <div className="space-y-3">
+                    <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Experience</div>
+                    <div className="text-xs text-slate-600 leading-relaxed">8 years in product leadership across B2B SaaS. Led teams of 5–12. Shipped 3 products from 0→1 and 1→10.</div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Evidence sources</div>
+                    <div className="flex flex-wrap gap-1.5">
+                      {['GitHub', 'Portfolio', 'Case studies', 'Certifications'].map((s) => (
+                        <span key={s} className="px-2 py-0.5 rounded-md bg-slate-100 text-[10px] font-medium text-slate-600">{s}</span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="pt-2 mt-auto border-t border-slate-100">
+                    <div className="text-[10px] text-slate-400 leading-relaxed">Candidate assessment for <span className="font-semibold text-slate-600">Senior Product Manager</span> at TechNova</div>
                   </div>
                 </div>
 
-                <div className="space-y-3">
-                  {/* 1. Experience */}
-                  <div className="rounded-xl border border-slate-200 p-4">
-                    <div className="flex items-center gap-2.5 mb-2.5">
-                      <div className="size-7 rounded-lg bg-[#08C4F2]/10 flex items-center justify-center">
-                        <FileText className="size-3.5 text-[#08C4F2]" />
-                      </div>
-                      <span className="text-xs font-bold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>Experience</span>
-                      <span className="text-[10px] font-semibold text-[#08C4F2] ml-auto">Verified</span>
+                {/* Right: Evidence Journey */}
+                <div className="flex-1 p-5 overflow-hidden">
+                  <div className="flex items-center justify-between mb-4">
+                    <div>
+                      <div className="text-sm font-bold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>Candidate Evidence Profile</div>
+                      <div className="text-[10px] text-slate-500">Structured evidence across five dimensions</div>
                     </div>
-                    <div className="text-[11px] text-slate-600 leading-relaxed">Product leadership at Series B+ startups. Managed cross-functional teams of 5–12. Shipped 3 products from 0→1 and 1→10.</div>
-                  </div>
-
-                  {/* 2. Evidence */}
-                  <div className="rounded-xl border border-slate-200 p-4">
-                    <div className="flex items-center gap-2.5 mb-2.5">
-                      <div className="size-7 rounded-lg bg-emerald-500/10 flex items-center justify-center">
-                        <Search className="size-3.5 text-emerald-500" />
-                      </div>
-                      <span className="text-xs font-bold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>Evidence</span>
-                      <span className="text-[10px] font-semibold text-emerald-600 ml-auto">Supported</span>
-                    </div>
-                    <div className="flex flex-wrap gap-1.5">
-                      {[
-                        { label: 'GitHub', desc: 'Active contributor' },
-                        { label: 'Portfolio', desc: '3 product launches' },
-                        { label: 'Case studies', desc: 'Metrics + outcomes' },
-                        { label: 'Certifications', desc: 'Product management' },
-                      ].map((e) => (
-                        <span key={e.label} className="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-slate-50 border border-slate-100 text-[10px]">
-                          <span className="font-semibold text-slate-700">{e.label}</span>
-                          <span className="text-slate-400">· {e.desc}</span>
-                        </span>
-                      ))}
+                    <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#08C4F2]/10 text-[#08C4F2] text-[10px] font-semibold">
+                      <Eye className="size-3" />
+                      Full profile
                     </div>
                   </div>
 
-                  {/* 3. Behaviour */}
-                  <div className="rounded-xl border border-slate-200 p-4">
-                    <div className="flex items-center gap-2.5 mb-2.5">
-                      <div className="size-7 rounded-lg bg-[#472AF8]/10 flex items-center justify-center">
-                        <Brain className="size-3.5 text-[#472AF8]" />
-                      </div>
-                      <span className="text-xs font-bold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>Behaviour</span>
-                      <span className="text-[10px] font-semibold text-[#472AF8] ml-auto">Observed</span>
-                    </div>
-                    <div className="flex flex-wrap gap-1.5">
-                      {[
-                        'Collaborative problem solving',
-                        'Data-driven decisions',
-                        'Customer orientation',
-                        'Structured thinking',
-                      ].map((trait) => (
-                        <span key={trait} className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-[#472AF8]/5 text-[10px] font-medium text-[#472AF8]">
-                          <span className="w-1 h-1 rounded-full bg-[#472AF8]" />
-                          {trait}
-                        </span>
-                      ))}
-                    </div>
-                    <div className="mt-2 text-[10px] text-slate-400">Based on structured behavioral assessment responses</div>
-                  </div>
-
-                  {/* 4. Alignment + 5. Human Review */}
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="space-y-3">
+                    {/* 1. Experience */}
                     <div className="rounded-xl border border-slate-200 p-4">
                       <div className="flex items-center gap-2.5 mb-2.5">
-                        <div className="size-7 rounded-lg bg-amber-500/10 flex items-center justify-center">
-                          <BarChart2 className="size-3.5 text-amber-500" />
+                        <div className="size-7 rounded-lg bg-[#08C4F2]/10 flex items-center justify-center">
+                          <FileText className="size-3.5 text-[#08C4F2]" />
                         </div>
-                        <span className="text-xs font-bold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>Alignment</span>
+                        <span className="text-xs font-bold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>Experience</span>
+                        <span className="text-[10px] font-semibold text-[#08C4F2] ml-auto">Verified</span>
                       </div>
-                      <div className="space-y-1.5">
-                        <div className="flex items-start gap-1.5">
-                          <span className="text-emerald-500 mt-0.5"><Check className="size-3" /></span>
-                          <span className="text-[10px] text-slate-600">Product strategy</span>
-                        </div>
-                        <div className="flex items-start gap-1.5">
-                          <span className="text-emerald-500 mt-0.5"><Check className="size-3" /></span>
-                          <span className="text-[10px] text-slate-600">Team leadership</span>
-                        </div>
-                        <div className="flex items-start gap-1.5">
-                          <span className="text-emerald-500 mt-0.5"><Check className="size-3" /></span>
-                          <span className="text-[10px] text-slate-600">Product execution</span>
-                        </div>
-                      </div>
+                      <div className="text-[11px] text-slate-600 leading-relaxed">Product leadership at Series B+ startups. Managed cross-functional teams of 5–12. Shipped 3 products from 0→1 and 1→10.</div>
                     </div>
 
+                    {/* 2. Evidence */}
                     <div className="rounded-xl border border-slate-200 p-4">
                       <div className="flex items-center gap-2.5 mb-2.5">
                         <div className="size-7 rounded-lg bg-emerald-500/10 flex items-center justify-center">
-                          <UserCheck className="size-3.5 text-emerald-500" />
+                          <Search className="size-3.5 text-emerald-500" />
                         </div>
-                        <span className="text-xs font-bold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>Review</span>
+                        <span className="text-xs font-bold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>Evidence</span>
+                        <span className="text-[10px] font-semibold text-emerald-600 ml-auto">Supported</span>
                       </div>
-                      <div className="space-y-1.5">
-                        <div className="flex items-start gap-1.5">
-                          <span className="text-emerald-500 mt-0.5"><Check className="size-3" /></span>
-                          <span className="text-[10px] text-slate-600">Evidence available</span>
+                      <div className="flex flex-wrap gap-1.5">
+                        {[
+                          { label: 'GitHub', desc: 'Active contributor' },
+                          { label: 'Portfolio', desc: '3 product launches' },
+                          { label: 'Case studies', desc: 'Metrics + outcomes' },
+                          { label: 'Certifications', desc: 'Product management' },
+                        ].map((e) => (
+                          <span key={e.label} className="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-slate-50 border border-slate-100 text-[10px]">
+                            <span className="font-semibold text-slate-700">{e.label}</span>
+                            <span className="text-slate-400">· {e.desc}</span>
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* 3. Behaviour */}
+                    <div className="rounded-xl border border-slate-200 p-4">
+                      <div className="flex items-center gap-2.5 mb-2.5">
+                        <div className="size-7 rounded-lg bg-[#472AF8]/10 flex items-center justify-center">
+                          <Brain className="size-3.5 text-[#472AF8]" />
                         </div>
-                        <div className="flex items-start gap-1.5">
-                          <span className="text-emerald-500 mt-0.5"><Check className="size-3" /></span>
-                          <span className="text-[10px] text-slate-600">Needs discussion</span>
+                        <span className="text-xs font-bold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>Behaviour</span>
+                        <span className="text-[10px] font-semibold text-[#472AF8] ml-auto">Observed</span>
+                      </div>
+                      <div className="flex flex-wrap gap-1.5">
+                        {[
+                          'Collaborative problem solving',
+                          'Data-driven decisions',
+                          'Customer orientation',
+                          'Structured thinking',
+                        ].map((trait) => (
+                          <span key={trait} className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-[#472AF8]/5 text-[10px] font-medium text-[#472AF8]">
+                            <span className="w-1 h-1 rounded-full bg-[#472AF8]" />
+                            {trait}
+                          </span>
+                        ))}
+                      </div>
+                      <div className="mt-2 text-[10px] text-slate-400">Based on structured behavioral assessment responses</div>
+                    </div>
+
+                    {/* 4. Alignment + 5. Human Review */}
+                    <div className="grid grid-cols-2 gap-3">
+                      <div className="rounded-xl border border-slate-200 p-4">
+                        <div className="flex items-center gap-2.5 mb-2.5">
+                          <div className="size-7 rounded-lg bg-amber-500/10 flex items-center justify-center">
+                            <BarChart2 className="size-3.5 text-amber-500" />
+                          </div>
+                          <span className="text-xs font-bold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>Alignment</span>
                         </div>
-                        <div className="flex items-start gap-1.5">
-                          <span className="text-emerald-500 mt-0.5"><Check className="size-3" /></span>
-                          <span className="text-[10px] text-slate-600">Recruiter review</span>
+                        <div className="space-y-1.5">
+                          {['Product strategy', 'Team leadership', 'Product execution'].map((item) => (
+                            <div key={item} className="flex items-center gap-1.5">
+                              <Check className="size-3 text-emerald-500" />
+                              <span className="text-[10px] text-slate-600">{item}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="rounded-xl border border-slate-200 p-4">
+                        <div className="flex items-center gap-2.5 mb-2.5">
+                          <div className="size-7 rounded-lg bg-emerald-500/10 flex items-center justify-center">
+                            <UserCheck className="size-3.5 text-emerald-500" />
+                          </div>
+                          <span className="text-xs font-bold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>Review</span>
+                        </div>
+                        <div className="space-y-1.5">
+                          {['Evidence available', 'Needs discussion', 'Recruiter review'].map((item) => (
+                            <div key={item} className="flex items-center gap-1.5">
+                              <Check className="size-3 text-emerald-500" />
+                              <span className="text-[10px] text-slate-600">{item}</span>
+                            </div>
+                          ))}
                         </div>
                       </div>
                     </div>
