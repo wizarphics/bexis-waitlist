@@ -12,11 +12,7 @@ import {
   BarChart2,
   FileText,
   Check,
-  Target,
-  Lock,
   Eye,
-  Sparkles,
-  ArrowUpRight,
 } from 'lucide-react';
 
 export default function Home() {
