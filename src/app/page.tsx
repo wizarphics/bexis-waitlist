@@ -40,7 +40,7 @@ export default function Home() {
             </span>
           </button>
 
-          <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-slate-500">
+          <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600">
             <button onClick={() => scrollTo('how-it-works')} className="hover:text-[#472AF8] transition-colors cursor-pointer">How It Works</button>
             <button onClick={() => scrollTo('why-bexis')} className="hover:text-[#472AF8] transition-colors cursor-pointer">For Employers</button>
             <button onClick={() => scrollTo('principles')} className="hover:text-[#472AF8] transition-colors cursor-pointer">Principles</button>
@@ -53,7 +53,7 @@ export default function Home() {
       </header>
 
       {/* HERO */}
-      <section className="relative pt-16 pb-24 lg:pt-24 lg:pb-32 overflow-hidden">
+      <section className="relative pt-16 pb-16 lg:pt-24 lg:pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-40" />
 
         <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -87,7 +87,7 @@ export default function Home() {
       </section>
 
       {/* CORE PRINCIPLES */}
-      <section id="principles" className="py-20">
+      <section id="principles" className="py-12 border-y border-slate-200">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-0">
             {[
