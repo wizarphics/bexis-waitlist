@@ -15,6 +15,7 @@ import {
   Check,
   Zap,
   Target,
+  LayoutGrid,
 } from 'lucide-react';
 
 export default function Home() {
@@ -88,74 +89,121 @@ export default function Home() {
 
       {/* DASHBOARD PREVIEW */}
       <section className="pb-20">
-        <div className="max-w-[1000px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative rounded-2xl bg-white border border-slate-200 shadow-2xl shadow-slate-200/60 overflow-hidden">
-            <div className="p-6 sm:p-8">
-              <div className="grid sm:grid-cols-3 gap-6">
-                <div className="sm:col-span-1 space-y-4">
-                  <div className="flex items-center gap-3">
-                    <div className="size-11 rounded-xl bg-[#472AF8] text-white font-bold flex items-center justify-center" style={{ fontFamily: 'var(--font-display)' }}>
-                      JD
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-navy-900 text-sm" style={{ fontFamily: 'var(--font-display)' }}>Jane Doe</h4>
-                      <p className="text-[11px] text-slate-500">Senior Product Manager</p>
-                    </div>
+        <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="rounded-2xl bg-[#0B0F17] border border-slate-800 shadow-2xl shadow-slate-300/30 overflow-hidden">
+            {/* Header */}
+            <div className="flex items-center justify-between px-5 py-3 border-b border-slate-800">
+              <div className="flex items-center gap-2">
+                <div className="size-7 rounded-lg bg-gradient-to-br from-[#08C4F2] to-blue-600 p-[1px]">
+                  <div className="w-full h-full bg-[#0B0F17] rounded-[6px] flex items-center justify-center font-bold text-[#08C4F2] text-[9px]">BX</div>
+                </div>
+                <span className="text-xs font-bold text-white">Bexis</span>
+                <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-cyan-950/80 border border-cyan-800/80 text-[#08C4F2] font-semibold">Candidate</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="size-6 rounded-full bg-gradient-to-br from-[#08C4F2] to-blue-600 text-[#0B0F17] font-bold text-[8px] flex items-center justify-center">AR</div>
+                <span className="text-[10px] font-bold text-white">Alex Rivera</span>
+              </div>
+            </div>
+
+            <div className="flex">
+              {/* Sidebar */}
+              <div className="w-48 border-r border-slate-800 p-3 space-y-3 hidden sm:block">
+                <div className="flex items-center gap-2.5 p-2 rounded-lg bg-[#08C4F2]/10 border border-[#08C4F2]/30 text-[#08C4F2]">
+                  <LayoutGrid className="size-3.5" />
+                  <span className="text-[11px] font-semibold">Overview</span>
+                </div>
+                {[
+                  { label: 'My Applications', badge: '3' },
+                  { label: 'AI Assessments', badge: '1' },
+                  { label: 'Evidence & Portfolio', badge: '3' },
+                ].map((item) => (
+                  <div key={item.label} className="flex items-center justify-between p-2 rounded-lg text-slate-400 hover:bg-slate-900 transition-colors">
+                    <span className="text-[11px]">{item.label}</span>
+                    <span className="px-1.5 py-0.5 rounded-full bg-slate-800 text-[9px] font-bold text-slate-300">{item.badge}</span>
                   </div>
-                  <div className="px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold inline-flex items-center gap-1.5">
-                    <span className="size-1.5 rounded-full bg-emerald-500" />
-                    Strong Match
+                ))}
+              </div>
+
+              {/* Main Content */}
+              <div className="flex-1 p-4 space-y-4">
+                {/* Alert Banner */}
+                <div className="rounded-xl bg-gradient-to-r from-cyan-950/80 via-[#0a2038] to-blue-950/80 border border-[#08C4F2]/40 p-3.5 flex items-center justify-between">
+                  <div className="space-y-0.5">
+                    <span className="text-[9px] font-semibold text-[#08C4F2] bg-[#08C4F2]/20 px-2 py-0.5 rounded-full">Pending AI Assessment</span>
+                    <p className="text-[11px] font-bold text-white">Senior Product Manager at TechNova</p>
                   </div>
-                  <div className="space-y-2.5 pt-1">
-                    {[
-                      { label: 'Ownership', value: 90 },
-                      { label: 'Collaboration', value: 85 },
-                      { label: 'Problem Solving', value: 88 },
-                    ].map((s) => (
-                      <div key={s.label}>
-                        <div className="flex justify-between text-[11px] font-medium mb-1">
-                          <span className="text-slate-500">{s.label}</span>
-                          <span className="text-[#472AF8]">{s.value}%</span>
-                        </div>
-                        <div className="h-1.5 rounded-full bg-slate-100 overflow-hidden">
-                          <div className="h-full bg-[#472AF8] rounded-full" style={{ width: `${s.value}%` }} />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
+                  <button className="px-3 py-1.5 bg-gradient-to-r from-[#08C4F2] to-blue-600 text-[#0B0F17] text-[9px] font-bold rounded-lg shrink-0">Start Assessment</button>
                 </div>
 
-                <div className="sm:col-span-2 space-y-4">
-                  <div className="grid grid-cols-5 gap-2 text-center">
-                    {['Apply', 'CV Review', 'AI Interview', 'Evidence', 'Decision'].map((step, i) => (
-                      <div key={step} className="flex flex-col items-center gap-1.5">
-                        <div className={`size-8 rounded-full text-[10px] font-bold flex items-center justify-center ${i < 3 ? 'bg-emerald-100 text-emerald-600 border border-emerald-200' : i === 3 ? 'bg-[#472AF8]/10 text-[#472AF8] border border-[#472AF8]/20' : 'bg-slate-100 text-slate-400 border border-slate-200'}`}>
-                          {i < 3 ? '✓' : i + 1}
+                {/* Metrics Grid */}
+                <div className="grid grid-cols-4 gap-2.5">
+                  {[
+                    { label: 'Applications', value: '3', sub: '2 Under Review', color: 'text-white' },
+                    { label: 'AI Assessments', value: '1', sub: 'Scheduled', color: 'text-[#08C4F2]' },
+                    { label: 'Linked Evidence', value: '3', sub: 'Verified by AI', color: 'text-emerald-400' },
+                    { label: 'Shortlists', value: '1', sub: 'PixelWorks', color: 'text-purple-400' },
+                  ].map((m) => (
+                    <div key={m.label} className="rounded-xl bg-[#0f172a] border border-slate-800 p-3 space-y-0.5">
+                      <div className="text-[9px] text-slate-400">{m.label}</div>
+                      <div className={`text-lg font-bold ${m.color}`}>{m.value}</div>
+                      <div className="text-[9px] text-slate-500">{m.sub}</div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Application Progress */}
+                <div className="rounded-xl bg-[#0f172a] border border-slate-800 p-4 space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[11px] font-bold text-white">Active Applications</span>
+                    <span className="text-[9px] text-[#08C4F2] font-semibold cursor-pointer">View All →</span>
+                  </div>
+
+                  {[
+                    { role: 'Senior Product Manager', company: 'TechNova', logo: 'TN', logoBg: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30', stage: 3, status: 'Scheduled' },
+                    { role: 'Backend Engineer', company: 'CodeCore', logo: 'CC', logoBg: 'bg-blue-500/20 text-blue-400 border-blue-500/30', stage: 4, status: 'Under Review' },
+                  ].map((app) => (
+                    <div key={app.role} className="bg-slate-900/80 border border-slate-800 rounded-lg p-3 space-y-2.5">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <div className={`size-7 rounded-md ${app.logoBg} border font-bold text-[8px] flex items-center justify-center`}>{app.logo}</div>
+                          <div>
+                            <p className="text-[10px] font-bold text-white">{app.role}</p>
+                            <p className="text-[9px] text-slate-400">{app.company}</p>
+                          </div>
                         </div>
-                        <span className={`text-[10px] font-medium ${i === 3 ? 'text-[#472AF8]' : 'text-slate-400'}`}>{step}</span>
+                        <span className={`text-[8px] font-semibold px-2 py-0.5 rounded-full ${app.status === 'Scheduled' ? 'bg-cyan-950 text-[#08C4F2] border border-cyan-800' : 'bg-slate-800 text-slate-300'}`}>{app.status}</span>
+                      </div>
+                      {/* 5-step progress */}
+                      <div className="grid grid-cols-5 gap-0.5">
+                        {[1, 2, 3, 4, 5].map((s) => (
+                          <div key={s} className={`h-1 rounded-full ${s <= app.stage ? 'bg-[#08C4F2]' : 'bg-slate-800'}`} />
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Evidence Cards */}
+                <div className="rounded-xl bg-[#0f172a] border border-slate-800 p-4 space-y-3">
+                  <span className="text-[11px] font-bold text-white">Supporting Evidence</span>
+                  <div className="grid grid-cols-3 gap-2">
+                    {[
+                      { title: 'E-commerce Microservices', type: 'GitHub', icon: 'GH', color: 'text-[#08C4F2] bg-[#08C4F2]/10', score: '92%' },
+                      { title: 'Design System Library', type: 'Figma', icon: 'FG', color: 'text-pink-400 bg-pink-500/10', score: '89%' },
+                      { title: 'AWS Solutions Architect', type: 'Cert', icon: 'AW', color: 'text-amber-400 bg-amber-500/10', score: 'Verified' },
+                    ].map((ev) => (
+                      <div key={ev.title} className="bg-slate-900/60 border border-slate-800 rounded-lg p-2.5 space-y-2">
+                        <div className="flex items-center gap-1.5">
+                          <div className={`size-5 rounded ${ev.color} flex items-center justify-center text-[7px] font-bold`}>{ev.icon}</div>
+                          <span className="text-[9px] font-bold text-white truncate">{ev.title}</span>
+                        </div>
+                        <div className="flex items-center justify-between text-[8px]">
+                          <span className="text-slate-400">{ev.type}</span>
+                          <span className="text-[#08C4F2] font-bold">{ev.score}</span>
+                        </div>
                       </div>
                     ))}
-                  </div>
-
-                  <div className="rounded-xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200/60 p-4">
-                    <div className="flex items-center gap-2 mb-1.5">
-                      <Zap className="size-3.5 text-amber-500" />
-                      <span className="text-[10px] font-bold text-amber-700 uppercase tracking-wider">AI Insight</span>
-                    </div>
-                    <p className="text-xs text-slate-600 leading-relaxed">
-                      Strong evidence of ownership and problem-solving. Leadership experience requires human review. Recommend proceeding to final interview stage.
-                    </p>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="rounded-lg bg-slate-50 border border-slate-200 p-3">
-                      <div className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-1">Role Alignment</div>
-                      <div className="text-xl font-bold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>92%</div>
-                    </div>
-                    <div className="rounded-lg bg-slate-50 border border-slate-200 p-3">
-                      <div className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-1">Evidence Score</div>
-                      <div className="text-xl font-bold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>87%</div>
-                    </div>
                   </div>
                 </div>
               </div>
