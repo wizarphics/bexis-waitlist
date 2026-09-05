@@ -15,10 +15,10 @@ import {
   Eye,
 } from 'lucide-react';
 
-function FAQItem({ question, answer, isLast }: { question: string; answer: string; isLast?: boolean }) {
+function FAQItem({ question, answer, isLast, isRight }: { question: string; answer: string; isLast?: boolean; isRight?: boolean }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className={`relative gap-x-4 px-6 flex items-center ${isLast ? 'border-b-0' : 'border-b'} border-slate-200`}>
+    <div className={`relative gap-x-4 px-6 flex items-center border-slate-200 ${isLast ? 'border-b-0' : 'border-b'} ${isRight ? 'lg:border-l' : 'sm:border-x'}`}>
       <button onClick={() => setOpen(!open)} className="size-6 flex items-center justify-center cursor-pointer shrink-0">
         <span className={`text-base font-light text-slate-400 transition-transform duration-200 ${open ? 'rotate-45' : ''}`}>+</span>
       </button>
@@ -459,43 +459,51 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 place-content-center">
-            {[
-              {
-                q: 'What is BEXIS?',
-                a: 'BEXIS is an evidence-first hiring platform. It helps hiring teams understand candidates through experience, work evidence, behavioral insight, and role alignment — not just a résumé.',
-              },
-              {
-                q: 'Is BEXIS an applicant tracking system?',
-                a: 'No. BEXIS complements your existing hiring workflow. It focuses on building a richer candidate picture through structured evidence, not managing your hiring pipeline.',
-              },
-              {
-                q: 'Does BEXIS use AI to make hiring decisions?',
-                a: 'No. BEXIS uses AI to surface insights and organize evidence. It never makes hiring decisions. Humans always have the final call.',
-              },
-              {
-                q: 'How is BEXIS different from other hiring tools?',
-                a: 'Most hiring tools focus on workflow and process. BEXIS focuses on candidate understanding — connecting what someone claims with what they can actually show, and how they approach real situations.',
-              },
-              {
-                q: 'Who is BEXIS for?',
-                a: 'BEXIS is designed for hiring teams, recruiters,, and HR leaders who want to make more informed, evidence-based hiring decisions.',
-              },
-              {
-                q: 'When will BEXIS be available?',
-                a: 'BEXIS is currently in pre-launch. Join the waitlist to get early access when we begin onboarding teams.',
-              },
-              {
-                q: 'What evidence does BEXIS collect?',
-                a: 'BEXIS connects claims with supporting proof — GitHub activity, portfolios, case studies, certifications, and structured behavioral assessment responses.',
-              },
-              {
-                q: 'Is candidate data secure?',
-                a: 'Yes. BEXIS follows strict data security practices. Candidate information is handled with care and only shared with authorized hiring team members.',
-              },
-            ].map((item, i, arr) => (
-              <FAQItem key={i} question={item.q} answer={item.a} isLast={i === arr.length - 1} />
-            ))}
+          <div className="border border-slate-200 rounded-xl overflow-hidden">
+            <div className="grid lg:grid-cols-2 place-content-center">
+              {[
+                {
+                  q: 'What is BEXIS?',
+                  a: 'BEXIS is an evidence-first hiring platform. It helps hiring teams understand candidates through experience, work evidence, behavioral insight, and role alignment — not just a résumé.',
+                },
+                {
+                  q: 'Is BEXIS an applicant tracking system?',
+                  a: 'No. BEXIS complements your existing hiring workflow. It focuses on building a richer candidate picture through structured evidence, not managing your hiring pipeline.',
+                },
+                {
+                  q: 'Does BEXIS use AI to make hiring decisions?',
+                  a: 'No. BEXIS uses AI to surface insights and organize evidence. It never makes hiring decisions. Humans always have the final call.',
+                },
+                {
+                  q: 'How is BEXIS different from other hiring tools?',
+                  a: 'Most hiring tools focus on workflow and process. BEXIS focuses on candidate understanding — connecting what someone claims with what they can actually show, and how they approach real situations.',
+                },
+                {
+                  q: 'Who is BEXIS for?',
+                  a: 'BEXIS is designed for hiring teams, recruiters, and HR leaders who want to make more informed, evidence-based hiring decisions.',
+                },
+                {
+                  q: 'When will BEXIS be available?',
+                  a: 'BEXIS is currently in pre-launch. Join the waitlist to get early access when we begin onboarding teams.',
+                },
+                {
+                  q: 'What evidence does BEXIS collect?',
+                  a: 'BEXIS connects claims with supporting proof — GitHub activity, portfolios, case studies, certifications, and structured behavioral assessment responses.',
+                },
+                {
+                  q: 'Is candidate data secure?',
+                  a: 'Yes. BEXIS follows strict data security practices. Candidate information is handled with care and only shared with authorized hiring team members.',
+                },
+              ].map((item, i, arr) => (
+                <FAQItem
+                  key={i}
+                  question={item.q}
+                  answer={item.a}
+                  isLast={i === arr.length - 1}
+                  isRight={i % 2 === 1}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
