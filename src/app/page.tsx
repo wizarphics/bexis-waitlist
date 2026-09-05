@@ -85,43 +85,44 @@ export default function Home() {
       {/* PRODUCT VISUAL — Candidate Evidence Profile */}
       <section className="pb-0 overflow-hidden">
         <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="rounded-t-2xl bg-white border border-b-0 border-slate-200 shadow-2xl shadow-slate-200/60 overflow-hidden flex" style={{ height: '580px' }}>
-            {/* Purple sidebar */}
-            <div className="w-14 bg-[#472AF8] flex flex-col items-center py-3 gap-4 shrink-0 hidden sm:flex">
-              <Image src="/bexis-icon.png" alt="BEXIS" width={22} height={22} className="shrink-0 brightness-0 invert" />
-              <div className="w-6 h-px bg-white/20" />
-              <div className="space-y-3">
-                {[
-                  { icon: FileText, active: false },
-                  { icon: Search, active: false },
-                  { icon: Brain, active: true },
-                  { icon: BarChart2, active: false },
-                  { icon: UserCheck, active: false },
-                ].map((item, i) => (
-                  <div key={i} className={`size-8 rounded-lg flex items-center justify-center ${item.active ? 'bg-white/20' : 'hover:bg-white/10'} transition-colors`}>
-                    <item.icon className="size-4 text-white/80" />
-                  </div>
-                ))}
+          <div className="rounded-t-2xl bg-white border border-b-0 border-slate-200 shadow-2xl shadow-slate-200/60 overflow-hidden flex flex-col" style={{ height: '580px' }}>
+            {/* Browser chrome — spans full width */}
+            <div className="h-11 border-b border-slate-200 flex items-center px-4 gap-4 bg-slate-50/80 shrink-0">
+              <div className="flex gap-1.5">
+                <div className="w-3 h-3 rounded-full bg-slate-300" />
+                <div className="w-3 h-3 rounded-full bg-slate-300" />
+                <div className="w-3 h-3 rounded-full bg-slate-300" />
               </div>
-              <div className="mt-auto space-y-3">
-                <div className="w-6 h-px bg-white/20" />
-                <div className="size-8 rounded-full bg-white/20 flex items-center justify-center">
-                  <span className="text-[9px] font-bold text-white">SC</span>
+              <div className="flex-1 max-w-md mx-auto">
+                <div className="h-6 bg-white border border-slate-200 rounded-md flex items-center px-3 text-[10px] text-slate-400">
+                  app.bexis.com/candidate/jane-doe
                 </div>
               </div>
             </div>
 
-            {/* Browser chrome */}
-            <div className="flex-1 flex flex-col min-w-0">
-              <div className="h-11 border-b border-slate-200 flex items-center px-4 gap-4 bg-slate-50/80 shrink-0">
-                <div className="flex gap-1.5">
-                  <div className="w-3 h-3 rounded-full bg-slate-300" />
-                  <div className="w-3 h-3 rounded-full bg-slate-300" />
-                  <div className="w-3 h-3 rounded-full bg-slate-300" />
+            {/* Below chrome: sidebar + content */}
+            <div className="flex flex-1 min-h-0">
+              {/* Purple sidebar */}
+              <div className="w-14 bg-[#472AF8] flex flex-col items-center py-3 gap-4 shrink-0 hidden sm:flex">
+                <Image src="/bexis-icon.png" alt="BEXIS" width={22} height={22} className="shrink-0 brightness-0 invert" />
+                <div className="w-6 h-px bg-white/20" />
+                <div className="space-y-3">
+                  {[
+                    { icon: FileText, active: false },
+                    { icon: Search, active: false },
+                    { icon: Brain, active: true },
+                    { icon: BarChart2, active: false },
+                    { icon: UserCheck, active: false },
+                  ].map((item, i) => (
+                    <div key={i} className={`size-8 rounded-lg flex items-center justify-center ${item.active ? 'bg-white/20' : 'hover:bg-white/10'} transition-colors`}>
+                      <item.icon className="size-4 text-white/80" />
+                    </div>
+                  ))}
                 </div>
-                <div className="flex-1 max-w-md mx-auto">
-                  <div className="h-6 bg-white border border-slate-200 rounded-md flex items-center px-3 text-[10px] text-slate-400">
-                    app.bexis.com/candidate/jane-doe
+                <div className="mt-auto space-y-3">
+                  <div className="w-6 h-px bg-white/20" />
+                  <div className="size-8 rounded-full bg-white/20 flex items-center justify-center">
+                    <span className="text-[9px] font-bold text-white">SC</span>
                   </div>
                 </div>
               </div>
