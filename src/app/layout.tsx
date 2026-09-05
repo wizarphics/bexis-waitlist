@@ -19,7 +19,8 @@ export const metadata: Metadata = {
   description:
     'AI-powered hiring that goes beyond the résumé. Understand candidates through experience, evidence, behavioral intelligence and role alignment.',
   icons: {
-    icon: '/bexis-icon.png',
+    icon: '/favicon.png',
+    apple: '/favicon.png',
   },
 };
 
