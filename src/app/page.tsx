@@ -176,7 +176,7 @@ export default function Home() {
       </section>
 
       {/* CORE PRINCIPLES */}
-      <section id="principles" className="py-20 bg-navy-900">
+      <section id="principles" className="py-20 bg-slate-50 border-y border-slate-200">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-0">
             {[
@@ -184,46 +184,46 @@ export default function Home() {
                 icon: FileText,
                 title: 'Experience',
                 desc: 'CV tells us where someone has been — skills, roles, and career trajectory.',
-                iconBg: 'bg-[#08C4F2]/15',
+                iconBg: 'bg-[#08C4F2]/10',
                 iconColor: 'text-[#08C4F2]',
               },
               {
                 icon: Search,
                 title: 'Evidence',
                 desc: 'Work samples, GitHub, and portfolios show what they have actually done.',
-                iconBg: 'bg-emerald-500/15',
-                iconColor: 'text-emerald-400',
+                iconBg: 'bg-emerald-500/10',
+                iconColor: 'text-emerald-500',
               },
               {
                 icon: Brain,
                 title: 'Behaviour',
                 desc: 'AI behavioral interviews reveal how they approach real work situations.',
-                iconBg: 'bg-[#08C4F2]/15',
-                iconColor: 'text-[#08C4F2]',
+                iconBg: 'bg-[#472AF8]/10',
+                iconColor: 'text-[#472AF8]',
               },
               {
                 icon: BarChart2,
                 title: 'Alignment',
                 desc: 'Competencies mapped to role context — evidence scored against what matters.',
-                iconBg: 'bg-amber-500/15',
-                iconColor: 'text-amber-400',
+                iconBg: 'bg-amber-500/10',
+                iconColor: 'text-amber-500',
               },
               {
                 icon: UserCheck,
                 title: 'Human Decision',
                 desc: 'AI provides insight. People always make the final call.',
-                iconBg: 'bg-emerald-500/15',
-                iconColor: 'text-emerald-400',
+                iconBg: 'bg-emerald-500/10',
+                iconColor: 'text-emerald-500',
               },
             ].map((p, i) => (
-              <div key={p.title} className={`group py-12 px-6 text-center ${i < 4 ? 'lg:border-r border-white/10' : ''} ${i < 4 ? 'border-b sm:border-b-0 border-white/10' : ''}`}>
+              <div key={p.title} className={`group py-12 px-6 text-center ${i < 4 ? 'lg:border-r border-slate-200' : ''} ${i < 4 ? 'border-b sm:border-b-0 border-slate-200' : ''}`}>
                 <div className="flex justify-center mb-8">
                   <div className={`w-24 h-24 rounded-3xl ${p.iconBg} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
                     <p.icon className={`size-12 ${p.iconColor}`} />
                   </div>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-3" style={{ fontFamily: 'var(--font-display)' }}>{p.title}</h3>
-                <p className="text-sm text-slate-400 leading-relaxed max-w-[200px] mx-auto">{p.desc}</p>
+                <h3 className="text-lg font-bold text-navy-900 mb-3" style={{ fontFamily: 'var(--font-display)' }}>{p.title}</h3>
+                <p className="text-sm text-slate-500 leading-relaxed max-w-[200px] mx-auto">{p.desc}</p>
               </div>
             ))}
           </div>
@@ -231,16 +231,16 @@ export default function Home() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section id="how-it-works" className="py-20 bg-navy-900">
+      <section id="how-it-works" className="py-20 bg-white">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-0 rounded-2xl border border-white/10 overflow-hidden">
+          <div className="grid lg:grid-cols-2 gap-0 rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
             {/* What's broken */}
             <div className="p-8 sm:p-10 space-y-6">
-              <div className="inline-flex px-3 py-1 rounded-md bg-white/10 text-xs font-semibold text-slate-300">What&apos;s broken</div>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight" style={{ fontFamily: 'var(--font-display)' }}>
+              <div className="inline-flex px-3 py-1 rounded-md bg-slate-100 text-xs font-semibold text-slate-600">What&apos;s broken</div>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-navy-900 leading-tight" style={{ fontFamily: 'var(--font-display)' }}>
                 Hiring is broken.
               </h2>
-              <p className="text-slate-400 text-sm leading-relaxed">Most hiring teams struggle with:</p>
+              <p className="text-slate-500 text-sm leading-relaxed">Most hiring teams struggle with:</p>
               <div className="space-y-0">
                 {[
                   'Résumés that don\'t reflect actual capability',
@@ -249,18 +249,18 @@ export default function Home() {
                   'Bias hidden in gut-feel decisions',
                   'Slow, disjointed hiring workflows',
                 ].map((item, i) => (
-                  <div key={i} className="py-4 border-t border-white/10 text-sm text-slate-300">{item}</div>
+                  <div key={i} className="py-4 border-t border-slate-200 text-sm text-slate-600">{item}</div>
                 ))}
               </div>
             </div>
 
             {/* The BEXIS way */}
-            <div className="p-8 sm:p-10 space-y-6 bg-white/5">
-              <div className="inline-flex px-3 py-1 rounded-md bg-[#08C4F2]/15 text-xs font-semibold text-[#08C4F2]">The BEXIS way</div>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight" style={{ fontFamily: 'var(--font-display)' }}>
+            <div className="p-8 sm:p-10 space-y-6 bg-slate-50">
+              <div className="inline-flex px-3 py-1 rounded-md bg-[#472AF8]/10 text-xs font-semibold text-[#472AF8]">The BEXIS way</div>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-navy-900 leading-tight" style={{ fontFamily: 'var(--font-display)' }}>
                 One platform. Evidence-first.
               </h2>
-              <p className="text-slate-400 text-sm leading-relaxed">Structured, transparent hiring from application to decision.</p>
+              <p className="text-slate-500 text-sm leading-relaxed">Structured, transparent hiring from application to decision.</p>
               <div className="space-y-0">
                 {[
                   'CV analysis extracts real experience automatically',
@@ -269,14 +269,14 @@ export default function Home() {
                   'Every insight backed by data — no black boxes',
                   'Humans make the final call, always',
                 ].map((item, i) => (
-                  <div key={i} className="py-4 border-t border-white/10 text-sm text-slate-300">{item}</div>
+                  <div key={i} className="py-4 border-t border-slate-200 text-sm text-slate-600">{item}</div>
                 ))}
               </div>
               <div className="flex gap-3 pt-2">
-                <button onClick={() => openWaitlist('candidate')} className="px-5 py-2.5 text-sm font-semibold text-navy-900 bg-white hover:bg-slate-100 rounded-lg transition-all cursor-pointer">
+                <button onClick={() => openWaitlist('candidate')} className="px-5 py-2.5 text-sm font-semibold text-white bg-[#472AF8] hover:bg-[#3b22d0] rounded-lg transition-all cursor-pointer">
                   Join Waitlist
                 </button>
-                <button onClick={() => scrollTo('principles')} className="px-5 py-2.5 text-sm font-semibold text-white border border-white/20 hover:bg-white/10 rounded-lg transition-all cursor-pointer">
+                <button onClick={() => scrollTo('principles')} className="px-5 py-2.5 text-sm font-semibold text-slate-700 border border-slate-200 hover:bg-slate-100 rounded-lg transition-all cursor-pointer">
                   See How It Works
                 </button>
               </div>
