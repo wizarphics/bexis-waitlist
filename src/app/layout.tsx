@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   title: 'Bexis — Beyond the Résumé',
   description:
     'AI-powered hiring that goes beyond the résumé. Understand candidates through experience, evidence, behavioral intelligence and role alignment.',
+  icons: {
+    icon: '/bexis-icon.png',
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<'/'>) {
