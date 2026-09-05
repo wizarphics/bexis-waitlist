@@ -1,11 +1,10 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { WaitlistModal } from '@/components/waitlist-modal';
 import {
   Search,
-  MapPin,
   Sparkles,
   ArrowRight,
   Brain,
@@ -13,143 +12,14 @@ import {
   UserCheck,
   BarChart2,
   FileText,
-  Clock,
-  ChevronDown,
   Check,
   Zap,
   Target,
 } from 'lucide-react';
 
-interface Job {
-  id: string;
-  title: string;
-  company: string;
-  logo: string;
-  logoBg: string;
-  isRemote: boolean;
-  location: string;
-  type: string;
-  level: string;
-  industry: string;
-  tags: string[];
-  extraTagsCount: number;
-  postedAgo: string;
-}
-
-const JOBS_DATA: Job[] = [
-  {
-    id: 'job-1',
-    title: 'Senior Product Manager',
-    company: 'TechNova',
-    logo: 'TN',
-    logoBg: 'bg-emerald-100 text-emerald-700',
-    isRemote: true,
-    location: 'London, UK',
-    type: 'Full-time',
-    level: 'Senior',
-    industry: 'Technology',
-    tags: ['Product Strategy', 'Agile', 'Roadmapping'],
-    extraTagsCount: 2,
-    postedAgo: '20d ago',
-  },
-  {
-    id: 'job-2',
-    title: 'Backend Engineer',
-    company: 'CodeCore',
-    logo: 'CC',
-    logoBg: 'bg-blue-100 text-blue-700',
-    isRemote: true,
-    location: 'Berlin, Germany',
-    type: 'Full-time',
-    level: 'Mid-Level',
-    industry: 'Technology',
-    tags: ['Python', 'Node.js', 'PostgreSQL'],
-    extraTagsCount: 1,
-    postedAgo: '18d ago',
-  },
-  {
-    id: 'job-3',
-    title: 'Data Analyst',
-    company: 'DataSight',
-    logo: 'DS',
-    logoBg: 'bg-purple-100 text-purple-700',
-    isRemote: false,
-    location: 'New York, USA',
-    type: 'Full-time',
-    level: 'Junior',
-    industry: 'Data & Analytics',
-    tags: ['SQL', 'Python', 'Tableau'],
-    extraTagsCount: 1,
-    postedAgo: '19d ago',
-  },
-  {
-    id: 'job-4',
-    title: 'UI/UX Designer',
-    company: 'PixelWorks',
-    logo: 'PW',
-    logoBg: 'bg-pink-100 text-pink-700',
-    isRemote: true,
-    location: 'Amsterdam, NL',
-    type: 'Contract',
-    level: 'Mid-Level',
-    industry: 'Design',
-    tags: ['Figma', 'User Research', 'Prototyping'],
-    extraTagsCount: 1,
-    postedAgo: '22d ago',
-  },
-  {
-    id: 'job-5',
-    title: 'Software Engineer',
-    company: 'TechNova',
-    logo: 'TN',
-    logoBg: 'bg-emerald-100 text-emerald-700',
-    isRemote: true,
-    location: 'Remote',
-    type: 'Full-time',
-    level: 'Entry Level',
-    industry: 'Technology',
-    tags: ['TypeScript', 'React', 'Node.js'],
-    extraTagsCount: 1,
-    postedAgo: '17d ago',
-  },
-  {
-    id: 'job-6',
-    title: 'Head of Data Science',
-    company: 'DataSight',
-    logo: 'DS',
-    logoBg: 'bg-purple-100 text-purple-700',
-    isRemote: false,
-    location: 'New York, USA',
-    type: 'Full-time',
-    level: 'Lead / Manager',
-    industry: 'Data & Analytics',
-    tags: ['ML', 'Python', 'Team Leadership'],
-    extraTagsCount: 1,
-    postedAgo: '23d ago',
-  },
-];
-
-const INDUSTRIES = ['All Industries', 'Technology', 'Data & Analytics', 'Design', 'Finance', 'Healthcare'];
-
 export default function Home() {
-  const [searchKeyword, setSearchKeyword] = useState('');
-  const [searchLocation, setSearchLocation] = useState('');
-  const [selectedLevel, setSelectedLevel] = useState('All Levels');
-  const [selectedType, setSelectedType] = useState('All Types');
-  const [selectedIndustry, setSelectedIndustry] = useState('All Industries');
   const [waitlistOpen, setWaitlistOpen] = useState(false);
   const [waitlistRole, setWaitlistRole] = useState<'candidate' | 'employer'>('candidate');
-
-  const filteredJobs = useMemo(() => {
-    return JOBS_DATA.filter((job) => {
-      if (searchKeyword.trim() && !job.title.toLowerCase().includes(searchKeyword.toLowerCase()) && !job.company.toLowerCase().includes(searchKeyword.toLowerCase()) && !job.tags.some((t) => t.toLowerCase().includes(searchKeyword.toLowerCase()))) return false;
-      if (searchLocation.trim() && !job.location.toLowerCase().includes(searchLocation.toLowerCase()) && !(job.isRemote && 'remote'.includes(searchLocation.toLowerCase()))) return false;
-      if (selectedLevel !== 'All Levels' && job.level !== selectedLevel) return false;
-      if (selectedType !== 'All Types' && job.type !== selectedType) return false;
-      if (selectedIndustry !== 'All Industries' && job.industry !== selectedIndustry) return false;
-      return true;
-    });
-  }, [searchKeyword, searchLocation, selectedLevel, selectedType, selectedIndustry]);
 
   const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 
@@ -171,7 +41,6 @@ export default function Home() {
           </button>
 
           <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-slate-500">
-            <button onClick={() => scrollTo('jobs')} className="hover:text-[#472AF8] transition-colors cursor-pointer">Find Jobs</button>
             <button onClick={() => scrollTo('how-it-works')} className="hover:text-[#472AF8] transition-colors cursor-pointer">How It Works</button>
             <button onClick={() => scrollTo('why-bexis')} className="hover:text-[#472AF8] transition-colors cursor-pointer">For Employers</button>
             <button onClick={() => scrollTo('principles')} className="hover:text-[#472AF8] transition-colors cursor-pointer">Principles</button>
@@ -205,8 +74,8 @@ export default function Home() {
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
-              <button onClick={() => scrollTo('jobs')} className="px-6 py-3 text-sm font-semibold text-white bg-[#472AF8] hover:bg-[#3b22d0] rounded-lg shadow-md shadow-[#472AF8]/20 transition-all hover:-translate-y-0.5 cursor-pointer flex items-center gap-2">
-                Explore Opportunities
+              <button onClick={() => openWaitlist('candidate')} className="px-6 py-3 text-sm font-semibold text-white bg-[#472AF8] hover:bg-[#3b22d0] rounded-lg shadow-md shadow-[#472AF8]/20 transition-all hover:-translate-y-0.5 cursor-pointer flex items-center gap-2">
+                Join the Waitlist
                 <ArrowRight className="size-4" />
               </button>
               <button onClick={() => openWaitlist('employer')} className="px-6 py-3 text-sm font-semibold text-slate-700 bg-white border border-slate-200 hover:border-slate-300 hover:bg-slate-50 rounded-lg transition-all cursor-pointer">
@@ -359,106 +228,6 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
-
-      {/* JOBS */}
-      <section id="jobs" className="py-20 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 space-y-2">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight" style={{ fontFamily: 'var(--font-display)' }}>Open Opportunities</h2>
-          <p className="text-slate-500">Find roles that match your experience and career goals.</p>
-        </div>
-
-        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm mb-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-slate-400" />
-              <input type="text" placeholder="Job title or keyword..." value={searchKeyword} onChange={(e) => setSearchKeyword(e.target.value)} className="w-full bg-slate-50 border border-slate-200 rounded-lg pl-9 pr-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#472AF8] focus:ring-[#472AF8]/10 transition-all" />
-            </div>
-            <div className="relative">
-              <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-slate-400" />
-              <input type="text" placeholder="Location" value={searchLocation} onChange={(e) => setSearchLocation(e.target.value)} className="w-full bg-slate-50 border border-slate-200 rounded-lg pl-9 pr-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#472AF8] focus:ring-[#472AF8]/10 transition-all" />
-            </div>
-            <div className="relative">
-              <select value={selectedLevel} onChange={(e) => setSelectedLevel(e.target.value)} className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-900 appearance-none focus:outline-none focus:border-[#472AF8] focus:ring-[#472AF8]/10 transition-all cursor-pointer">
-                <option>All Levels</option>
-                <option>Entry Level</option>
-                <option>Junior</option>
-                <option>Mid-Level</option>
-                <option>Senior</option>
-                <option>Lead / Manager</option>
-              </select>
-              <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 size-4 text-slate-400 pointer-events-none" />
-            </div>
-            <div className="flex gap-2">
-              <div className="relative flex-1">
-                <select value={selectedType} onChange={(e) => setSelectedType(e.target.value)} className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-900 appearance-none focus:outline-none focus:border-[#472AF8] focus:ring-[#472AF8]/10 transition-all cursor-pointer">
-                  <option>All Types</option>
-                  <option>Full-time</option>
-                  <option>Part-time</option>
-                  <option>Contract</option>
-                  <option>Remote</option>
-                </select>
-                <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 size-4 text-slate-400 pointer-events-none" />
-              </div>
-              <button className="px-4 py-2.5 bg-[#472AF8] hover:bg-[#3b22d0] text-white font-semibold rounded-lg text-sm transition-all cursor-pointer shadow-sm">Search</button>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex items-center justify-between gap-4 mb-6">
-          <p className="text-sm font-medium text-slate-500">{filteredJobs.length} {filteredJobs.length === 1 ? 'opportunity' : 'opportunities'} found</p>
-          <div className="flex flex-wrap gap-2">
-            {INDUSTRIES.map((ind) => (
-              <button key={ind} onClick={() => setSelectedIndustry(ind)} className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${selectedIndustry === ind ? 'bg-[#472AF8] text-white shadow-sm' : 'bg-white border border-slate-200 text-slate-600 hover:border-slate-300'}`}>
-                {ind}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {filteredJobs.map((job) => (
-            <div key={job.id} onClick={() => openWaitlist('candidate')} className="bg-white hover:border-[#472AF8]/30 border border-slate-200 rounded-xl p-5 transition-all duration-200 hover:shadow-lg hover:shadow-slate-200/50 flex flex-col justify-between group cursor-pointer">
-              <div>
-                <div className="flex items-start justify-between gap-3 mb-3">
-                  <div className="flex items-center gap-3">
-                    <div className={`size-10 rounded-lg ${job.logoBg} font-bold text-xs flex items-center justify-center`}>{job.logo}</div>
-                    <div>
-                      <h3 className="text-sm font-bold text-navy-900 group-hover:text-[#472AF8] transition-colors" style={{ fontFamily: 'var(--font-display)' }}>{job.title}</h3>
-                      <p className="text-xs text-slate-500">{job.company}</p>
-                    </div>
-                  </div>
-                  {job.isRemote && <span className="px-2 py-0.5 rounded bg-[#08C4F2]/10 text-[#08C4F2] text-[10px] font-semibold">Remote</span>}
-                </div>
-                <div className="flex items-center gap-1.5 text-xs text-slate-400 mb-3">
-                  <MapPin className="size-3" />
-                  <span>{job.location}</span>
-                  <span>·</span>
-                  <span>{job.type}</span>
-                  <span>·</span>
-                  <span className="text-slate-600 font-medium">{job.level}</span>
-                </div>
-                <div className="flex flex-wrap gap-1.5">
-                  {job.tags.map((tag) => <span key={tag} className="px-2 py-0.5 rounded bg-slate-100 text-slate-600 text-[10px] font-medium">{tag}</span>)}
-                  {job.extraTagsCount > 0 && <span className="px-2 py-0.5 rounded bg-slate-100 text-slate-400 text-[10px] font-medium">+{job.extraTagsCount}</span>}
-                </div>
-              </div>
-              <div className="flex items-center justify-between pt-3 mt-3 border-t border-slate-100 text-xs">
-                <span className="text-slate-400 flex items-center gap-1"><Clock className="size-3" />{job.postedAgo}</span>
-                <button onClick={(e) => { e.stopPropagation(); openWaitlist('candidate'); }} className="font-semibold text-[#472AF8] group-hover:text-[#3b22d0] flex items-center gap-1 transition-colors cursor-pointer">
-                  Join Waitlist <ArrowRight className="size-3" />
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {filteredJobs.length === 0 && (
-          <div className="text-center py-16 bg-white border border-slate-200 rounded-xl">
-            <p className="text-slate-500">No opportunities found matching your criteria.</p>
-            <button onClick={() => { setSearchKeyword(''); setSearchLocation(''); setSelectedLevel('All Levels'); setSelectedType('All Types'); setSelectedIndustry('All Industries'); }} className="mt-3 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-semibold rounded-lg transition-all cursor-pointer">Reset Filters</button>
-          </div>
-        )}
       </section>
 
       {/* HOW IT WORKS */}
