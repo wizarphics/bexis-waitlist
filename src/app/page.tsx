@@ -307,26 +307,57 @@ export default function Home() {
       </section>
 
       {/* CORE PRINCIPLES */}
-      <section id="principles" className="py-16 bg-navy-900">
+      <section id="principles" className="py-20 bg-navy-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 space-y-2">
-            <div className="text-xs font-bold uppercase tracking-widest text-[#08C4F2]">Core Principles</div>
-            <h2 className="text-3xl font-bold text-white" style={{ fontFamily: 'var(--font-display)' }}>Built on trust and substance.</h2>
-          </div>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-0">
             {[
-              { icon: FileText, title: 'Experience', desc: 'CV tells us where someone has been.', color: 'text-[#08C4F2]' },
-              { icon: Search, title: 'Evidence', desc: 'Work shows what they have actually done.', color: 'text-emerald-400' },
-              { icon: Brain, title: 'Behaviour', desc: 'Assessment reveals how they approach work.', color: 'text-[#08C4F2]' },
-              { icon: BarChart2, title: 'Alignment', desc: 'Role context makes evidence meaningful.', color: 'text-amber-400' },
-              { icon: UserCheck, title: 'Human Decision', desc: 'People always make the final call.', color: 'text-emerald-400' },
-            ].map((p) => (
-              <div key={p.title} className="rounded-xl border border-white/10 bg-white/5 p-5 space-y-3 hover:bg-white/10 transition-colors">
-                <div className="size-10 rounded-lg bg-white/10 flex items-center justify-center">
-                  <p.icon className={`size-5 ${p.color}`} />
+              {
+                icon: FileText,
+                title: 'Experience',
+                desc: 'CV tells us where someone has been — skills, roles, and career trajectory.',
+                iconBg: 'bg-[#08C4F2]/15',
+                iconColor: 'text-[#08C4F2]',
+                accent: '#08C4F2',
+              },
+              {
+                icon: Search,
+                title: 'Evidence',
+                desc: 'Work samples, GitHub, and portfolios show what they have actually done.',
+                iconBg: 'bg-emerald-500/15',
+                iconColor: 'text-emerald-400',
+                accent: 'emerald',
+              },
+              {
+                icon: Brain,
+                title: 'Behaviour',
+                desc: 'AI behavioral interviews reveal how they approach real work situations.',
+                iconBg: 'bg-[#08C4F2]/15',
+                iconColor: 'text-[#08C4F2]',
+                accent: '#08C4F2',
+              },
+              {
+                icon: BarChart2,
+                title: 'Alignment',
+                desc: 'Competencies mapped to role context — evidence scored against what matters.',
+                iconBg: 'bg-amber-500/15',
+                iconColor: 'text-amber-400',
+                accent: 'amber',
+              },
+              {
+                icon: UserCheck,
+                title: 'Human Decision',
+                desc: 'AI provides insight. People always make the final call.',
+                iconBg: 'bg-emerald-500/15',
+                iconColor: 'text-emerald-400',
+                accent: 'emerald',
+              },
+            ].map((p, i) => (
+              <div key={p.title} className={`group py-10 px-6 ${i < 4 ? 'lg:border-r border-white/10' : ''} ${i < 4 ? 'border-b sm:border-b-0 border-white/10' : ''}`}>
+                <div className={`size-16 rounded-2xl ${p.iconBg} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  <p.icon className={`size-7 ${p.iconColor}`} />
                 </div>
-                <h3 className="text-sm font-bold text-white" style={{ fontFamily: 'var(--font-display)' }}>{p.title}</h3>
-                <p className="text-xs text-slate-400 leading-relaxed">{p.desc}</p>
+                <h3 className="text-base font-bold text-white mb-2" style={{ fontFamily: 'var(--font-display)' }}>{p.title}</h3>
+                <p className="text-sm text-slate-400 leading-relaxed">{p.desc}</p>
               </div>
             ))}
           </div>
