@@ -17,10 +17,31 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'Bexis — Beyond the Résumé',
   description:
-    'AI-powered hiring that goes beyond the résumé. Understand candidates through experience, evidence, behavioral intelligence and role alignment.',
+    'Evidence-first hiring platform. Understand candidates through experience, evidence, behavioral insight, and role alignment.',
   icons: {
     icon: '/favicon.png',
     apple: '/favicon.png',
+  },
+  openGraph: {
+    title: 'Bexis — Beyond the Résumé',
+    description:
+      'Evidence-first hiring platform. Understand candidates through experience, evidence, behavioral insight, and role alignment.',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Bexis — Hiring beyond the résumé',
+      },
+    ],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Bexis — Beyond the Résumé',
+    description:
+      'Evidence-first hiring platform. Understand candidates through experience, evidence, behavioral insight, and role alignment.',
+    images: ['/og-image.png'],
   },
 };
 
