@@ -13,7 +13,23 @@ import {
   FileText,
   Check,
   Eye,
+  ChevronDown,
 } from 'lucide-react';
+
+function FAQItem({ question, answer }: { question: string; answer: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="py-5">
+      <button onClick={() => setOpen(!open)} className="w-full flex items-center justify-between text-left gap-4 cursor-pointer">
+        <span className="text-sm font-bold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>{question}</span>
+        <ChevronDown className={`size-4 text-slate-400 shrink-0 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
+      </button>
+      <div className={`overflow-hidden transition-all duration-200 ${open ? 'max-h-40 mt-3' : 'max-h-0'}`}>
+        <p className="text-sm text-slate-500 leading-relaxed">{answer}</p>
+      </div>
+    </div>
+  );
+}
 
 export default function Home() {
   const [waitlistOpen, setWaitlistOpen] = useState(false);
@@ -424,6 +440,49 @@ export default function Home() {
                 <h4 className="text-base font-bold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>{card.title}</h4>
                 <p className="text-sm text-slate-500 leading-relaxed">{card.desc}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-20 bg-slate-50">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 space-y-3">
+            <div className="text-xs font-bold uppercase tracking-widest text-[#472AF8]">Questions</div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>
+              Frequently asked questions
+            </h2>
+          </div>
+
+          <div className="space-y-0 divide-y divide-slate-200 border-t border-slate-200">
+            {[
+              {
+                q: 'What is BEXIS?',
+                a: 'BEXIS is an evidence-first hiring platform. It helps hiring teams understand candidates through experience, work evidence, behavioral insight, and role alignment — not just a résumé.',
+              },
+              {
+                q: 'Is BEXIS an applicant tracking system (ATS)?',
+                a: 'No. BEXIS complements your existing hiring workflow. It focuses on building a richer candidate picture through structured evidence, not managing your hiring pipeline.',
+              },
+              {
+                q: 'Does BEXIS use AI to make hiring decisions?',
+                a: 'No. BEXIS uses AI to surface insights and organize evidence. It never makes hiring decisions. Humans always have the final call.',
+              },
+              {
+                q: 'How is BEXIS different from other hiring tools?',
+                a: 'Most hiring tools focus on workflow and process. BEXIS focuses on candidate understanding — connecting what someone claims with what they can actually show, and how they approach real situations.',
+              },
+              {
+                q: 'Who is BEXIS for?',
+                a: 'BEXIS is designed for hiring teams, recruiters, and HR leaders who want to make more informed, evidence-based hiring decisions.',
+              },
+              {
+                q: 'When will BEXIS be available?',
+                a: 'BEXIS is currently in pre-launch. Join the waitlist to get early access when we begin onboarding teams.',
+              },
+            ].map((item, i) => (
+              <FAQItem key={i} question={item.q} answer={item.a} />
             ))}
           </div>
         </div>
