@@ -94,9 +94,7 @@ export default function Home() {
             {/* Sidebar */}
             <div className="w-48 bg-[#0f172a] p-3 space-y-1 hidden sm:flex flex-col shrink-0">
               <div className="flex items-center gap-2 px-2 py-3 mb-2">
-                <div className="size-7 rounded-lg bg-gradient-to-br from-[#472AF8] to-blue-600 p-[1px]">
-                  <div className="w-full h-full bg-[#0f172a] rounded-[6px] flex items-center justify-center font-bold text-[#472AF8] text-[8px]">BX</div>
-                </div>
+                <Image src="/bexis-icon.png" alt="BEXIS" width={24} height={24} className="shrink-0" />
                 <span className="text-xs font-bold text-white">Bexis</span>
               </div>
               <div className="text-[9px] font-semibold text-slate-500 uppercase tracking-wider px-2 mb-1">Employer</div>
@@ -253,7 +251,7 @@ export default function Home() {
       </section>
 
       {/* CORE PRINCIPLES */}
-      <section id="principles" className="py-12 border-y border-slate-200">
+      <section id="principles" className="py-12">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-0">
             {[
