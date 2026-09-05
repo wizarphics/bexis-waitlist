@@ -15,7 +15,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Bexis — Beyond the Résumé',
+  title: 'Bexis | Hiring beyond the résumé.',
   description:
     'Evidence-first hiring platform. Understand candidates through experience, evidence, behavioral insight, and role alignment.',
   icons: {
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     apple: '/favicon.png',
   },
   openGraph: {
-    title: 'Bexis — Beyond the Résumé',
+    title: 'Bexis | Hiring beyond the résumé.',
     description:
       'Evidence-first hiring platform. Understand candidates through experience, evidence, behavioral insight, and role alignment.',
     images: [
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bexis — Beyond the Résumé',
+    title: 'Bexis | Hiring beyond the résumé.',
     description:
       'Evidence-first hiring platform. Understand candidates through experience, evidence, behavioral insight, and role alignment.',
     images: ['/og-image.png'],

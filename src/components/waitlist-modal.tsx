@@ -16,6 +16,7 @@ type WaitlistModalProps = {
 export function WaitlistModal({ open, onOpenChange, defaultRole = 'candidate' }: WaitlistModalProps) {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
+  const [company, setCompany] = useState('');
   const [role, setRole] = useState<'candidate' | 'employer'>(defaultRole);
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -23,6 +24,7 @@ export function WaitlistModal({ open, onOpenChange, defaultRole = 'candidate' }:
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email.trim() || !name.trim()) return;
+    if (role === 'employer' && !company.trim()) return;
     setSubmitting(true);
     await new Promise((resolve) => setTimeout(resolve, 1200));
     setSubmitting(false);
@@ -31,8 +33,10 @@ export function WaitlistModal({ open, onOpenChange, defaultRole = 'candidate' }:
 
   const handleClose = () => {
     onOpenChange(false);
-    setTimeout(() => { setEmail(''); setName(''); setRole(defaultRole); setSubmitted(false); }, 300);
+    setTimeout(() => { setEmail(''); setName(''); setCompany(''); setRole(defaultRole); setSubmitted(false); }, 300);
   };
+
+  const isEmployer = role === 'employer';
 
   return (
     <Dialog open={open} onOpenChange={handleClose}>
@@ -51,7 +55,7 @@ export function WaitlistModal({ open, onOpenChange, defaultRole = 'candidate' }:
                   Join the Bexis Waitlist
                 </DialogTitle>
                 <DialogDescription className="text-sm text-slate-500 leading-relaxed">
-                  Be among the first to experience AI-powered hiring that goes beyond the résumé.
+                  Be among the first to experience hiring that goes beyond the résumé.
                 </DialogDescription>
               </DialogHeader>
             </div>
@@ -71,14 +75,21 @@ export function WaitlistModal({ open, onOpenChange, defaultRole = 'candidate' }:
                 <Input id="waitlist-name" type="text" placeholder="Your name" value={name} onChange={(e) => setName(e.target.value)} required className="h-10 bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:border-[#472AF8] focus-visible:ring-[#472AF8]/20 rounded-lg" />
               </div>
 
+              {isEmployer && (
+                <div className="space-y-1.5">
+                  <Label htmlFor="waitlist-company" className="text-slate-600 text-xs font-medium">Company <span className="text-red-500">*</span></Label>
+                  <Input id="waitlist-company" type="text" placeholder="Company name" value={company} onChange={(e) => setCompany(e.target.value)} required className="h-10 bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:border-[#472AF8] focus-visible:ring-[#472AF8]/20 rounded-lg" />
+                </div>
+              )}
+
               <div className="space-y-1.5">
                 <Label htmlFor="waitlist-email" className="text-slate-600 text-xs font-medium">
-                  Email <span className="text-red-500">*</span>
+                  Work email <span className="text-red-500">*</span>
                 </Label>
-                <Input id="waitlist-email" type="email" placeholder="you@company.com" value={email} onChange={(e) => setEmail(e.target.value)} required className="h-10 bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:border-[#472AF8] focus-visible:ring-[#472AF8]/20 rounded-lg" />
+                <Input id="waitlist-email" type="email" placeholder={isEmployer ? 'you@company.com' : 'you@email.com'} value={email} onChange={(e) => setEmail(e.target.value)} required className="h-10 bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:border-[#472AF8] focus-visible:ring-[#472AF8]/20 rounded-lg" />
               </div>
 
-              <button type="submit" disabled={submitting || !email.trim() || !name.trim()} className="w-full py-2.5 bg-[#472AF8] hover:bg-[#3b22d0] text-white font-semibold text-sm rounded-lg shadow-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer flex items-center justify-center gap-2">
+              <button type="submit" disabled={submitting || !email.trim() || !name.trim() || (isEmployer && !company.trim())} className="w-full py-2.5 bg-[#472AF8] hover:bg-[#3b22d0] text-white font-semibold text-sm rounded-lg shadow-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer flex items-center justify-center gap-2">
                 {submitting ? (<><Loader2 className="size-4 animate-spin" /><span>Joining...</span></>) : <span>Join Waitlist</span>}
               </button>
 
