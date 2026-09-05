@@ -90,121 +90,149 @@ export default function Home() {
       {/* DASHBOARD PREVIEW */}
       <section className="pb-20">
         <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-2xl bg-[#0B0F17] border border-slate-800 shadow-2xl shadow-slate-300/30 overflow-hidden">
-            {/* Header */}
-            <div className="flex items-center justify-between px-5 py-3 border-b border-slate-800">
-              <div className="flex items-center gap-2">
-                <div className="size-7 rounded-lg bg-gradient-to-br from-[#08C4F2] to-blue-600 p-[1px]">
-                  <div className="w-full h-full bg-[#0B0F17] rounded-[6px] flex items-center justify-center font-bold text-[#08C4F2] text-[9px]">BX</div>
+          <div className="rounded-2xl bg-white border border-slate-200 shadow-2xl shadow-slate-200/60 overflow-hidden flex">
+            {/* Sidebar */}
+            <div className="w-44 bg-[#0f172a] p-3 space-y-1 hidden sm:flex flex-col shrink-0">
+              <div className="flex items-center gap-2 px-2 py-3 mb-2">
+                <div className="size-7 rounded-lg bg-gradient-to-br from-[#472AF8] to-blue-600 p-[1px]">
+                  <div className="w-full h-full bg-[#0f172a] rounded-[6px] flex items-center justify-center font-bold text-[#472AF8] text-[8px]">BX</div>
                 </div>
                 <span className="text-xs font-bold text-white">Bexis</span>
-                <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-cyan-950/80 border border-cyan-800/80 text-[#08C4F2] font-semibold">Candidate</span>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="size-6 rounded-full bg-gradient-to-br from-[#08C4F2] to-blue-600 text-[#0B0F17] font-bold text-[8px] flex items-center justify-center">AR</div>
-                <span className="text-[10px] font-bold text-white">Alex Rivera</span>
-              </div>
+              <div className="text-[9px] font-semibold text-slate-500 uppercase tracking-wider px-2 mb-1">Employer</div>
+              {[
+                { label: 'Overview', active: true },
+                { label: 'Jobs', active: false },
+                { label: 'Applications', active: false, badge: '47' },
+                { label: 'Candidates', active: false },
+                { label: 'Interviews', active: false },
+                { label: 'Evidence', active: false },
+                { label: 'Insights', active: false },
+              ].map((item) => (
+                <div key={item.label} className={`flex items-center justify-between px-2.5 py-1.5 rounded-lg text-[11px] transition-colors ${item.active ? 'bg-[#472AF8] text-white font-semibold' : 'text-slate-400 hover:bg-slate-800 hover:text-slate-200'}`}>
+                  <span>{item.label}</span>
+                  {item.badge && <span className="px-1.5 py-0.5 rounded-full bg-slate-700 text-[8px] font-bold">{item.badge}</span>}
+                </div>
+              ))}
             </div>
 
-            <div className="flex">
-              {/* Sidebar */}
-              <div className="w-48 border-r border-slate-800 p-3 space-y-3 hidden sm:block">
-                <div className="flex items-center gap-2.5 p-2 rounded-lg bg-[#08C4F2]/10 border border-[#08C4F2]/30 text-[#08C4F2]">
-                  <LayoutGrid className="size-3.5" />
-                  <span className="text-[11px] font-semibold">Overview</span>
+            {/* Main Content */}
+            <div className="flex-1 p-5 space-y-5 min-w-0">
+              {/* Header */}
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="text-lg font-bold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>HR Dashboard</h3>
+                  <p className="text-[11px] text-slate-500">TechNova · Hiring overview for August 2026</p>
                 </div>
+                <button className="px-3 py-1.5 bg-[#472AF8] hover:bg-[#3b22d0] text-white text-[10px] font-semibold rounded-lg transition-all cursor-pointer">+ Create Job</button>
+              </div>
+
+              {/* Metrics Row */}
+              <div className="grid grid-cols-3 lg:grid-cols-6 gap-2.5">
                 {[
-                  { label: 'My Applications', badge: '3' },
-                  { label: 'AI Assessments', badge: '1' },
-                  { label: 'Evidence & Portfolio', badge: '3' },
-                ].map((item) => (
-                  <div key={item.label} className="flex items-center justify-between p-2 rounded-lg text-slate-400 hover:bg-slate-900 transition-colors">
-                    <span className="text-[11px]">{item.label}</span>
-                    <span className="px-1.5 py-0.5 rounded-full bg-slate-800 text-[9px] font-bold text-slate-300">{item.badge}</span>
+                  { label: 'Active Jobs', value: '6' },
+                  { label: 'Total Applications', value: '47', sub: '+12 this week', color: 'text-[#472AF8]' },
+                  { label: 'AI Interviews', value: '12' },
+                  { label: 'Assessments Done', value: '28', icon: '✓' },
+                  { label: 'Under Review', value: '9' },
+                  { label: 'Hires', value: '3', icon: '🏆' },
+                ].map((m) => (
+                  <div key={m.label} className="rounded-xl border border-slate-200 p-3 space-y-1">
+                    <div className="text-[9px] text-slate-500 font-medium">{m.label}</div>
+                    <div className={`text-xl font-bold text-navy-900 ${m.color || ''}`} style={{ fontFamily: 'var(--font-display)' }}>{m.value}</div>
+                    {m.sub && <div className="text-[9px] text-[#472AF8] font-semibold">{m.sub}</div>}
                   </div>
                 ))}
               </div>
 
-              {/* Main Content */}
-              <div className="flex-1 p-4 space-y-4">
-                {/* Alert Banner */}
-                <div className="rounded-xl bg-gradient-to-r from-cyan-950/80 via-[#0a2038] to-blue-950/80 border border-[#08C4F2]/40 p-3.5 flex items-center justify-between">
-                  <div className="space-y-0.5">
-                    <span className="text-[9px] font-semibold text-[#08C4F2] bg-[#08C4F2]/20 px-2 py-0.5 rounded-full">Pending AI Assessment</span>
-                    <p className="text-[11px] font-bold text-white">Senior Product Manager at TechNova</p>
-                  </div>
-                  <button className="px-3 py-1.5 bg-gradient-to-r from-[#08C4F2] to-blue-600 text-[#0B0F17] text-[9px] font-bold rounded-lg shrink-0">Start Assessment</button>
-                </div>
-
-                {/* Metrics Grid */}
-                <div className="grid grid-cols-4 gap-2.5">
-                  {[
-                    { label: 'Applications', value: '3', sub: '2 Under Review', color: 'text-white' },
-                    { label: 'AI Assessments', value: '1', sub: 'Scheduled', color: 'text-[#08C4F2]' },
-                    { label: 'Linked Evidence', value: '3', sub: 'Verified by AI', color: 'text-emerald-400' },
-                    { label: 'Shortlists', value: '1', sub: 'PixelWorks', color: 'text-purple-400' },
-                  ].map((m) => (
-                    <div key={m.label} className="rounded-xl bg-[#0f172a] border border-slate-800 p-3 space-y-0.5">
-                      <div className="text-[9px] text-slate-400">{m.label}</div>
-                      <div className={`text-lg font-bold ${m.color}`}>{m.value}</div>
-                      <div className="text-[9px] text-slate-500">{m.sub}</div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Application Progress */}
-                <div className="rounded-xl bg-[#0f172a] border border-slate-800 p-4 space-y-3">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[11px] font-bold text-white">Active Applications</span>
-                    <span className="text-[9px] text-[#08C4F2] font-semibold cursor-pointer">View All →</span>
-                  </div>
-
-                  {[
-                    { role: 'Senior Product Manager', company: 'TechNova', logo: 'TN', logoBg: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30', stage: 3, status: 'Scheduled' },
-                    { role: 'Backend Engineer', company: 'CodeCore', logo: 'CC', logoBg: 'bg-blue-500/20 text-blue-400 border-blue-500/30', stage: 4, status: 'Under Review' },
-                  ].map((app) => (
-                    <div key={app.role} className="bg-slate-900/80 border border-slate-800 rounded-lg p-3 space-y-2.5">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                          <div className={`size-7 rounded-md ${app.logoBg} border font-bold text-[8px] flex items-center justify-center`}>{app.logo}</div>
-                          <div>
-                            <p className="text-[10px] font-bold text-white">{app.role}</p>
-                            <p className="text-[9px] text-slate-400">{app.company}</p>
-                          </div>
-                        </div>
-                        <span className={`text-[8px] font-semibold px-2 py-0.5 rounded-full ${app.status === 'Scheduled' ? 'bg-cyan-950 text-[#08C4F2] border border-cyan-800' : 'bg-slate-800 text-slate-300'}`}>{app.status}</span>
-                      </div>
-                      {/* 5-step progress */}
-                      <div className="grid grid-cols-5 gap-0.5">
-                        {[1, 2, 3, 4, 5].map((s) => (
-                          <div key={s} className={`h-1 rounded-full ${s <= app.stage ? 'bg-[#08C4F2]' : 'bg-slate-800'}`} />
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Evidence Cards */}
-                <div className="rounded-xl bg-[#0f172a] border border-slate-800 p-4 space-y-3">
-                  <span className="text-[11px] font-bold text-white">Supporting Evidence</span>
-                  <div className="grid grid-cols-3 gap-2">
+              {/* Charts Row */}
+              <div className="grid lg:grid-cols-2 gap-4">
+                {/* Bar Chart */}
+                <div className="rounded-xl border border-slate-200 p-4 space-y-3">
+                  <span className="text-xs font-bold text-navy-900">Candidate Pipeline</span>
+                  <div className="space-y-2">
                     {[
-                      { title: 'E-commerce Microservices', type: 'GitHub', icon: 'GH', color: 'text-[#08C4F2] bg-[#08C4F2]/10', score: '92%' },
-                      { title: 'Design System Library', type: 'Figma', icon: 'FG', color: 'text-pink-400 bg-pink-500/10', score: '89%' },
-                      { title: 'AWS Solutions Architect', type: 'Cert', icon: 'AW', color: 'text-amber-400 bg-amber-500/10', score: 'Verified' },
-                    ].map((ev) => (
-                      <div key={ev.title} className="bg-slate-900/60 border border-slate-800 rounded-lg p-2.5 space-y-2">
-                        <div className="flex items-center gap-1.5">
-                          <div className={`size-5 rounded ${ev.color} flex items-center justify-center text-[7px] font-bold`}>{ev.icon}</div>
-                          <span className="text-[9px] font-bold text-white truncate">{ev.title}</span>
+                      { label: 'Applications', pct: 78, count: 47 },
+                      { label: 'CV Reviewed', pct: 52, count: 31 },
+                      { label: 'Interview', pct: 38, count: 23 },
+                      { label: 'Under Review', pct: 22, count: 13 },
+                      { label: 'Shortlisted', pct: 12, count: 7 },
+                      { label: 'Hired', pct: 5, count: 3 },
+                    ].map((bar) => (
+                      <div key={bar.label} className="flex items-center gap-2">
+                        <span className="text-[9px] text-slate-500 w-16 text-right shrink-0">{bar.label}</span>
+                        <div className="flex-1 h-3 bg-slate-100 rounded-full overflow-hidden">
+                          <div className="h-full bg-[#472AF8] rounded-full" style={{ width: `${bar.pct}%` }} />
                         </div>
-                        <div className="flex items-center justify-between text-[8px]">
-                          <span className="text-slate-400">{ev.type}</span>
-                          <span className="text-[#08C4F2] font-bold">{ev.score}</span>
-                        </div>
+                        <span className="text-[9px] text-slate-400 w-4 text-right">{bar.count}</span>
                       </div>
                     ))}
                   </div>
+                  <div className="flex justify-between text-[8px] text-slate-400 pt-1 border-t border-slate-100">
+                    <span>0</span><span>15</span><span>30</span><span>45</span><span>60</span>
+                  </div>
+                </div>
+
+                {/* Donut Chart */}
+                <div className="rounded-xl border border-slate-200 p-4 flex items-center justify-between">
+                  <div className="space-y-2">
+                    <span className="text-xs font-bold text-navy-900 block">Interview Completion</span>
+                    <div className="space-y-1.5">
+                      <div className="flex items-center gap-2 text-[10px]">
+                        <span className="size-2 rounded-full bg-[#08C4F2]" />
+                        <span className="text-slate-500">Completed</span>
+                        <span className="font-bold text-navy-900 ml-auto">28</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-[10px]">
+                        <span className="size-2 rounded-full bg-[#472AF8]" />
+                        <span className="text-slate-500">Scheduled</span>
+                        <span className="font-bold text-navy-900 ml-auto">12</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-[10px]">
+                        <span className="size-2 rounded-full bg-slate-300" />
+                        <span className="text-slate-500">Pending</span>
+                        <span className="font-bold text-navy-900 ml-auto">7</span>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Donut SVG */}
+                  <div className="relative size-24">
+                    <svg viewBox="0 0 36 36" className="size-full -rotate-90">
+                      <circle cx="18" cy="18" r="14" fill="none" stroke="#e2e8f0" strokeWidth="4" />
+                      <circle cx="18" cy="18" r="14" fill="none" stroke="#08C4F2" strokeWidth="4" strokeDasharray="61.5 26.6" strokeLinecap="round" />
+                      <circle cx="18" cy="18" r="14" fill="none" stroke="#472AF8" strokeWidth="4" strokeDasharray="25.8 62.3" strokeDashoffset="-61.5" strokeLinecap="round" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              {/* Recent Applications */}
+              <div className="rounded-xl border border-slate-200 p-4 space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold text-navy-900">Recent Applications</span>
+                  <span className="text-[10px] text-[#472AF8] font-semibold cursor-pointer">View all →</span>
+                </div>
+                <div className="space-y-0">
+                  {[
+                    { name: 'Jane Doe', initials: 'JD', bg: 'bg-[#472AF8] text-white', role: 'Senior Product Manager', date: 'Applied 2026-08-14', status: 'Interview Scheduled', statusColor: 'bg-emerald-50 text-emerald-700 border-emerald-200' },
+                    { name: 'John Smith', initials: 'JS', bg: 'bg-[#08C4F2] text-white', role: 'Senior Product Manager', date: 'Applied 2026-08-13', status: 'Shortlisted', statusColor: 'bg-[#472AF8]/5 text-[#472AF8] border-[#472AF8]/20' },
+                    { name: 'Aisha Ibrahim', initials: 'AI', bg: 'bg-emerald-500 text-white', role: 'Senior Product Manager', date: 'Applied 2026-08-12', status: 'Rejected', statusColor: 'bg-red-50 text-red-600 border-red-200' },
+                    { name: 'David Lee', initials: 'DL', bg: 'bg-amber-500 text-white', role: 'Backend Engineer', date: 'Applied 2026-08-14', status: 'Under Review', statusColor: 'bg-slate-50 text-slate-600 border-slate-200' },
+                  ].map((app) => (
+                    <div key={app.name} className="flex items-center justify-between py-2.5 border-b border-slate-100 last:border-0">
+                      <div className="flex items-center gap-2.5">
+                        <div className={`size-8 rounded-full ${app.bg} flex items-center justify-center text-[9px] font-bold`}>{app.initials}</div>
+                        <div>
+                          <p className="text-[11px] font-bold text-navy-900">{app.name}</p>
+                          <p className="text-[9px] text-slate-500">{app.role} · {app.date}</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className={`text-[9px] font-semibold px-2 py-0.5 rounded-full border ${app.statusColor}`}>{app.status}</span>
+                        <button className="text-[9px] font-semibold text-slate-500 hover:text-[#472AF8] border border-slate-200 rounded-md px-2 py-1 transition-colors cursor-pointer">Review</button>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
