@@ -82,10 +82,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* DASHBOARD PREVIEW — Candidate Profile Concept */}
+      {/* PRODUCT VISUAL — Candidate Evidence Profile */}
       <section className="pb-0 overflow-hidden">
         <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="rounded-t-2xl bg-white border border-b-0 border-slate-200 shadow-2xl shadow-slate-200/60 overflow-hidden" style={{ height: '560px' }}>
+          <div className="rounded-t-2xl bg-white border border-b-0 border-slate-200 shadow-2xl shadow-slate-200/60 overflow-hidden" style={{ height: '580px' }}>
             {/* Top bar */}
             <div className="h-11 border-b border-slate-200 flex items-center px-4 gap-4 bg-slate-50/80">
               <div className="flex gap-1.5">
@@ -100,98 +100,159 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Main content */}
-            <div className="flex h-[calc(560px-44px)]">
-              {/* Left: Candidate info */}
-              <div className="w-72 border-r border-slate-200 p-5 space-y-5 hidden md:block shrink-0">
+            {/* Main content — Two-column: Summary + Evidence Journey */}
+            <div className="flex h-[calc(580px-44px)]">
+              {/* Left: Candidate summary */}
+              <div className="w-64 border-r border-slate-200 p-5 space-y-5 hidden md:flex flex-col shrink-0">
                 <div className="flex items-center gap-3">
-                  <div className="size-12 rounded-full bg-[#472AF8] text-white flex items-center justify-center text-sm font-bold">JD</div>
+                  <div className="size-11 rounded-full bg-[#472AF8] text-white flex items-center justify-center text-sm font-bold">JD</div>
                   <div>
                     <div className="text-sm font-bold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>Jane Doe</div>
-                    <div className="text-xs text-slate-500">Senior Product Manager</div>
+                    <div className="text-[11px] text-slate-500">Senior Product Manager</div>
                   </div>
                 </div>
 
                 <div className="space-y-3">
-                  <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Evidence Summary</div>
-                  {[
-                    { label: 'Experience', value: '8 years', color: 'bg-[#08C4F2]' },
-                    { label: 'Evidence Score', value: 'Strong', color: 'bg-emerald-500' },
-                    { label: 'Behavioral Fit', value: 'High', color: 'bg-[#472AF8]' },
-                    { label: 'Role Alignment', value: '92%', color: 'bg-amber-500' },
-                  ].map((item) => (
-                    <div key={item.label} className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <div className={`w-2 h-2 rounded-full ${item.color}`} />
-                        <span className="text-xs text-slate-600">{item.label}</span>
-                      </div>
-                      <span className="text-xs font-bold text-navy-900">{item.value}</span>
-                    </div>
-                  ))}
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Experience</div>
+                  <div className="text-xs text-slate-600 leading-relaxed">8 years in product leadership across B2B SaaS. Led teams of 5–12. Shipped 3 products from 0→1 and 1→10.</div>
                 </div>
 
-                <div className="pt-3 border-t border-slate-100">
-                  <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2">Verdict</div>
-                  <div className="rounded-lg bg-emerald-50 border border-emerald-200 px-3 py-2 flex items-center gap-2">
-                    <Check className="size-4 text-emerald-600" />
-                    <span className="text-xs font-semibold text-emerald-700">Strong candidate — Recommend interview</span>
+                <div className="space-y-2">
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Evidence sources</div>
+                  <div className="flex flex-wrap gap-1.5">
+                    {['GitHub', 'Portfolio', 'Case studies', 'Certifications'].map((s) => (
+                      <span key={s} className="px-2 py-0.5 rounded-md bg-slate-100 text-[10px] font-medium text-slate-600">{s}</span>
+                    ))}
                   </div>
+                </div>
+
+                <div className="pt-2 mt-auto border-t border-slate-100">
+                  <div className="text-[10px] text-slate-400 leading-relaxed">Candidate assessment for <span className="font-semibold text-slate-600">Senior Product Manager</span> at TechNova</div>
                 </div>
               </div>
 
-              {/* Right: Five pillar cards */}
+              {/* Right: Evidence Journey */}
               <div className="flex-1 p-5 overflow-hidden">
                 <div className="flex items-center justify-between mb-4">
                   <div>
-                    <div className="text-sm font-bold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>Candidate Assessment</div>
-                    <div className="text-[10px] text-slate-500">Evidence-based evaluation across five dimensions</div>
+                    <div className="text-sm font-bold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>Candidate Evidence Profile</div>
+                    <div className="text-[10px] text-slate-500">Structured evidence across five dimensions</div>
                   </div>
                   <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#08C4F2]/10 text-[#08C4F2] text-[10px] font-semibold">
                     <Eye className="size-3" />
-                    Full view available
+                    Full profile
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-5 gap-3">
-                  {[
-                    { icon: FileText, title: 'Experience', desc: '8 years product leadership at Series B+ startups', score: 'Verified', color: 'text-[#08C4F2]', bg: 'bg-[#08C4F2]/10' },
-                    { icon: Search, title: 'Evidence', desc: '3 shipped products, 2 patents, portfolio reviewed', score: 'Strong', color: 'text-emerald-500', bg: 'bg-emerald-500/10' },
-                    { icon: Brain, title: 'Behaviour', desc: 'Collaborative approach, data-driven decisions', score: 'High', color: 'text-[#472AF8]', bg: 'bg-[#472AF8]/10' },
-                    { icon: BarChart2, title: 'Alignment', desc: '92% match to role requirements and team context', score: '92%', color: 'text-amber-500', bg: 'bg-amber-500/10' },
-                    { icon: UserCheck, title: 'Decision', desc: 'Recommendation: proceed to final interview round', score: 'Advance', color: 'text-emerald-500', bg: 'bg-emerald-500/10' },
-                  ].map((card) => (
-                    <div key={card.title} className="rounded-xl border border-slate-200 p-3.5 space-y-3">
-                      <div className="flex items-center justify-between">
-                        <div className={`size-8 rounded-lg ${card.bg} flex items-center justify-center`}>
-                          <card.icon className={`size-4 ${card.color}`} />
-                        </div>
-                        <span className={`text-[10px] font-bold ${card.color}`}>{card.score}</span>
+                <div className="space-y-3">
+                  {/* 1. Experience */}
+                  <div className="rounded-xl border border-slate-200 p-4">
+                    <div className="flex items-center gap-2.5 mb-2.5">
+                      <div className="size-7 rounded-lg bg-[#08C4F2]/10 flex items-center justify-center">
+                        <FileText className="size-3.5 text-[#08C4F2]" />
                       </div>
-                      <div>
-                        <div className="text-xs font-bold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>{card.title}</div>
-                        <div className="text-[10px] text-slate-500 leading-relaxed mt-1">{card.desc}</div>
+                      <span className="text-xs font-bold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>Experience</span>
+                      <span className="text-[10px] font-semibold text-[#08C4F2] ml-auto">Verified</span>
+                    </div>
+                    <div className="text-[11px] text-slate-600 leading-relaxed">Product leadership at Series B+ startups. Managed cross-functional teams of 5–12. Shipped 3 products from 0→1 and 1→10.</div>
+                  </div>
+
+                  {/* 2. Evidence */}
+                  <div className="rounded-xl border border-slate-200 p-4">
+                    <div className="flex items-center gap-2.5 mb-2.5">
+                      <div className="size-7 rounded-lg bg-emerald-500/10 flex items-center justify-center">
+                        <Search className="size-3.5 text-emerald-500" />
+                      </div>
+                      <span className="text-xs font-bold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>Evidence</span>
+                      <span className="text-[10px] font-semibold text-emerald-600 ml-auto">Supported</span>
+                    </div>
+                    <div className="flex flex-wrap gap-1.5">
+                      {[
+                        { label: 'GitHub', desc: 'Active contributor' },
+                        { label: 'Portfolio', desc: '3 product launches' },
+                        { label: 'Case studies', desc: 'Metrics + outcomes' },
+                        { label: 'Certifications', desc: 'Product management' },
+                      ].map((e) => (
+                        <span key={e.label} className="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-slate-50 border border-slate-100 text-[10px]">
+                          <span className="font-semibold text-slate-700">{e.label}</span>
+                          <span className="text-slate-400">· {e.desc}</span>
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* 3. Behaviour */}
+                  <div className="rounded-xl border border-slate-200 p-4">
+                    <div className="flex items-center gap-2.5 mb-2.5">
+                      <div className="size-7 rounded-lg bg-[#472AF8]/10 flex items-center justify-center">
+                        <Brain className="size-3.5 text-[#472AF8]" />
+                      </div>
+                      <span className="text-xs font-bold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>Behaviour</span>
+                      <span className="text-[10px] font-semibold text-[#472AF8] ml-auto">Observed</span>
+                    </div>
+                    <div className="flex flex-wrap gap-1.5">
+                      {[
+                        'Collaborative problem solving',
+                        'Data-driven decisions',
+                        'Customer orientation',
+                        'Structured thinking',
+                      ].map((trait) => (
+                        <span key={trait} className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-[#472AF8]/5 text-[10px] font-medium text-[#472AF8]">
+                          <span className="w-1 h-1 rounded-full bg-[#472AF8]" />
+                          {trait}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="mt-2 text-[10px] text-slate-400">Based on structured behavioral assessment responses</div>
+                  </div>
+
+                  {/* 4. Alignment + 5. Human Review */}
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="rounded-xl border border-slate-200 p-4">
+                      <div className="flex items-center gap-2.5 mb-2.5">
+                        <div className="size-7 rounded-lg bg-amber-500/10 flex items-center justify-center">
+                          <BarChart2 className="size-3.5 text-amber-500" />
+                        </div>
+                        <span className="text-xs font-bold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>Alignment</span>
+                      </div>
+                      <div className="space-y-1.5">
+                        <div className="flex items-start gap-1.5">
+                          <span className="text-emerald-500 mt-0.5"><Check className="size-3" /></span>
+                          <span className="text-[10px] text-slate-600">Product strategy</span>
+                        </div>
+                        <div className="flex items-start gap-1.5">
+                          <span className="text-emerald-500 mt-0.5"><Check className="size-3" /></span>
+                          <span className="text-[10px] text-slate-600">Team leadership</span>
+                        </div>
+                        <div className="flex items-start gap-1.5">
+                          <span className="text-emerald-500 mt-0.5"><Check className="size-3" /></span>
+                          <span className="text-[10px] text-slate-600">Product execution</span>
+                        </div>
                       </div>
                     </div>
-                  ))}
-                </div>
 
-                {/* Activity feed */}
-                <div className="mt-4 rounded-xl border border-slate-200 p-4">
-                  <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-3">Recent Activity</div>
-                  <div className="space-y-2.5">
-                    {[
-                      { time: '2h ago', text: 'Behavioral interview completed — scored 8.4/10 on collaborative problem-solving', dot: 'bg-[#472AF8]' },
-                      { time: '1d ago', text: 'Portfolio evidence verified — 3 product launches confirmed with metrics', dot: 'bg-emerald-500' },
-                      { time: '2d ago', text: 'CV analysis complete — 8 years experience in product management validated', dot: 'bg-[#08C4F2]' },
-                    ].map((event, i) => (
-                      <div key={i} className="flex items-start gap-2.5">
-                        <div className={`w-1.5 h-1.5 rounded-full ${event.dot} mt-1.5 shrink-0`} />
-                        <div className="flex-1 min-w-0">
-                          <span className="text-[10px] text-slate-400 mr-2">{event.time}</span>
-                          <span className="text-[11px] text-slate-600">{event.text}</span>
+                    <div className="rounded-xl border border-slate-200 p-4">
+                      <div className="flex items-center gap-2.5 mb-2.5">
+                        <div className="size-7 rounded-lg bg-emerald-500/10 flex items-center justify-center">
+                          <UserCheck className="size-3.5 text-emerald-500" />
+                        </div>
+                        <span className="text-xs font-bold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>Review</span>
+                      </div>
+                      <div className="space-y-1.5">
+                        <div className="flex items-start gap-1.5">
+                          <span className="text-emerald-500 mt-0.5"><Check className="size-3" /></span>
+                          <span className="text-[10px] text-slate-600">Evidence available</span>
+                        </div>
+                        <div className="flex items-start gap-1.5">
+                          <span className="text-emerald-500 mt-0.5"><Check className="size-3" /></span>
+                          <span className="text-[10px] text-slate-600">Needs discussion</span>
+                        </div>
+                        <div className="flex items-start gap-1.5">
+                          <span className="text-emerald-500 mt-0.5"><Check className="size-3" /></span>
+                          <span className="text-[10px] text-slate-600">Recruiter review</span>
                         </div>
                       </div>
-                    ))}
+                    </div>
                   </div>
                 </div>
               </div>
