@@ -317,7 +317,6 @@ export default function Home() {
                 desc: 'CV tells us where someone has been — skills, roles, and career trajectory.',
                 iconBg: 'bg-[#08C4F2]/15',
                 iconColor: 'text-[#08C4F2]',
-                accent: '#08C4F2',
               },
               {
                 icon: Search,
@@ -325,7 +324,6 @@ export default function Home() {
                 desc: 'Work samples, GitHub, and portfolios show what they have actually done.',
                 iconBg: 'bg-emerald-500/15',
                 iconColor: 'text-emerald-400',
-                accent: 'emerald',
               },
               {
                 icon: Brain,
@@ -333,7 +331,6 @@ export default function Home() {
                 desc: 'AI behavioral interviews reveal how they approach real work situations.',
                 iconBg: 'bg-[#08C4F2]/15',
                 iconColor: 'text-[#08C4F2]',
-                accent: '#08C4F2',
               },
               {
                 icon: BarChart2,
@@ -341,7 +338,6 @@ export default function Home() {
                 desc: 'Competencies mapped to role context — evidence scored against what matters.',
                 iconBg: 'bg-amber-500/15',
                 iconColor: 'text-amber-400',
-                accent: 'amber',
               },
               {
                 icon: UserCheck,
@@ -349,15 +345,16 @@ export default function Home() {
                 desc: 'AI provides insight. People always make the final call.',
                 iconBg: 'bg-emerald-500/15',
                 iconColor: 'text-emerald-400',
-                accent: 'emerald',
               },
             ].map((p, i) => (
-              <div key={p.title} className={`group py-10 px-6 ${i < 4 ? 'lg:border-r border-white/10' : ''} ${i < 4 ? 'border-b sm:border-b-0 border-white/10' : ''}`}>
-                <div className={`size-16 rounded-2xl ${p.iconBg} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <p.icon className={`size-7 ${p.iconColor}`} />
+              <div key={p.title} className={`group py-12 px-6 text-center ${i < 4 ? 'lg:border-r border-white/10' : ''} ${i < 4 ? 'border-b sm:border-b-0 border-white/10' : ''}`}>
+                <div className="flex justify-center mb-8">
+                  <div className={`w-24 h-24 rounded-3xl ${p.iconBg} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                    <p.icon className={`size-12 ${p.iconColor}`} />
+                  </div>
                 </div>
-                <h3 className="text-base font-bold text-white mb-2" style={{ fontFamily: 'var(--font-display)' }}>{p.title}</h3>
-                <p className="text-sm text-slate-400 leading-relaxed">{p.desc}</p>
+                <h3 className="text-lg font-bold text-white mb-3" style={{ fontFamily: 'var(--font-display)' }}>{p.title}</h3>
+                <p className="text-sm text-slate-400 leading-relaxed max-w-[200px] mx-auto">{p.desc}</p>
               </div>
             ))}
           </div>
