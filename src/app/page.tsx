@@ -18,13 +18,15 @@ import {
 function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="border-b border-slate-200">
-      <button onClick={() => setOpen(!open)} className="w-full flex items-start gap-4 text-left py-5 cursor-pointer group">
-        <span className="text-sm font-bold text-slate-400 group-hover:text-[#472AF8] transition-colors mt-px shrink-0">{open ? '×' : '+'}</span>
-        <span className="text-sm font-semibold text-navy-900 leading-relaxed" style={{ fontFamily: 'var(--font-display)' }}>{question}</span>
+    <div className="relative gap-x-4 px-6 flex items-start border-b border-slate-200">
+      <button onClick={() => setOpen(!open)} className="size-6 flex items-center justify-center cursor-pointer mt-5 shrink-0">
+        <span className={`text-lg font-light text-slate-400 group-hover:text-[#472AF8] transition-transform duration-200 ${open ? 'rotate-45' : ''}`}>+</span>
       </button>
-      <div className={`overflow-hidden transition-all duration-200 ${open ? 'max-h-40 pb-5' : 'max-h-0'}`}>
-        <p className="text-sm text-slate-500 leading-relaxed pl-7">{answer}</p>
+      <div className="space-y-3 py-5 flex-1">
+        <p onClick={() => setOpen(!open)} className="text-sm font-semibold text-navy-900 leading-relaxed cursor-pointer" style={{ fontFamily: 'var(--font-display)' }}>{question}</p>
+        <div className={`overflow-hidden transition-all duration-200 ${open ? 'max-h-40' : 'max-h-0'}`}>
+          <p className="text-sm text-slate-500 leading-relaxed">{answer}</p>
+        </div>
       </div>
     </div>
   );
@@ -457,7 +459,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-x-16 items-center">
+          <div className="grid lg:grid-cols-2">
             {[
               {
                 q: 'What is BEXIS?',
