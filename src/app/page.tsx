@@ -162,7 +162,7 @@ export default function Home() {
     <div className="min-h-screen bg-[#f8fafc] text-slate-900 font-sans selection:bg-purple-500/20 selection:text-purple-900">
       {/* HEADER */}
       <header className="sticky top-0 z-50 backdrop-blur-md border-b border-slate-200/60 bg-white/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-0 group cursor-pointer">
             <Image src="/bexis-icon.png" alt="BEXIS" width={32} height={32} className="shrink-0" />
             <span className="text-base font-black tracking-tight text-slate-900" style={{ fontFamily: 'var(--font-display)', letterSpacing: '-0.02em' }}>
@@ -187,7 +187,7 @@ export default function Home() {
       <section className="relative pt-16 pb-24 lg:pt-24 lg:pb-32 overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-40" />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#472AF8]/5 border border-[#472AF8]/15 text-[#472AF8] text-xs font-semibold tracking-wide">
               <Sparkles className="size-3.5" />
@@ -308,7 +308,7 @@ export default function Home() {
 
       {/* CORE PRINCIPLES */}
       <section id="principles" className="py-20 bg-navy-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-0">
             {[
               {
@@ -365,7 +365,7 @@ export default function Home() {
       </section>
 
       {/* JOBS */}
-      <section id="jobs" className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="jobs" className="py-20 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 space-y-2">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight" style={{ fontFamily: 'var(--font-display)' }}>Open Opportunities</h2>
           <p className="text-slate-500">Find roles that match your experience and career goals.</p>
@@ -466,7 +466,7 @@ export default function Home() {
 
       {/* HOW IT WORKS */}
       <section id="how-it-works" className="py-20 bg-navy-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-0 rounded-2xl border border-white/10 overflow-hidden">
             {/* What's broken */}
             <div className="p-8 sm:p-10 space-y-6">
@@ -521,7 +521,7 @@ export default function Home() {
 
       {/* WHY BEXIS */}
       <section id="why-bexis" className="py-20 bg-white border-y border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-5 space-y-5">
               <div className="text-xs font-bold uppercase tracking-widest text-[#472AF8]">Why BEXIS</div>
@@ -562,7 +562,7 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative rounded-2xl bg-gradient-to-br from-[#472AF8] via-[#321DAE] to-[#1c105a] p-10 sm:p-14 text-center space-y-5 overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.1),transparent_60%)]" />
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight relative z-10" style={{ fontFamily: 'var(--font-display)' }}>
@@ -582,7 +582,7 @@ export default function Home() {
 
       {/* FOOTER */}
       <footer className="border-t border-slate-200 bg-white py-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
           <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-0 cursor-pointer">
             <Image src="/bexis-icon.png" alt="BEXIS" width={24} height={24} className="shrink-0" />
             <span className="text-sm font-black tracking-tight text-slate-900" style={{ fontFamily: 'var(--font-display)', letterSpacing: '-0.02em' }}>
