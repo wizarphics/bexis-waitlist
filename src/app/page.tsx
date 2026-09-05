@@ -315,11 +315,11 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {[
-              { icon: FileText, title: 'Experience', desc: 'CV tells us where someone has been.', color: 'text-[#472AF8]' },
-              { icon: Search, title: 'Evidence', desc: 'Work shows what they have actually done.', color: 'text-[#08C4F2]' },
-              { icon: Brain, title: 'Behaviour', desc: 'Assessment reveals how they approach work.', color: 'text-[#472AF8]' },
-              { icon: BarChart2, title: 'Alignment', desc: 'Role context makes evidence meaningful.', color: 'text-emerald-400' },
-              { icon: UserCheck, title: 'Human Decision', desc: 'People always make the final call.', color: 'text-amber-400' },
+              { icon: FileText, title: 'Experience', desc: 'CV tells us where someone has been.', color: 'text-[#08C4F2]' },
+              { icon: Search, title: 'Evidence', desc: 'Work shows what they have actually done.', color: 'text-emerald-400' },
+              { icon: Brain, title: 'Behaviour', desc: 'Assessment reveals how they approach work.', color: 'text-[#08C4F2]' },
+              { icon: BarChart2, title: 'Alignment', desc: 'Role context makes evidence meaningful.', color: 'text-amber-400' },
+              { icon: UserCheck, title: 'Human Decision', desc: 'People always make the final call.', color: 'text-emerald-400' },
             ].map((p) => (
               <div key={p.title} className="rounded-xl border border-white/10 bg-white/5 p-5 space-y-3 hover:bg-white/10 transition-colors">
                 <div className="size-10 rounded-lg bg-white/10 flex items-center justify-center">
@@ -436,68 +436,54 @@ export default function Home() {
       {/* HOW IT WORKS */}
       <section id="how-it-works" className="py-20 bg-navy-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 space-y-2">
-            <div className="text-xs font-bold uppercase tracking-widest text-[#08C4F2]">How It Works</div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight" style={{ fontFamily: 'var(--font-display)' }}>A better hiring process. For everyone.</h2>
-            <p className="text-slate-400 max-w-2xl mx-auto">BEXIS structures the hiring process around evidence — not gut feel — giving candidates a fair shot and employers better context.</p>
-          </div>
+          <div className="grid lg:grid-cols-2 gap-0 rounded-2xl border border-white/10 overflow-hidden">
+            {/* What's broken */}
+            <div className="p-8 sm:p-10 space-y-6">
+              <div className="inline-flex px-3 py-1 rounded-md bg-white/10 text-xs font-semibold text-slate-300">What&apos;s broken</div>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight" style={{ fontFamily: 'var(--font-display)' }}>
+                Hiring is broken.
+              </h2>
+              <p className="text-slate-400 text-sm leading-relaxed">Most hiring teams struggle with:</p>
+              <div className="space-y-0">
+                {[
+                  'Résumés that don\'t reflect actual capability',
+                  'Unstructured interviews with inconsistent signals',
+                  'No evidence beyond what candidates claim',
+                  'Bias hidden in gut-feel decisions',
+                  'Slow, disjointed hiring workflows',
+                ].map((item, i) => (
+                  <div key={i} className="py-4 border-t border-white/10 text-sm text-slate-300">{item}</div>
+                ))}
+              </div>
+            </div>
 
-          <div className="grid lg:grid-cols-2 gap-6">
-            {[
-              {
-                label: 'For Candidates',
-                labelColor: 'text-[#08C4F2]',
-                title: 'Stand out on substance.',
-                steps: [
-                  { title: 'Apply & upload your CV', desc: 'BEXIS reads your CV and extracts experience, skills, and achievements automatically.' },
-                  { title: 'Add supporting evidence', desc: 'Link your GitHub, portfolio, or certifications to back up your claims.' },
-                  { title: 'Complete the AI behavioral interview', desc: '48 hours after applying, receive a behavioral assessment tailored to the role.' },
-                  { title: 'Your profile is structured for review', desc: 'Evidence and assessment responses are organized into a clear profile.' },
-                  { title: 'Humans make the decision', desc: 'A real person reviews your profile. BEXIS provides evidence — not verdicts.' },
-                ],
-                cta: 'Join Candidate Waitlist',
-                ctaStyle: 'bg-white/10 hover:bg-white/20 border border-white/10 text-white',
-                role: 'candidate' as const,
-              },
-              {
-                label: 'For Employers',
-                labelColor: 'text-[#472AF8]',
-                title: 'Hire with structured evidence.',
-                steps: [
-                  { title: 'Set up your company profile', desc: 'Add your mission, values, and hiring philosophy to personalize assessments.' },
-                  { title: 'Create a job with competencies', desc: 'Define roles and behavioral competencies. BEXIS generates questions automatically.' },
-                  { title: 'AI scheduling runs automatically', desc: 'Behavioral interviews are scheduled 48 hours after application. No coordination needed.' },
-                  { title: 'Review the Intelligence Profile', desc: 'Each candidate gets a structured profile with CV analysis, evidence, and AI insights.' },
-                  { title: 'Make the decision', desc: 'Shortlist, hold, or reject — with clear reasoning on record.' },
-                ],
-                cta: 'Join Employer Waitlist',
-                ctaStyle: 'bg-[#472AF8] hover:bg-[#3b22d0] text-white',
-                role: 'employer' as const,
-              },
-            ].map((col) => (
-              <div key={col.label} className="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8 flex flex-col justify-between space-y-6">
-                <div className="space-y-5">
-                  <div>
-                    <span className={`text-xs font-bold uppercase tracking-wider ${col.labelColor}`}>{col.label}</span>
-                    <h3 className="text-xl font-bold text-white mt-1" style={{ fontFamily: 'var(--font-display)' }}>{col.title}</h3>
-                  </div>
-                  <div className="space-y-4">
-                    {col.steps.map((step, i) => (
-                      <div key={i} className="flex items-start gap-3">
-                        <div className={`size-6 rounded-md text-xs font-bold flex items-center justify-center shrink-0 mt-0.5 ${i % 2 === 0 ? 'bg-[#08C4F2]/15 text-[#08C4F2]' : 'bg-[#472AF8]/15 text-[#472AF8]'}`}>{i + 1}</div>
-                        <div>
-                          <h4 className="text-sm font-semibold text-white">{step.title}</h4>
-                          <p className="text-xs text-slate-400 mt-0.5 leading-relaxed">{step.desc}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <button onClick={() => openWaitlist(col.role)} className={`w-full py-2.5 font-semibold text-sm rounded-lg transition-all cursor-pointer ${col.ctaStyle}`}>
-                  {col.cta}
+            {/* The BEXIS way */}
+            <div className="p-8 sm:p-10 space-y-6 bg-white/5">
+              <div className="inline-flex px-3 py-1 rounded-md bg-[#08C4F2]/15 text-xs font-semibold text-[#08C4F2]">The BEXIS way</div>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight" style={{ fontFamily: 'var(--font-display)' }}>
+                One platform. Evidence-first.
+              </h2>
+              <p className="text-slate-400 text-sm leading-relaxed">Structured, transparent hiring from application to decision.</p>
+              <div className="space-y-0">
+                {[
+                  'CV analysis extracts real experience automatically',
+                  'AI behavioral interviews assess how candidates work',
+                  'Evidence from GitHub, portfolios, and certifications',
+                  'Every insight backed by data — no black boxes',
+                  'Humans make the final call, always',
+                ].map((item, i) => (
+                  <div key={i} className="py-4 border-t border-white/10 text-sm text-slate-300">{item}</div>
+                ))}
+              </div>
+              <div className="flex gap-3 pt-2">
+                <button onClick={() => openWaitlist('candidate')} className="px-5 py-2.5 text-sm font-semibold text-navy-900 bg-white hover:bg-slate-100 rounded-lg transition-all cursor-pointer">
+                  Join Waitlist
+                </button>
+                <button onClick={() => scrollTo('principles')} className="px-5 py-2.5 text-sm font-semibold text-white border border-white/20 hover:bg-white/10 rounded-lg transition-all cursor-pointer">
+                  See How It Works
                 </button>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
