@@ -88,11 +88,11 @@ export default function Home() {
       </section>
 
       {/* DASHBOARD PREVIEW */}
-      <section className="pb-20">
-        <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-2xl bg-white border border-slate-200 shadow-2xl shadow-slate-200/60 overflow-hidden flex">
+      <section className="pb-0 overflow-hidden">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="rounded-t-2xl bg-white border border-b-0 border-slate-200 shadow-2xl shadow-slate-200/60 overflow-hidden flex" style={{ height: '620px' }}>
             {/* Sidebar */}
-            <div className="w-44 bg-[#0f172a] p-3 space-y-1 hidden sm:flex flex-col shrink-0">
+            <div className="w-48 bg-[#0f172a] p-3 space-y-1 hidden sm:flex flex-col shrink-0">
               <div className="flex items-center gap-2 px-2 py-3 mb-2">
                 <div className="size-7 rounded-lg bg-gradient-to-br from-[#472AF8] to-blue-600 p-[1px]">
                   <div className="w-full h-full bg-[#0f172a] rounded-[6px] flex items-center justify-center font-bold text-[#472AF8] text-[8px]">BX</div>
@@ -108,27 +108,37 @@ export default function Home() {
                 { label: 'Interviews', active: false },
                 { label: 'Evidence', active: false },
                 { label: 'Insights', active: false },
+                { label: 'Reports', active: false },
+                { label: 'Team', active: false },
+                { label: 'Settings', active: false },
               ].map((item) => (
                 <div key={item.label} className={`flex items-center justify-between px-2.5 py-1.5 rounded-lg text-[11px] transition-colors ${item.active ? 'bg-[#472AF8] text-white font-semibold' : 'text-slate-400 hover:bg-slate-800 hover:text-slate-200'}`}>
                   <span>{item.label}</span>
                   {item.badge && <span className="px-1.5 py-0.5 rounded-full bg-slate-700 text-[8px] font-bold">{item.badge}</span>}
                 </div>
               ))}
+              <div className="mt-auto pt-4 border-t border-slate-800 flex items-center gap-2 px-2">
+                <div className="size-7 rounded-full bg-[#472AF8] text-white flex items-center justify-center text-[8px] font-bold">SC</div>
+                <div>
+                  <div className="text-[10px] font-bold text-white">Sarah Chen</div>
+                  <div className="text-[8px] text-slate-500">HR Manager</div>
+                </div>
+              </div>
             </div>
 
             {/* Main Content */}
-            <div className="flex-1 p-5 space-y-5 min-w-0">
+            <div className="flex-1 p-6 space-y-6 min-w-0 overflow-hidden">
               {/* Header */}
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="text-lg font-bold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>HR Dashboard</h3>
-                  <p className="text-[11px] text-slate-500">TechNova · Hiring overview for August 2026</p>
+                  <h3 className="text-xl font-bold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>HR Dashboard</h3>
+                  <p className="text-xs text-slate-500">TechNova · Hiring overview for August 2026</p>
                 </div>
-                <button className="px-3 py-1.5 bg-[#472AF8] hover:bg-[#3b22d0] text-white text-[10px] font-semibold rounded-lg transition-all cursor-pointer">+ Create Job</button>
+                <button className="px-4 py-2 bg-[#472AF8] hover:bg-[#3b22d0] text-white text-xs font-semibold rounded-lg transition-all cursor-pointer">+ Create Job</button>
               </div>
 
               {/* Metrics Row */}
-              <div className="grid grid-cols-3 lg:grid-cols-6 gap-2.5">
+              <div className="grid grid-cols-3 lg:grid-cols-6 gap-3">
                 {[
                   { label: 'Active Jobs', value: '6' },
                   { label: 'Total Applications', value: '47', sub: '+12 this week', color: 'text-[#472AF8]' },
@@ -137,10 +147,10 @@ export default function Home() {
                   { label: 'Under Review', value: '9' },
                   { label: 'Hires', value: '3', icon: '🏆' },
                 ].map((m) => (
-                  <div key={m.label} className="rounded-xl border border-slate-200 p-3 space-y-1">
-                    <div className="text-[9px] text-slate-500 font-medium">{m.label}</div>
-                    <div className={`text-xl font-bold text-navy-900 ${m.color || ''}`} style={{ fontFamily: 'var(--font-display)' }}>{m.value}</div>
-                    {m.sub && <div className="text-[9px] text-[#472AF8] font-semibold">{m.sub}</div>}
+                  <div key={m.label} className="rounded-xl border border-slate-200 p-3.5 space-y-1">
+                    <div className="text-[10px] text-slate-500 font-medium">{m.label}</div>
+                    <div className={`text-2xl font-bold text-navy-900 ${m.color || ''}`} style={{ fontFamily: 'var(--font-display)' }}>{m.value}</div>
+                    {m.sub && <div className="text-[10px] text-[#472AF8] font-semibold">{m.sub}</div>}
                   </div>
                 ))}
               </div>
@@ -148,9 +158,9 @@ export default function Home() {
               {/* Charts Row */}
               <div className="grid lg:grid-cols-2 gap-4">
                 {/* Bar Chart */}
-                <div className="rounded-xl border border-slate-200 p-4 space-y-3">
-                  <span className="text-xs font-bold text-navy-900">Candidate Pipeline</span>
-                  <div className="space-y-2">
+                <div className="rounded-xl border border-slate-200 p-5 space-y-3">
+                  <span className="text-sm font-bold text-navy-900">Candidate Pipeline</span>
+                  <div className="space-y-2.5">
                     {[
                       { label: 'Applications', pct: 78, count: 47 },
                       { label: 'CV Reviewed', pct: 52, count: 31 },
@@ -159,44 +169,44 @@ export default function Home() {
                       { label: 'Shortlisted', pct: 12, count: 7 },
                       { label: 'Hired', pct: 5, count: 3 },
                     ].map((bar) => (
-                      <div key={bar.label} className="flex items-center gap-2">
-                        <span className="text-[9px] text-slate-500 w-16 text-right shrink-0">{bar.label}</span>
-                        <div className="flex-1 h-3 bg-slate-100 rounded-full overflow-hidden">
+                      <div key={bar.label} className="flex items-center gap-3">
+                        <span className="text-[10px] text-slate-500 w-20 text-right shrink-0">{bar.label}</span>
+                        <div className="flex-1 h-4 bg-slate-100 rounded-full overflow-hidden">
                           <div className="h-full bg-[#472AF8] rounded-full" style={{ width: `${bar.pct}%` }} />
                         </div>
-                        <span className="text-[9px] text-slate-400 w-4 text-right">{bar.count}</span>
+                        <span className="text-[10px] text-slate-400 w-5 text-right">{bar.count}</span>
                       </div>
                     ))}
                   </div>
-                  <div className="flex justify-between text-[8px] text-slate-400 pt-1 border-t border-slate-100">
+                  <div className="flex justify-between text-[9px] text-slate-400 pt-2 border-t border-slate-100">
                     <span>0</span><span>15</span><span>30</span><span>45</span><span>60</span>
                   </div>
                 </div>
 
                 {/* Donut Chart */}
-                <div className="rounded-xl border border-slate-200 p-4 flex items-center justify-between">
-                  <div className="space-y-2">
-                    <span className="text-xs font-bold text-navy-900 block">Interview Completion</span>
-                    <div className="space-y-1.5">
-                      <div className="flex items-center gap-2 text-[10px]">
-                        <span className="size-2 rounded-full bg-[#08C4F2]" />
+                <div className="rounded-xl border border-slate-200 p-5 flex items-center justify-between">
+                  <div className="space-y-3">
+                    <span className="text-sm font-bold text-navy-900 block">Interview Completion</span>
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-2.5 text-xs">
+                        <span className="size-2.5 rounded-full bg-[#08C4F2]" />
                         <span className="text-slate-500">Completed</span>
                         <span className="font-bold text-navy-900 ml-auto">28</span>
                       </div>
-                      <div className="flex items-center gap-2 text-[10px]">
-                        <span className="size-2 rounded-full bg-[#472AF8]" />
+                      <div className="flex items-center gap-2.5 text-xs">
+                        <span className="size-2.5 rounded-full bg-[#472AF8]" />
                         <span className="text-slate-500">Scheduled</span>
                         <span className="font-bold text-navy-900 ml-auto">12</span>
                       </div>
-                      <div className="flex items-center gap-2 text-[10px]">
-                        <span className="size-2 rounded-full bg-slate-300" />
+                      <div className="flex items-center gap-2.5 text-xs">
+                        <span className="size-2.5 rounded-full bg-slate-300" />
                         <span className="text-slate-500">Pending</span>
                         <span className="font-bold text-navy-900 ml-auto">7</span>
                       </div>
                     </div>
                   </div>
                   {/* Donut SVG */}
-                  <div className="relative size-24">
+                  <div className="relative size-32">
                     <svg viewBox="0 0 36 36" className="size-full -rotate-90">
                       <circle cx="18" cy="18" r="14" fill="none" stroke="#e2e8f0" strokeWidth="4" />
                       <circle cx="18" cy="18" r="14" fill="none" stroke="#08C4F2" strokeWidth="4" strokeDasharray="61.5 26.6" strokeLinecap="round" />
@@ -207,10 +217,10 @@ export default function Home() {
               </div>
 
               {/* Recent Applications */}
-              <div className="rounded-xl border border-slate-200 p-4 space-y-3">
+              <div className="rounded-xl border border-slate-200 p-5 space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-navy-900">Recent Applications</span>
-                  <span className="text-[10px] text-[#472AF8] font-semibold cursor-pointer">View all →</span>
+                  <span className="text-sm font-bold text-navy-900">Recent Applications</span>
+                  <span className="text-xs text-[#472AF8] font-semibold cursor-pointer">View all →</span>
                 </div>
                 <div className="space-y-0">
                   {[
@@ -219,17 +229,17 @@ export default function Home() {
                     { name: 'Aisha Ibrahim', initials: 'AI', bg: 'bg-emerald-500 text-white', role: 'Senior Product Manager', date: 'Applied 2026-08-12', status: 'Rejected', statusColor: 'bg-red-50 text-red-600 border-red-200' },
                     { name: 'David Lee', initials: 'DL', bg: 'bg-amber-500 text-white', role: 'Backend Engineer', date: 'Applied 2026-08-14', status: 'Under Review', statusColor: 'bg-slate-50 text-slate-600 border-slate-200' },
                   ].map((app) => (
-                    <div key={app.name} className="flex items-center justify-between py-2.5 border-b border-slate-100 last:border-0">
-                      <div className="flex items-center gap-2.5">
-                        <div className={`size-8 rounded-full ${app.bg} flex items-center justify-center text-[9px] font-bold`}>{app.initials}</div>
+                    <div key={app.name} className="flex items-center justify-between py-3 border-b border-slate-100 last:border-0">
+                      <div className="flex items-center gap-3">
+                        <div className={`size-9 rounded-full ${app.bg} flex items-center justify-center text-[10px] font-bold`}>{app.initials}</div>
                         <div>
-                          <p className="text-[11px] font-bold text-navy-900">{app.name}</p>
-                          <p className="text-[9px] text-slate-500">{app.role} · {app.date}</p>
+                          <p className="text-xs font-bold text-navy-900">{app.name}</p>
+                          <p className="text-[10px] text-slate-500">{app.role} · {app.date}</p>
                         </div>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <span className={`text-[9px] font-semibold px-2 py-0.5 rounded-full border ${app.statusColor}`}>{app.status}</span>
-                        <button className="text-[9px] font-semibold text-slate-500 hover:text-[#472AF8] border border-slate-200 rounded-md px-2 py-1 transition-colors cursor-pointer">Review</button>
+                      <div className="flex items-center gap-2.5">
+                        <span className={`text-[10px] font-semibold px-2.5 py-0.5 rounded-full border ${app.statusColor}`}>{app.status}</span>
+                        <button className="text-[10px] font-semibold text-slate-500 hover:text-[#472AF8] border border-slate-200 rounded-md px-2.5 py-1 transition-colors cursor-pointer">Review</button>
                       </div>
                     </div>
                   ))}
@@ -237,6 +247,8 @@ export default function Home() {
               </div>
             </div>
           </div>
+          {/* Fade-off gradient */}
+          <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#f8fafc] via-[#f8fafc]/80 to-transparent pointer-events-none" />
         </div>
       </section>
 
