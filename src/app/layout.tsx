@@ -19,9 +19,13 @@ export const metadata: Metadata = {
   description:
     'Evidence-first hiring platform. Understand candidates through experience, evidence, behavioral insight, and role alignment.',
   icons: {
-    icon: '/favicon.png',
-    apple: '/favicon.png',
+    icon: [
+      { url: '/icon0.svg', type: 'image/svg+xml' },
+      { url: '/icon1.png', type: 'image/png', sizes: '48x48' },
+    ],
+    apple: '/apple-icon.png',
   },
+  manifest: '/manifest.json',
   openGraph: {
     title: 'Bexis | Hiring beyond the résumé.',
     description:
@@ -51,6 +55,9 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
       lang="en"
       className={`${raleway.variable} ${inter.variable} h-full antialiased`}
     >
+      <head>
+        <meta name="apple-mobile-web-app-title" content="Bexis" />
+      </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
