@@ -86,6 +86,84 @@ export default function Home() {
         </div>
       </section>
 
+      {/* DASHBOARD PREVIEW */}
+      <section className="pb-20">
+        <div className="max-w-[1000px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative rounded-2xl bg-white border border-slate-200 shadow-2xl shadow-slate-200/60 overflow-hidden">
+            <div className="p-6 sm:p-8">
+              <div className="grid sm:grid-cols-3 gap-6">
+                <div className="sm:col-span-1 space-y-4">
+                  <div className="flex items-center gap-3">
+                    <div className="size-11 rounded-xl bg-[#472AF8] text-white font-bold flex items-center justify-center" style={{ fontFamily: 'var(--font-display)' }}>
+                      JD
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-navy-900 text-sm" style={{ fontFamily: 'var(--font-display)' }}>Jane Doe</h4>
+                      <p className="text-[11px] text-slate-500">Senior Product Manager</p>
+                    </div>
+                  </div>
+                  <div className="px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold inline-flex items-center gap-1.5">
+                    <span className="size-1.5 rounded-full bg-emerald-500" />
+                    Strong Match
+                  </div>
+                  <div className="space-y-2.5 pt-1">
+                    {[
+                      { label: 'Ownership', value: 90 },
+                      { label: 'Collaboration', value: 85 },
+                      { label: 'Problem Solving', value: 88 },
+                    ].map((s) => (
+                      <div key={s.label}>
+                        <div className="flex justify-between text-[11px] font-medium mb-1">
+                          <span className="text-slate-500">{s.label}</span>
+                          <span className="text-[#472AF8]">{s.value}%</span>
+                        </div>
+                        <div className="h-1.5 rounded-full bg-slate-100 overflow-hidden">
+                          <div className="h-full bg-[#472AF8] rounded-full" style={{ width: `${s.value}%` }} />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="sm:col-span-2 space-y-4">
+                  <div className="grid grid-cols-5 gap-2 text-center">
+                    {['Apply', 'CV Review', 'AI Interview', 'Evidence', 'Decision'].map((step, i) => (
+                      <div key={step} className="flex flex-col items-center gap-1.5">
+                        <div className={`size-8 rounded-full text-[10px] font-bold flex items-center justify-center ${i < 3 ? 'bg-emerald-100 text-emerald-600 border border-emerald-200' : i === 3 ? 'bg-[#472AF8]/10 text-[#472AF8] border border-[#472AF8]/20' : 'bg-slate-100 text-slate-400 border border-slate-200'}`}>
+                          {i < 3 ? '✓' : i + 1}
+                        </div>
+                        <span className={`text-[10px] font-medium ${i === 3 ? 'text-[#472AF8]' : 'text-slate-400'}`}>{step}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="rounded-xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200/60 p-4">
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <Zap className="size-3.5 text-amber-500" />
+                      <span className="text-[10px] font-bold text-amber-700 uppercase tracking-wider">AI Insight</span>
+                    </div>
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      Strong evidence of ownership and problem-solving. Leadership experience requires human review. Recommend proceeding to final interview stage.
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="rounded-lg bg-slate-50 border border-slate-200 p-3">
+                      <div className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-1">Role Alignment</div>
+                      <div className="text-xl font-bold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>92%</div>
+                    </div>
+                    <div className="rounded-lg bg-slate-50 border border-slate-200 p-3">
+                      <div className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-1">Evidence Score</div>
+                      <div className="text-xl font-bold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>87%</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CORE PRINCIPLES */}
       <section id="principles" className="py-12 border-y border-slate-200">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
