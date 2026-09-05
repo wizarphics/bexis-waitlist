@@ -457,7 +457,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-x-16">
+          <div className="grid md:grid-cols-2 gap-x-16 items-center">
             {[
               {
                 q: 'What is BEXIS?',
