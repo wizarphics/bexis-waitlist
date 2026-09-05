@@ -41,7 +41,7 @@ export default function Home() {
             </span>
           </button>
 
-          <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600">
+          <nav className="hidden md:flex items-center gap-7 text-sm font-semibold text-slate-700">
             <button onClick={() => scrollTo('how-it-works')} className="hover:text-[#472AF8] transition-colors cursor-pointer">How It Works</button>
             <button onClick={() => scrollTo('why-bexis')} className="hover:text-[#472AF8] transition-colors cursor-pointer">For Employers</button>
             <button onClick={() => scrollTo('principles')} className="hover:text-[#472AF8] transition-colors cursor-pointer">Principles</button>
@@ -251,8 +251,12 @@ export default function Home() {
       </section>
 
       {/* CORE PRINCIPLES */}
-      <section id="principles" className="py-12">
+      <section id="principles" className="pt-8 pb-16">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 space-y-2">
+            <div className="text-xs font-bold uppercase tracking-widest text-[#472AF8]">Core Principles</div>
+            <h2 className="text-3xl font-bold text-navy-900" style={{ fontFamily: 'var(--font-display)' }}>Built on trust and substance.</h2>
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-0">
             {[
               {
@@ -291,13 +295,13 @@ export default function Home() {
                 iconColor: 'text-emerald-500',
               },
             ].map((p, i) => (
-              <div key={p.title} className={`group py-12 px-6 text-center ${i < 4 ? 'lg:border-r border-slate-200' : ''} ${i < 4 ? 'border-b sm:border-b-0 border-slate-200' : ''}`}>
-                <div className="flex justify-center mb-8">
-                  <div className={`w-24 h-24 rounded-3xl ${p.iconBg} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                    <p.icon className={`size-12 ${p.iconColor}`} />
+              <div key={p.title} className={`py-10 px-6 text-center ${i < 4 ? 'lg:border-r border-slate-200' : ''} ${i < 4 ? 'border-b sm:border-b-0 border-slate-200' : ''}`}>
+                <div className="flex justify-center mb-6">
+                  <div className={`w-20 h-20 rounded-3xl ${p.iconBg} flex items-center justify-center`}>
+                    <p.icon className={`size-10 ${p.iconColor}`} />
                   </div>
                 </div>
-                <h3 className="text-lg font-bold text-navy-900 mb-3" style={{ fontFamily: 'var(--font-display)' }}>{p.title}</h3>
+                <h3 className="text-base font-bold text-navy-900 mb-2" style={{ fontFamily: 'var(--font-display)' }}>{p.title}</h3>
                 <p className="text-sm text-slate-500 leading-relaxed max-w-[200px] mx-auto">{p.desc}</p>
               </div>
             ))}
@@ -361,7 +365,7 @@ export default function Home() {
       </section>
 
       {/* WHY BEXIS */}
-      <section id="why-bexis" className="py-20 bg-white border-y border-slate-200">
+      <section id="why-bexis" className="py-20">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-5 space-y-5">
@@ -389,7 +393,7 @@ export default function Home() {
                 { icon: BarChart2, title: 'Behavioral Signals', desc: 'Structured evidence from assessment responses, not guesses.', color: 'bg-[#472AF8]/5 text-[#472AF8] border-[#472AF8]/10' },
                 { icon: Target, title: 'Fair & Transparent', desc: 'No protected-class inferences. Evidence-based only.', color: 'bg-emerald-50 text-emerald-600 border-emerald-100' },
               ].map((card) => (
-                <div key={card.title} className="rounded-xl border border-slate-200 p-5 space-y-3 hover:border-[#472AF8]/20 hover:shadow-md transition-all">
+                <div key={card.title} className="rounded-xl border border-slate-200 p-5 space-y-3">
                   <div className={`size-9 rounded-lg ${card.color} border flex items-center justify-center`}>
                     <card.icon className="size-4.5" />
                   </div>
@@ -413,7 +417,7 @@ export default function Home() {
             Define your hiring needs and let BEXIS build a structured, evidence-based process in minutes.
           </p>
           <div className="relative z-10">
-            <button onClick={() => openWaitlist('employer')} className="inline-flex items-center gap-2 px-8 py-3.5 text-sm font-bold text-[#472AF8] bg-white hover:bg-slate-50 rounded-lg shadow-xl transition-all hover:-translate-y-0.5 cursor-pointer">
+            <button onClick={() => openWaitlist('employer')} className="inline-flex items-center gap-2 px-8 py-3.5 text-sm font-bold text-[#472AF8] bg-white hover:bg-slate-50 rounded-lg shadow-xl cursor-pointer">
               Join the Waitlist
               <ArrowRight className="size-4" />
             </button>
