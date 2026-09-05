@@ -176,7 +176,7 @@ export default function Home() {
       </section>
 
       {/* CORE PRINCIPLES */}
-      <section id="principles" className="py-20 bg-slate-50 border-y border-slate-200">
+      <section id="principles" className="py-20">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-0">
             {[
@@ -231,16 +231,16 @@ export default function Home() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section id="how-it-works" className="py-20 bg-white">
+      <section id="how-it-works" className="py-20 bg-navy-900">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-0 rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+          <div className="grid lg:grid-cols-2 gap-0 rounded-2xl border border-white/10 overflow-hidden">
             {/* What's broken */}
             <div className="p-8 sm:p-10 space-y-6">
-              <div className="inline-flex px-3 py-1 rounded-md bg-slate-100 text-xs font-semibold text-slate-600">What&apos;s broken</div>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-navy-900 leading-tight" style={{ fontFamily: 'var(--font-display)' }}>
+              <div className="inline-flex px-3 py-1 rounded-md bg-white/10 text-xs font-semibold text-slate-300">What&apos;s broken</div>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight" style={{ fontFamily: 'var(--font-display)' }}>
                 Hiring is broken.
               </h2>
-              <p className="text-slate-500 text-sm leading-relaxed">Most hiring teams struggle with:</p>
+              <p className="text-slate-400 text-sm leading-relaxed">Most hiring teams struggle with:</p>
               <div className="space-y-0">
                 {[
                   'Résumés that don\'t reflect actual capability',
@@ -249,18 +249,18 @@ export default function Home() {
                   'Bias hidden in gut-feel decisions',
                   'Slow, disjointed hiring workflows',
                 ].map((item, i) => (
-                  <div key={i} className="py-4 border-t border-slate-200 text-sm text-slate-600">{item}</div>
+                  <div key={i} className="py-4 border-t border-white/10 text-sm text-slate-300">{item}</div>
                 ))}
               </div>
             </div>
 
             {/* The BEXIS way */}
-            <div className="p-8 sm:p-10 space-y-6 bg-slate-50">
-              <div className="inline-flex px-3 py-1 rounded-md bg-[#472AF8]/10 text-xs font-semibold text-[#472AF8]">The BEXIS way</div>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-navy-900 leading-tight" style={{ fontFamily: 'var(--font-display)' }}>
+            <div className="p-8 sm:p-10 space-y-6 bg-white/5">
+              <div className="inline-flex px-3 py-1 rounded-md bg-[#08C4F2]/15 text-xs font-semibold text-[#08C4F2]">The BEXIS way</div>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight" style={{ fontFamily: 'var(--font-display)' }}>
                 One platform. Evidence-first.
               </h2>
-              <p className="text-slate-500 text-sm leading-relaxed">Structured, transparent hiring from application to decision.</p>
+              <p className="text-slate-400 text-sm leading-relaxed">Structured, transparent hiring from application to decision.</p>
               <div className="space-y-0">
                 {[
                   'CV analysis extracts real experience automatically',
@@ -269,14 +269,14 @@ export default function Home() {
                   'Every insight backed by data — no black boxes',
                   'Humans make the final call, always',
                 ].map((item, i) => (
-                  <div key={i} className="py-4 border-t border-slate-200 text-sm text-slate-600">{item}</div>
+                  <div key={i} className="py-4 border-t border-white/10 text-sm text-slate-300">{item}</div>
                 ))}
               </div>
               <div className="flex gap-3 pt-2">
-                <button onClick={() => openWaitlist('candidate')} className="px-5 py-2.5 text-sm font-semibold text-white bg-[#472AF8] hover:bg-[#3b22d0] rounded-lg transition-all cursor-pointer">
+                <button onClick={() => openWaitlist('candidate')} className="px-5 py-2.5 text-sm font-semibold text-navy-900 bg-white hover:bg-slate-100 rounded-lg transition-all cursor-pointer">
                   Join Waitlist
                 </button>
-                <button onClick={() => scrollTo('principles')} className="px-5 py-2.5 text-sm font-semibold text-slate-700 border border-slate-200 hover:bg-slate-100 rounded-lg transition-all cursor-pointer">
+                <button onClick={() => scrollTo('principles')} className="px-5 py-2.5 text-sm font-semibold text-white border border-white/20 hover:bg-white/10 rounded-lg transition-all cursor-pointer">
                   See How It Works
                 </button>
               </div>
