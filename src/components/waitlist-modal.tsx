@@ -21,19 +21,43 @@ export function WaitlistModal({ open, onOpenChange, defaultRole = 'candidate' }:
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
+  const [error, setError] = useState('');
+
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email.trim() || !name.trim()) return;
     if (role === 'employer' && !company.trim()) return;
     setSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1200));
-    setSubmitting(false);
-    setSubmitted(true);
+    setError('');
+    try {
+      const res = await fetch(`${API_URL}/api/v1/waitlist`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          type: role === 'employer' ? 'employer' : 'candidate',
+          name: name.trim(),
+          email: email.trim(),
+          ...(role === 'employer' && company.trim() ? { company: company.trim() } : {}),
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        setError(data.message || 'Something went wrong. Please try again.');
+        return;
+      }
+      setSubmitted(true);
+    } catch {
+      setError('Network error. Please check your connection and try again.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const handleClose = () => {
     onOpenChange(false);
-    setTimeout(() => { setEmail(''); setName(''); setCompany(''); setRole(defaultRole); setSubmitted(false); }, 300);
+    setTimeout(() => { setEmail(''); setName(''); setCompany(''); setRole(defaultRole); setSubmitted(false); setError(''); }, 300);
   };
 
   const isEmployer = role === 'employer';
@@ -88,6 +112,10 @@ export function WaitlistModal({ open, onOpenChange, defaultRole = 'candidate' }:
                 </Label>
                 <Input id="waitlist-email" type="email" placeholder={isEmployer ? 'you@company.com' : 'you@email.com'} value={email} onChange={(e) => setEmail(e.target.value)} required className="h-10 bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:border-[#472AF8] focus-visible:ring-[#472AF8]/20 rounded-lg" />
               </div>
+
+              {error && (
+                <p className="text-sm text-red-500 text-center">{error}</p>
+              )}
 
               <button type="submit" disabled={submitting || !email.trim() || !name.trim() || (isEmployer && !company.trim())} className="w-full py-2.5 bg-[#472AF8] hover:bg-[#3b22d0] text-white font-semibold text-sm rounded-lg shadow-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer flex items-center justify-center gap-2">
                 {submitting ? (<><Loader2 className="size-4 animate-spin" /><span>Joining...</span></>) : <span>Join Waitlist</span>}
